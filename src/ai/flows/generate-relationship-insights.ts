@@ -37,16 +37,26 @@ const prompt = ai.definePrompt({
   output: {schema: RelationshipInsightsOutputSchema},
   prompt: `Você é um especialista em relacionamentos de IA. Analise as seguintes respostas do questionário de relacionamento e gere um relatório detalhado e personalizado em português.
 
-  A resposta deve conter:
-  - Um resumo detalhado dos insights do relacionamento.
-  - Interpretações psicológicas dos sinais observados.
-  - Um plano de ação de 7 dias com roteiros de mensagens e estratégias. Os roteiros de mensagens devem ser adaptados à situação.
+  **Instruções de Formatação:**
+  - **Clareza é fundamental:** Use uma linguagem clara, direta e empática.
+  - **Estrutura:** Organize o conteúdo com títulos claros para cada seção (Resumo, Interpretações, Plano de Ação).
+  - **Listas:** Use listas (bullet points) para detalhar os pontos principais, especialmente no plano de ação.
+  - **Negrito:** Use negrito para destacar os pontos e conselhos mais importantes.
+  - **Parágrafos Curtos:** Mantenha os parágrafos curtos e focados em uma única ideia para facilitar a leitura em dispositivos móveis.
+  - **Linguagem:** O resultado final deve ser sempre em português do Brasil.
 
-Respostas de Comunicação: {{communication}}
-Respostas de Tempo Juntos: {{timeTogether}}
-Respostas de Mudanças de Comportamento: {{behaviorChanges}}
-Respostas de Reações a Conflitos: {{reactionsToConflicts}}
-Respostas de Sinais de Interesse: {{signsOfInterest}}`,
+  **Conteúdo do Relatório:**
+  A resposta deve conter:
+  1.  **Resumo Detalhado:** Um resumo dos insights do relacionamento.
+  2.  **Interpretações Psicológicas:** Interpretações dos sinais observados.
+  3.  **Plano de Ação de 7 Dias:** Um plano com roteiros de mensagens e estratégias. Os roteiros devem ser práticos e adaptados à situação.
+
+  **Dados para Análise:**
+  Respostas de Comunicação: {{communication}}
+  Respostas de Tempo Juntos: {{timeTogether}}
+  Respostas de Mudanças de Comportamento: {{behaviorChanges}}
+  Respostas de Reações a Conflitos: {{reactionsToConflicts}}
+  Respostas de Sinais de Interesse: {{signsOfInterest}}`,
 });
 
 const generateRelationshipInsightsFlow = ai.defineFlow(
