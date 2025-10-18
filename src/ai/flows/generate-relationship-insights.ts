@@ -35,18 +35,18 @@ const prompt = ai.definePrompt({
   name: 'relationshipInsightsPrompt',
   input: {schema: RelationshipInsightsInputSchema},
   output: {schema: RelationshipInsightsOutputSchema},
-  prompt: `You are an AI relationship expert. Analyze the following relationship quiz responses and generate a detailed, personalized report.
+  prompt: `Você é um especialista em relacionamentos de IA. Analise as seguintes respostas do questionário de relacionamento e gere um relatório detalhado e personalizado em português.
 
-  The response should contain:
-  - A detailed summary of the relationship insights.
-  - Psychological interpretations of observed signals.
-  - A 7-day action plan with message scripts and strategies. The message scripts should be tailored to the situation.
+  A resposta deve conter:
+  - Um resumo detalhado dos insights do relacionamento.
+  - Interpretações psicológicas dos sinais observados.
+  - Um plano de ação de 7 dias com roteiros de mensagens e estratégias. Os roteiros de mensagens devem ser adaptados à situação.
 
-Communication Responses: {{communication}}
-Time Together Responses: {{timeTogether}}
-Behavior Changes Responses: {{behaviorChanges}}
-Reactions to Conflicts Responses: {{reactionsToConflicts}}
-Signs of Interest Responses: {{signsOfInterest}}`,
+Respostas de Comunicação: {{communication}}
+Respostas de Tempo Juntos: {{timeTogether}}
+Respostas de Mudanças de Comportamento: {{behaviorChanges}}
+Respostas de Reações a Conflitos: {{reactionsToConflicts}}
+Respostas de Sinais de Interesse: {{signsOfInterest}}`,
 });
 
 const generateRelationshipInsightsFlow = ai.defineFlow(

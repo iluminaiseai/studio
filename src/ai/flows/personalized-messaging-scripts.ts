@@ -30,19 +30,19 @@ const prompt = ai.definePrompt({
   name: 'messagingScriptsPrompt',
   input: {schema: MessagingScriptsInputSchema},
   output: {schema: MessagingScriptsOutputSchema},
-  prompt: `You are an AI relationship coach specializing in communication. Based on the user's quiz answers and relationship report analysis, generate personalized message scripts to help them improve communication with their partner.
+  prompt: `Você é um coach de relacionamento de IA especializado em comunicação. Com base nas respostas do questionário do usuário e na análise do relatório de relacionamento, gere roteiros de mensagens personalizados para ajudá-los a melhorar a comunicação com o parceiro.
 
-Quiz Answers: {{{quizAnswers}}}
-Report Analysis: {{{reportAnalysis}}}
+Respostas do Questionário: {{{quizAnswers}}}
+Análise do Relatório: {{{reportAnalysis}}}
 
-Provide message scripts that are empathetic, clear, and actionable. The message scripts should address specific issues identified in the quiz answers and report analysis, and offer constructive ways to communicate with the partner. Focus on fostering understanding, resolving conflicts, and strengthening the connection.
+Forneça roteiros de mensagens que sejam empáticos, claros e práticos. Os roteiros de mensagens devem abordar questões específicas identificadas nas respostas do questionário e na análise do relatório, e oferecer maneiras construtivas de se comunicar com o parceiro. Concentre-se em promover o entendimento, resolver conflitos e fortalecer a conexão.
 
-Output the message scripts as a JSON array of strings. Each script should be less than 100 words.
+A saída deve ser um array JSON de strings. Cada roteiro deve ter menos de 100 palavras. O resultado deve ser em português.
 
-Example:
+Exemplo:
 [
-  "I've been feeling a bit disconnected lately, and I wanted to share that with you. Can we find some time to talk about how we can reconnect?",
-  "I appreciate you, and I was hoping that we could set aside some time each week for a date night."
+  "Tenho me sentido um pouco desconectado(a) ultimamente e queria compartilhar isso com você. Podemos encontrar um tempo para conversar sobre como podemos nos reconectar?",
+  "Eu te aprecio, e estava esperando que pudéssemos reservar um tempo toda semana para um encontro à noite."
 ]
 `,
 });
