@@ -58,37 +58,38 @@ function htmlToWhatsApp(html: string): string {
     if (typeof document === 'undefined') {
         return '';
     }
-    const el = document.createElement('div');
-    el.innerHTML = html;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
 
-    // Replace <strong> and <b> with *
-    el.querySelectorAll('strong, b').forEach(tag => {
+    // Replace <strong> with asterisks
+    tempDiv.querySelectorAll('strong, b').forEach(tag => {
         tag.textContent = `*${tag.textContent}*`;
     });
-    
-    // Replace <h3> with bold text and line breaks
-    el.querySelectorAll('h3').forEach(tag => {
+
+    // Handle titles
+    tempDiv.querySelectorAll('h3').forEach(tag => {
         tag.textContent = `\n\n*${tag.textContent}*\n`;
     });
 
-    // Replace <p> with line breaks
-    el.querySelectorAll('p').forEach(tag => {
+    // Handle paragraphs
+    tempDiv.querySelectorAll('p').forEach(tag => {
         tag.textContent = `${tag.textContent}\n\n`;
     });
-    
-    // Replace <li> with a dash and line break
-    el.querySelectorAll('li').forEach(tag => {
+
+    // Handle list items
+    tempDiv.querySelectorAll('li').forEach(tag => {
         tag.textContent = `- ${tag.textContent}\n`;
     });
-    
-    // Replace <ul> with just line breaks
-    el.querySelectorAll('ul').forEach(tag => {
-       tag.textContent = `\n${tag.textContent}\n`;
+
+    // Handle unordered lists
+    tempDiv.querySelectorAll('ul').forEach(tag => {
+        tag.textContent = `\n${tag.textContent}\n`;
     });
 
-    // Replace any remaining special characters
-    let text = el.textContent || el.innerText || '';
-    text = text.replace(/[\uFFFD]/g, ''); // Remove replacement characters
+    let text = tempDiv.innerText || tempDiv.textContent || '';
+    
+    // Final cleanup for extra spaces and ensuring single line breaks between list items
+    text = text.replace(/(\n\s*){3,}/g, '\n\n'); 
 
     return text.trim();
 }
