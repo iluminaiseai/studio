@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Suspense } from "react";
@@ -105,9 +106,12 @@ function FreeReport() {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4 px-4 pb-4 md:px-6 md:pb-6">
-        <p className="whitespace-pre-wrap font-body text-sm leading-relaxed text-muted-foreground md:text-base">
-          {summary}
-        </p>
+        {summary && (
+          <div 
+            className="prose prose-sm md:prose-base max-w-none text-muted-foreground"
+            dangerouslySetInnerHTML={{ __html: summary }} 
+          />
+        )}
       </CardContent>
       <CardFooter className="p-4 md:p-6">
         <Alert className="bg-primary/5 border-primary/20">

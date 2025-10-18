@@ -146,22 +146,19 @@ function FullReport() {
           </TabsList>
           <TabsContent
             value="summary"
-            className="mt-4 whitespace-pre-wrap rounded-lg bg-secondary/30 p-4 text-sm leading-relaxed md:mt-6 md:text-base"
-          >
-            <p>{insights.detailedSummary}</p>
-          </TabsContent>
+            className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
+            dangerouslySetInnerHTML={{ __html: insights.detailedSummary }}
+          />
           <TabsContent
             value="interpretations"
-            className="mt-4 whitespace-pre-wrap rounded-lg bg-secondary/30 p-4 text-sm leading-relaxed md:mt-6 md:text-base"
-          >
-            <p>{insights.psychologicalInterpretations}</p>
-          </TabsContent>
+            className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
+            dangerouslySetInnerHTML={{ __html: insights.psychologicalInterpretations }}
+          />
           <TabsContent
             value="plan"
-            className="mt-4 whitespace-pre-wrap rounded-lg bg-secondary/30 p-4 text-sm leading-relaxed md:mt-6 md:text-base"
-          >
-            <p>{insights.actionPlan}</p>
-          </TabsContent>
+            className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
+            dangerouslySetInnerHTML={{ __html: insights.actionPlan }}
+          />
         </Tabs>
       </CardContent>
     </Card>
