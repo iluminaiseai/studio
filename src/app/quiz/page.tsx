@@ -34,7 +34,9 @@ export default function QuizPage() {
     setTimeout(() => {
       if (currentQuestionIndex >= quizData.length - 1) {
         setIsCompleting(true);
-        const answersQueryParam = encodeURIComponent(newAnswers.join("|"));
+        // We need to pass the final set of answers to the results page
+        const finalAnswers = [...newAnswers];
+        const answersQueryParam = encodeURIComponent(finalAnswers.join("|"));
         router.push(`/quiz/results?answers=${answersQueryParam}`);
       } else {
         setShowFeedback(false);
@@ -44,12 +46,23 @@ export default function QuizPage() {
     }, 2500);
   };
   
-  if (isCompleting || !currentQuestion || !currentSection) {
+  // This check now correctly handles the state right after the last answer is given
+  if (isCompleting) {
     return (
       <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
         <Loader className="h-12 w-12 animate-spin text-primary" />
         <p className="mt-4 font-headline text-xl md:text-2xl">Finalizando o quiz...</p>
         <p className="text-sm text-muted-foreground md:text-base">Aguarde, estamos preparando seus resultados.</p>
+      </div>
+    );
+  }
+
+  if (!currentQuestion || !currentSection) {
+    // This handles the initial loading state or any unexpected error
+     return (
+      <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
+        <Loader className="h-12 w-12 animate-spin text-primary" />
+        <p className="mt-4 font-headline text-xl md:text-2xl">Carregando...</p>
       </div>
     );
   }
@@ -98,7 +111,7 @@ export default function QuizPage() {
               <CardContent className="p-4 md:p-6">
                 <div className="flex items-center gap-3 md:gap-4 text-primary">
                   <CheckCircle2 className="h-6 w-6 flex-shrink-0 md:h-8 md:w-8" />
-                  <p className="text-sm font-semibold text-primary-foreground md:text-base">{feedback}</p>
+                  <p className="font-semibold text-primary-foreground/90 text-sm md:text-base">{feedback}</p>
                 </div>
               </CardContent>
             </Card>
