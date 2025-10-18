@@ -130,7 +130,7 @@ function FullReport() {
         <Tabs defaultValue="summary" className="w-full">
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
                 <MousePointerClick className="h-4 w-4" />
-                <span>Navegue pelas abas abaixo</span>
+                <span>Clique nas opções abaixo para ver toda a análise</span>
             </div>
           <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-3">
             <TabsTrigger value="summary" className="py-2 text-xs sm:text-sm">
