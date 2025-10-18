@@ -83,35 +83,24 @@ function FreeReport() {
     getInsights();
   }, [answers]);
 
-  const handleShare = async () => {
+  const handleShare = () => {
     if (!summary) return;
 
     const el = document.createElement('div');
     el.innerHTML = summary;
     const insightText = el.textContent || 'Um insight sobre meu relacionamento.';
 
-    const shareData = {
-        title: 'Meu resultado do Quiz do Relacionamento 💜',
-        text: `Descobri insights valiosos sobre meu relacionamento. Faça o teste também!`,
-        url: window.location.origin,
-    };
-    
     const whatsappText = `*Meu resultado do Decodificador do Amor:* 💜\n\n${insightText}\n\n*Faça o teste você também:* ${window.location.origin}`;
 
-
     try {
-        if (navigator.share) {
-            await navigator.share(shareData);
-        } else {
-             const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
-             window.open(whatsappUrl, '_blank');
-        }
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+        window.open(whatsappUrl, '_blank');
     } catch (err) {
         console.error('Erro ao compartilhar:', err);
         toast({
             variant: "destructive",
             title: "Erro ao compartilhar",
-            description: "Não foi possível iniciar o compartilhamento.",
+            description: "Não foi possível abrir o WhatsApp.",
         });
     }
   };
