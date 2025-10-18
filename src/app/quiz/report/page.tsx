@@ -78,27 +78,27 @@ function htmlToWhatsApp(html: string): string {
 
     // Replace <strong> with asterisks
     tempDiv.querySelectorAll('strong, b').forEach(tag => {
-        tag.textContent = `*${tag.textContent}*`;
+        tag.textContent = `*${tag.textContent?.trim()}*`;
     });
 
     // Handle titles
     tempDiv.querySelectorAll('h3').forEach(tag => {
-        tag.textContent = `\n\n*${tag.textContent}*\n`;
+        tag.textContent = `\n\n*${tag.textContent?.trim()}*\n`;
     });
 
     // Handle paragraphs
     tempDiv.querySelectorAll('p').forEach(tag => {
-        tag.textContent = `${tag.textContent}\n\n`;
+        tag.textContent = `${tag.textContent?.trim()}\n\n`;
     });
 
     // Handle list items
     tempDiv.querySelectorAll('li').forEach(tag => {
-        tag.textContent = `- ${tag.textContent}\n`;
+        tag.textContent = `- ${tag.textContent?.trim()}\n`;
     });
 
     // Handle unordered lists
     tempDiv.querySelectorAll('ul').forEach(tag => {
-        tag.textContent = `\n${tag.textContent}\n`;
+        tag.textContent = `\n${tag.textContent?.trim()}\n`;
     });
 
     let text = tempDiv.innerText || tempDiv.textContent || '';
