@@ -103,7 +103,7 @@ function htmlToWhatsApp(html: string): string {
 
     // Replace any remaining special characters
     let text = el.textContent || el.innerText || '';
-    text = text.replace(/\uFFFD/g, ''); // Remove replacement characters
+    text = text.replace(/[\uFFFD]/g, ''); // Remove replacement characters
 
     return text.trim();
 }
