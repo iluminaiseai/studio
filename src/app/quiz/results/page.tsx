@@ -73,7 +73,7 @@ function htmlToWhatsApp(html: string): string {
 
     // Replace <p> with line breaks
     el.querySelectorAll('p').forEach(tag => {
-        tag.textContent = `${tag.textContent}\n`;
+        tag.textContent = `${tag.textContent}\n\n`;
     });
     
     // Replace <li> with a dash and line break
