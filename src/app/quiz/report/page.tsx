@@ -103,6 +103,9 @@ function htmlToWhatsApp(html: string): string {
 
     let text = tempDiv.innerText || tempDiv.textContent || '';
     
+    // Remove emojis
+    text = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
+
     // Final cleanup for extra spaces and ensuring single line breaks between list items
     text = text.replace(/(\n\s*){3,}/g, '\n\n'); 
 
@@ -144,7 +147,7 @@ function FullReport() {
         
         const formattedText = htmlToWhatsApp(insights.psychologicalInterpretations);
         
-        const whatsappText = `*Meu resultado do Decodificador do Amor:* 💜\n\n${formattedText}\n\n*Faça o teste você também:* ${window.location.origin}`;
+        const whatsappText = `*Meu resultado do Decodificador do Amor:*\n\n${formattedText}\n\n*Faça o teste você também:* ${window.location.origin}`;
         
         try {
             const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
