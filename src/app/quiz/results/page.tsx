@@ -18,9 +18,10 @@ import {
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
-import { Loader, Lock, Terminal } from "lucide-react";
+import { Loader, Lock, Terminal, Share2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 function processAnswers(
   encodedAnswers: string | null
@@ -58,6 +59,7 @@ function FreeReport() {
   const [summary, setSummary] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
 
   useEffect(() => {
     async function getInsights() {
@@ -80,6 +82,49 @@ function FreeReport() {
     }
     getInsights();
   }, [answers]);
+
+  const handleShare = async () => {
+    if (!summary) return;
+
+    const el = document.createElement('div');
+    el.innerHTML = summary;
+    const insightText = el.querySelector('p')?.textContent || 'Um insight sobre meu relacionamento.';
+
+    const shareData = {
+        title: 'Meu resultado do Quiz do Relacionamento 💜',
+        text: `Descobri o que ele(a) pode estar sentindo: "${insightText}" Faça o teste também!`,
+        url: window.location.origin,
+    };
+
+    try {
+        if (navigator.share) {
+            await navigator.share(shareData);
+        } else {
+            await navigator.clipboard.writeText(`${shareData.title}\n\n${shareData.text}\n\nFaça o teste aqui: ${shareData.url}`);
+            toast({
+                title: "Resultado Copiado!",
+                description: "O resultado foi copiado para sua área de transferência. Compartilhe com quem quiser!",
+            });
+        }
+    } catch (err) {
+        console.error('Erro ao compartilhar:', err);
+        try {
+            await navigator.clipboard.writeText(`${shareData.title}\n\n${shareData.text}\n\nFaça o teste aqui: ${shareData.url}`);
+            toast({
+                title: "Link Copiado!",
+                description: "Não foi possível abrir o compartilhamento, mas copiamos o resultado para você!",
+            });
+        } catch (copyError) {
+             console.error('Erro ao copiar:', copyError);
+            toast({
+                variant: "destructive",
+                title: "Erro",
+                description: "Não foi possível compartilhar ou copiar o resultado.",
+            });
+        }
+    }
+  };
+
 
   if (isLoading) {
     return <LoadingSkeleton />;
@@ -113,7 +158,11 @@ function FreeReport() {
           />
         )}
       </CardContent>
-      <CardFooter className="p-4 md:p-6">
+      <CardFooter className="flex-col gap-4 p-4 md:p-6">
+        <Button onClick={handleShare} className="w-full font-bold hover:bg-primary/80">
+          <Share2 className="mr-2 h-4 w-4" />
+          💌 Compartilhar meu resultado
+        </Button>
         <Alert className="bg-primary/5 border-primary/20">
           <Lock className="h-4 w-4 text-primary" />
           <AlertTitle className="font-headline text-base text-primary md:text-lg">
