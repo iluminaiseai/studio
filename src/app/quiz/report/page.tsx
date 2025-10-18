@@ -100,43 +100,33 @@ function FullReport() {
 
     const handleShare = async () => {
         if (!insights) return;
-
+        
         const el = document.createElement('div');
-        el.innerHTML = `### Meu resultado do Quiz do Relacionamento 💜\n\n**Resumo:**\n${insights.detailedSummary}\n\n**Interpretações:**\n${insights.psychologicalInterpretations}\n\n**Plano de Ação:**\n${insights.actionPlan}`;
+        el.innerHTML = `<h3>Resumo:</h3>${insights.detailedSummary}<h3>Plano de Ação:</h3>${insights.actionPlan}`;
         const cleanText = el.textContent || "";
 
         const shareData = {
             title: 'Meu resultado do Quiz do Relacionamento 💜',
-            text: `Descobri insights sobre meu relacionamento! Faça o teste também:`,
+            text: `Descobri insights valiosos sobre meu relacionamento. Faça o teste também!`,
             url: window.location.origin,
         };
 
+        const whatsappText = `*Meu resultado do Decodificador do Amor:* 💜\n\n${cleanText}\n\n*Faça o teste você também:* ${window.location.origin}`;
+        
         try {
             if (navigator.share) {
                 await navigator.share(shareData);
             } else {
-                 await navigator.clipboard.writeText(`${shareData.title}\n\n${cleanText}\n\nFaça o teste também: ${shareData.url}`);
-                 toast({
-                    title: "Resultado Copiado!",
-                    description: "O resultado do seu relatório foi copiado. Agora você pode colar e compartilhar onde quiser.",
-                });
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+                window.open(whatsappUrl, '_blank');
             }
         } catch (err) {
             console.error('Erro ao compartilhar:', err);
-            try {
-                await navigator.clipboard.writeText(`${shareData.title}\n\n${cleanText}\n\nFaça o teste também: ${shareData.url}`);
-                toast({
-                    title: "Link Copiado!",
-                    description: "O resultado do seu relatório foi copiado. Agora você pode colar e compartilhar onde quiser.",
-                });
-            } catch (copyError) {
-                console.error('Erro ao copiar:', copyError);
-                toast({
-                    variant: "destructive",
-                    title: "Erro",
-                    description: "Não foi possível compartilhar ou copiar o resultado.",
-                });
-            }
+            toast({
+                variant: "destructive",
+                title: "Erro ao compartilhar",
+                description: "Não foi possível iniciar o compartilhamento.",
+            });
         }
     };
 
@@ -216,7 +206,7 @@ function FullReport() {
         </Tabs>
       </CardContent>
        <CardFooter className="flex flex-col gap-4 p-4 md:p-6">
-        <Button onClick={handleShare} className="w-full font-bold hover:bg-primary/80" size="lg">
+        <Button onClick={handleShare} className="w-full font-bold bg-[#7B2CBF] hover:bg-[#C77DFF]/80" size="lg">
           <Share2 className="mr-2 h-5 w-5" />
           💌 Compartilhar meu resultado
         </Button>

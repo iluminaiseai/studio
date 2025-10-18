@@ -88,40 +88,31 @@ function FreeReport() {
 
     const el = document.createElement('div');
     el.innerHTML = summary;
-    const insightText = el.querySelector('p')?.textContent || 'Um insight sobre meu relacionamento.';
+    const insightText = el.textContent || 'Um insight sobre meu relacionamento.';
 
     const shareData = {
         title: 'Meu resultado do Quiz do Relacionamento 💜',
-        text: `Descobri o que ele(a) pode estar sentindo: "${insightText}" Faça o teste também!`,
+        text: `Descobri insights valiosos sobre meu relacionamento. Faça o teste também!`,
         url: window.location.origin,
     };
+    
+    const whatsappText = `*Meu resultado do Decodificador do Amor:* 💜\n\n${insightText}\n\n*Faça o teste você também:* ${window.location.origin}`;
+
 
     try {
         if (navigator.share) {
             await navigator.share(shareData);
         } else {
-            await navigator.clipboard.writeText(`${shareData.title}\n\n${shareData.text}\n\nFaça o teste aqui: ${shareData.url}`);
-            toast({
-                title: "Resultado Copiado!",
-                description: "O resultado foi copiado para sua área de transferência. Compartilhe com quem quiser!",
-            });
+             const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+             window.open(whatsappUrl, '_blank');
         }
     } catch (err) {
         console.error('Erro ao compartilhar:', err);
-        try {
-            await navigator.clipboard.writeText(`${shareData.title}\n\n${shareData.text}\n\nFaça o teste aqui: ${shareData.url}`);
-            toast({
-                title: "Link Copiado!",
-                description: "Não foi possível abrir o compartilhamento, mas copiamos o resultado para você!",
-            });
-        } catch (copyError) {
-             console.error('Erro ao copiar:', copyError);
-            toast({
-                variant: "destructive",
-                title: "Erro",
-                description: "Não foi possível compartilhar ou copiar o resultado.",
-            });
-        }
+        toast({
+            variant: "destructive",
+            title: "Erro ao compartilhar",
+            description: "Não foi possível iniciar o compartilhamento.",
+        });
     }
   };
 
@@ -159,7 +150,7 @@ function FreeReport() {
         )}
       </CardContent>
       <CardFooter className="flex-col gap-4 p-4 md:p-6">
-        <Button onClick={handleShare} className="w-full font-bold hover:bg-primary/80">
+        <Button onClick={handleShare} className="w-full font-bold bg-[#7B2CBF] hover:bg-[#C77DFF]/80">
           <Share2 className="mr-2 h-4 w-4" />
           💌 Compartilhar meu resultado
         </Button>
