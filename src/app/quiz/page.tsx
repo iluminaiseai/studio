@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -111,7 +112,7 @@ export default function QuizPage() {
               <CardContent className="p-4 md:p-6">
                 <div className="flex items-center gap-3 md:gap-4 text-primary">
                   <CheckCircle2 className="h-6 w-6 flex-shrink-0 md:h-8 md:w-8" />
-                  <p className="font-semibold text-primary-foreground/90 text-sm md:text-base">{feedback}</p>
+                  <p className="font-semibold text-primary text-sm md:text-base">{feedback}</p>
                 </div>
               </CardContent>
             </Card>
