@@ -147,18 +147,21 @@ function FullReport() {
           <TabsContent
             value="summary"
             className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-            dangerouslySetInnerHTML={{ __html: insights.detailedSummary }}
-          />
+          >
+            <div dangerouslySetInnerHTML={{ __html: insights.detailedSummary }} />
+          </TabsContent>
           <TabsContent
             value="interpretations"
             className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-            dangerouslySetInnerHTML={{ __html: insights.psychologicalInterpretations }}
-          />
+          >
+            <div dangerouslySetInnerHTML={{ __html: insights.psychologicalInterpretations }} />
+          </TabsContent>
           <TabsContent
             value="plan"
             className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-            dangerouslySetInnerHTML={{ __html: insights.actionPlan }}
-          />
+          >
+            <div dangerouslySetInnerHTML={{ __html: insights.actionPlan }} />
+          </TabsContent>
         </Tabs>
       </CardContent>
     </Card>
