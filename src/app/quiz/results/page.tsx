@@ -53,6 +53,47 @@ function processAnswers(
   return insightsInput;
 }
 
+// Function to convert HTML to WhatsApp formatted text
+function htmlToWhatsApp(html: string): string {
+    if (typeof document === 'undefined') {
+        return '';
+    }
+    const el = document.createElement('div');
+    el.innerHTML = html;
+
+    // Replace <strong> and <b> with *
+    el.querySelectorAll('strong, b').forEach(tag => {
+        tag.textContent = `*${tag.textContent}*`;
+    });
+    
+    // Replace <h3> with bold text and line breaks
+    el.querySelectorAll('h3').forEach(tag => {
+        tag.textContent = `\n\n*${tag.textContent}*\n`;
+    });
+
+    // Replace <p> with line breaks
+    el.querySelectorAll('p').forEach(tag => {
+        tag.textContent = `${tag.textContent}\n`;
+    });
+    
+    // Replace <li> with a dash and line break
+    el.querySelectorAll('li').forEach(tag => {
+        tag.textContent = `- ${tag.textContent}\n`;
+    });
+    
+    // Replace <ul> with just line breaks
+    el.querySelectorAll('ul').forEach(tag => {
+       tag.textContent = `\n${tag.textContent}\n`;
+    });
+
+    // Replace any remaining special characters
+    let text = el.textContent || el.innerText || '';
+    text = text.replace(//g, ''); // Remove replacement characters
+
+    return text.trim();
+}
+
+
 function FreeReport() {
   const searchParams = useSearchParams();
   const answers = searchParams.get("answers");
@@ -86,11 +127,9 @@ function FreeReport() {
   const handleShare = () => {
     if (!summary) return;
 
-    const el = document.createElement('div');
-    el.innerHTML = summary;
-    const insightText = el.textContent || 'Um insight sobre meu relacionamento.';
-
-    const whatsappText = `*Meu resultado do Decodificador do Amor:* 💜\n\n${insightText}\n\n*Faça o teste você também:* ${window.location.origin}`;
+    const formattedText = htmlToWhatsApp(summary);
+    
+    const whatsappText = `*Meu resultado do Decodificador do Amor:* 💜\n\n${formattedText}\n\n*Faça o teste você também:* ${window.location.origin}`;
 
     try {
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
