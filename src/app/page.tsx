@@ -13,7 +13,7 @@ export default function Home() {
       <div className="container flex max-w-4xl flex-col items-center justify-center gap-6 text-center md:gap-8">
         <Sparkles className="h-12 w-12 text-primary md:h-16 md:w-16" />
         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl">
-          Love Decoder
+          Decodificador do Amor
         </h1>
         <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl">
           Será que o interesse ainda existe? Desvende os sinais do seu relacionamento com nosso quiz e receba uma análise completa sobre a saúde da sua conexão.

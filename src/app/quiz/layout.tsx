@@ -12,7 +12,7 @@ export default function QuizLayout({
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-primary" />
-            <span className="font-headline text-xl font-bold">Love Decoder</span>
+            <span className="font-headline text-xl font-bold">Decodificador do Amor</span>
           </Link>
         </div>
       </header>
