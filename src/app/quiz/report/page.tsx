@@ -102,7 +102,7 @@ function FullReport() {
         if (!insights) return;
         
         const el = document.createElement('div');
-        el.innerHTML = `<h3>Resumo:</h3>${insights.detailedSummary}<h3>Plano de Ação:</h3>${insights.actionPlan}`;
+        el.innerHTML = insights.psychologicalInterpretations;
         const cleanText = el.textContent || "";
         
         const whatsappText = `*Meu resultado do Decodificador do Amor:* 💜\n\n${cleanText}\n\n*Faça o teste você também:* ${window.location.origin}`;
