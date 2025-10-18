@@ -32,7 +32,10 @@ function processAnswers(encodedAnswers: string | undefined): RelationshipInsight
   quizData.forEach((question, index) => {
     const answer = allAnswers[index];
     if (answer) {
-      insightsInput[question.section].push(answer);
+      const section = question.section as keyof RelationshipInsightsInput;
+      if(insightsInput[section]) {
+        insightsInput[section].push(answer);
+      }
     }
   });
 
@@ -47,26 +50,26 @@ async function FullReport({ answers }: { answers: string | undefined }) {
 
     return (
       <Card className="w-full shadow-2xl">
-        <CardHeader className="text-center">
-          <CardTitle className="font-headline text-4xl">Seu Relatório Completo</CardTitle>
-          <CardDescription>
+        <CardHeader className="text-center px-4 pt-6 md:p-6">
+          <CardTitle className="font-headline text-3xl md:text-4xl">Seu Relatório Completo</CardTitle>
+          <CardDescription className="text-sm md:text-base">
             Análise aprofundada, interpretações e um plano de ação para seu relacionamento.
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 md:p-6">
           <Tabs defaultValue="summary" className="w-full">
-            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 h-auto">
-              <TabsTrigger value="summary" className="py-2"><MessageSquare className="mr-2 h-4 w-4"/>Resumo Detalhado</TabsTrigger>
-              <TabsTrigger value="interpretations" className="py-2"><BrainCircuit className="mr-2 h-4 w-4"/>Interpretações</TabsTrigger>
-              <TabsTrigger value="plan" className="py-2"><CalendarCheck className="mr-2 h-4 w-4"/>Plano de Ação</TabsTrigger>
+            <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-3">
+              <TabsTrigger value="summary" className="py-2 text-xs sm:text-sm"><MessageSquare className="mr-1 h-4 w-4 sm:mr-2"/>Resumo</TabsTrigger>
+              <TabsTrigger value="interpretations" className="py-2 text-xs sm:text-sm"><BrainCircuit className="mr-1 h-4 w-4 sm:mr-2"/>Interpretações</TabsTrigger>
+              <TabsTrigger value="plan" className="py-2 text-xs sm:text-sm"><CalendarCheck className="mr-1 h-4 w-4 sm:mr-2"/>Plano de Ação</TabsTrigger>
             </TabsList>
-            <TabsContent value="summary" className="mt-6 text-base leading-relaxed whitespace-pre-wrap p-4 bg-secondary/30 rounded-lg">
+            <TabsContent value="summary" className="mt-4 text-sm leading-relaxed whitespace-pre-wrap p-4 bg-secondary/30 rounded-lg md:text-base md:mt-6">
                 <p>{insights.detailedSummary}</p>
             </TabsContent>
-            <TabsContent value="interpretations" className="mt-6 text-base leading-relaxed whitespace-pre-wrap p-4 bg-secondary/30 rounded-lg">
+            <TabsContent value="interpretations" className="mt-4 text-sm leading-relaxed whitespace-pre-wrap p-4 bg-secondary/30 rounded-lg md:text-base md:mt-6">
                 <p>{insights.psychologicalInterpretations}</p>
             </TabsContent>
-            <TabsContent value="plan" className="mt-6 text-base leading-relaxed whitespace-pre-wrap p-4 bg-secondary/30 rounded-lg">
+            <TabsContent value="plan" className="mt-4 text-sm leading-relaxed whitespace-pre-wrap p-4 bg-secondary/30 rounded-lg md:text-base md:mt-6">
                 <p>{insights.actionPlan}</p>
             </TabsContent>
           </Tabs>
@@ -93,10 +96,10 @@ async function FullReport({ answers }: { answers: string | undefined }) {
 
 function LoadingSkeleton() {
     return (
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center justify-center text-center p-4">
             <Loader className="h-12 w-12 animate-spin text-primary" />
-            <p className="mt-4 font-headline text-2xl">Gerando seu relatório completo...</p>
-            <p className="text-muted-foreground">Este é um momento de clareza. Aguarde um instante.</p>
+            <p className="mt-4 font-headline text-xl md:text-2xl">Gerando seu relatório completo...</p>
+            <p className="text-muted-foreground text-sm md:text-base">Este é um momento de clareza. Aguarde um instante.</p>
         </div>
     )
 }

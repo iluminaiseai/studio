@@ -49,20 +49,20 @@ export default function QuizPage() {
   const SectionIcon = currentSection.icon;
 
   return (
-    <div className="container mx-auto flex max-w-2xl flex-col items-center justify-center p-4 py-12">
+    <div className="container mx-auto flex max-w-2xl flex-col items-center justify-center p-4 py-8 sm:py-12">
       <div className="w-full">
-        <div className="mb-8 text-center">
-            <div className="mb-4 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider text-primary">
+        <div className="mb-6 text-center md:mb-8">
+            <div className="mb-2 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider text-primary md:mb-4">
                <SectionIcon className="h-5 w-5" />
                <span>{currentSection.title}</span>
             </div>
             <p className="text-sm text-muted-foreground">Pergunta {currentQuestionIndex + 1} de {quizData.length}</p>
         </div>
-        <Progress value={progress} className="mb-8 h-2" />
+        <Progress value={progress} className="mb-6 h-2 md:mb-8" />
 
         <Card className="w-full text-center shadow-lg">
           <CardHeader>
-            <CardTitle className="font-body text-2xl font-semibold leading-tight">
+            <CardTitle className="font-body text-xl font-semibold leading-tight md:text-2xl">
               {currentQuestion.text}
             </CardTitle>
           </CardHeader>
@@ -73,7 +73,7 @@ export default function QuizPage() {
                   key={index}
                   variant="outline"
                   size="lg"
-                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-base"
+                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm md:text-base"
                   onClick={() => handleAnswer(answer)}
                   disabled={showFeedback}
                 >
@@ -87,10 +87,10 @@ export default function QuizPage() {
         {showFeedback && feedback && (
           <div className={cn("mt-6", showFeedback ? "animate-in fade-in" : "animate-out fade-out")}>
             <Card className="bg-primary/10 border-primary/20">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4 text-primary">
-                  <CheckCircle2 className="h-8 w-8 flex-shrink-0" />
-                  <p className="text-base font-semibold text-primary-foreground">{feedback}</p>
+              <CardContent className="p-4 md:p-6">
+                <div className="flex items-center gap-3 md:gap-4 text-primary">
+                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 md:h-8 md:w-8" />
+                  <p className="text-sm font-semibold text-primary-foreground md:text-base">{feedback}</p>
                 </div>
               </CardContent>
             </Card>

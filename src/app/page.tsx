@@ -10,20 +10,20 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen w-full items-center justify-center p-4">
-      <div className="container flex max-w-4xl flex-col items-center justify-center gap-8 text-center">
-        <Sparkles className="h-16 w-16 text-primary" />
-        <h1 className="font-headline text-5xl font-bold tracking-tight md:text-7xl">
+      <div className="container flex max-w-4xl flex-col items-center justify-center gap-6 text-center md:gap-8">
+        <Sparkles className="h-12 w-12 text-primary md:h-16 md:w-16" />
+        <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl">
           Love Decoder
         </h1>
-        <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
+        <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl">
           Será que o interesse ainda existe? Desvende os sinais do seu relacionamento com nosso quiz e receba uma análise completa sobre a saúde da sua conexão.
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row">
           <Button asChild size="lg" className="font-bold">
             <Link href="/quiz">Começar o Quiz</Link>
           </Button>
         </div>
-        <Card className="mt-8 w-full overflow-hidden shadow-2xl">
+        <Card className="mt-4 w-full overflow-hidden shadow-2xl md:mt-8">
           <CardContent className="p-0">
             {heroImage && (
                <Image
@@ -33,6 +33,7 @@ export default function Home() {
                 height={600}
                 className="aspect-video w-full object-cover"
                 data-ai-hint={heroImage.imageHint}
+                priority
               />
             )}
           </CardContent>
