@@ -23,6 +23,7 @@ import {
   MessageSquare,
   Terminal,
   CalendarCheck,
+  MousePointerClick,
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -127,6 +128,10 @@ function FullReport() {
       </CardHeader>
       <CardContent className="p-4 md:p-6">
         <Tabs defaultValue="summary" className="w-full">
+            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
+                <MousePointerClick className="h-4 w-4" />
+                <span>Navegue pelas abas abaixo</span>
+            </div>
           <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-3">
             <TabsTrigger value="summary" className="py-2 text-xs sm:text-sm">
               <MessageSquare className="mr-1 h-4 w-4 sm:mr-2" />
