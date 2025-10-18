@@ -8,42 +8,50 @@ import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Loader } from "lucide-react";
 
 export default function QuizPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [isCompleting, setIsCompleting] = useState(false);
   const router = useRouter();
 
   const currentQuestion = quizData[currentQuestionIndex];
   const currentSection = sections.find(s => s.key === currentQuestion?.section);
 
-  const progress = (currentQuestionIndex / quizData.length) * 100;
-
-  useEffect(() => {
-    if (currentQuestionIndex > 0 && currentQuestionIndex >= quizData.length) {
-      const answersQueryParam = encodeURIComponent(answers.join("|"));
-      router.push(`/quiz/results?answers=${answersQueryParam}`);
-    }
-  }, [currentQuestionIndex, answers, router]);
+  const progress = ((currentQuestionIndex) / quizData.length) * 100;
 
   const handleAnswer = (answer: Answer) => {
     if (showFeedback) return;
     
-    setAnswers((prev) => [...prev, answer.text]);
+    const newAnswers = [...answers, answer.text];
+    setAnswers(newAnswers);
     setFeedback(answer.feedback);
     setShowFeedback(true);
 
     setTimeout(() => {
-      setShowFeedback(false);
-      setFeedback(null);
-      setCurrentQuestionIndex((prev) => prev + 1);
+      if (currentQuestionIndex >= quizData.length - 1) {
+        setIsCompleting(true);
+        const answersQueryParam = encodeURIComponent(newAnswers.join("|"));
+        router.push(`/quiz/results?answers=${answersQueryParam}`);
+      } else {
+        setShowFeedback(false);
+        setFeedback(null);
+        setCurrentQuestionIndex((prev) => prev + 1);
+      }
     }, 2500);
   };
   
-  if (!currentQuestion || !currentSection) {
-    return null; 
+  if (isCompleting || !currentQuestion || !currentSection) {
+    return (
+      <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
+        <Loader className="h-12 w-12 animate-spin text-primary" />
+        <p className="mt-4 font-headline text-xl md:text-2xl">Finalizando o quiz...</p>
+        <p className="text-sm text-muted-foreground md:text-base">Aguarde, estamos preparando seus resultados.</p>
+      </div>
+    );
   }
 
   const SectionIcon = currentSection.icon;
