@@ -20,8 +20,9 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
 import { Loader, Lock, Terminal, Share2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+
 
 function processAnswers(
   encodedAnswers: string | null
@@ -98,35 +99,27 @@ function htmlToWhatsApp(html: string): string {
 }
 
 
-function FreeReport() {
+async function FreeReport() {
   const searchParams = useSearchParams();
   const answers = searchParams.get("answers");
-  const [summary, setSummary] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
+  
+  let summary: string | null = null;
+  let error: string | null = null;
 
-  useEffect(() => {
-    async function getInsights() {
-      if (!answers) {
-        setError("Nenhuma resposta encontrada.");
-        setIsLoading(false);
-        return;
-      }
-      try {
-        setIsLoading(true);
-        const insightsInput = processAnswers(answers);
-        const insights = await generateRelationshipInsights(insightsInput);
-        setSummary(insights.detailedSummary);
-      } catch (e) {
-        console.error(e);
-        setError("Houve um problema ao contatar nossa IA. Por favor, tente novamente mais tarde.");
-      } finally {
-        setIsLoading(false);
-      }
+  if (!answers) {
+    error = "Nenhuma resposta encontrada.";
+  } else {
+    try {
+      const insightsInput = processAnswers(answers);
+      const insights = await generateRelationshipInsights(insightsInput);
+      summary = insights.detailedSummary;
+    } catch (e) {
+      console.error(e);
+      error = "Houve um problema ao contatar nossa IA. Por favor, tente novamente mais tarde.";
     }
-    getInsights();
-  }, [answers]);
+  }
+  
 
   const handleShare = () => {
     if (!summary) return;
@@ -149,10 +142,6 @@ function FreeReport() {
   };
 
 
-  if (isLoading) {
-    return <LoadingSkeleton />;
-  }
-  
   if (error) {
     return (
      <Alert variant="destructive">
@@ -162,6 +151,11 @@ function FreeReport() {
      </Alert>
    );
  }
+
+  if (!summary) {
+    // This should not happen if error is also null, but as a fallback.
+    return <LoadingSkeleton />;
+  }
 
   return (
     <Card className="w-full shadow-lg">
@@ -174,12 +168,10 @@ function FreeReport() {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4 px-4 pb-4 md:px-6 md:pb-6">
-        {summary && (
-          <div 
+        <div 
             className="prose prose-sm md:prose-base max-w-none text-muted-foreground"
             dangerouslySetInnerHTML={{ __html: summary }} 
-          />
-        )}
+        />
       </CardContent>
       <CardFooter className="flex-col gap-4 p-4 md:p-6">
         <Button onClick={handleShare} className="w-full font-bold bg-[#7B2CBF] hover:bg-[#C77DFF]/80">
