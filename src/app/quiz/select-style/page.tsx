@@ -2,10 +2,11 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BrainCircuit, Drama, Loader, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 const styles = [
   {
@@ -32,6 +33,7 @@ function StyleSelector() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const answers = searchParams.get('answers');
+  const [loadingStyle, setLoadingStyle] = useState<string | null>(null);
 
   if (!answers) {
     return (
@@ -45,6 +47,8 @@ function StyleSelector() {
   }
 
   const handleStyleSelect = (style: string) => {
+    if (loadingStyle) return;
+    setLoadingStyle(style);
     router.push(`/quiz/results?answers=${answers}&style=${style}`);
   };
 
@@ -59,15 +63,24 @@ function StyleSelector() {
         <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
             {styles.map((style) => {
                 const Icon = style.icon;
+                const isLoading = loadingStyle === style.key;
                 return (
                     <Card
                         key={style.key}
                         onClick={() => handleStyleSelect(style.key)}
-                        className="cursor-pointer transition-all hover:scale-105 hover:shadow-xl hover:border-primary"
+                        className={cn(
+                          "cursor-pointer transition-all hover:scale-105 hover:shadow-xl hover:border-primary",
+                          loadingStyle && !isLoading && "opacity-50 cursor-not-allowed",
+                          isLoading && "ring-2 ring-primary border-primary"
+                        )}
                     >
                         <CardHeader>
-                            <div className="mb-4 flex justify-center">
-                                <Icon className="h-10 w-10 text-primary" />
+                            <div className="mb-4 flex justify-center items-center h-10 w-10 mx-auto">
+                                {isLoading ? (
+                                    <Loader className="h-10 w-10 text-primary animate-spin" />
+                                ) : (
+                                    <Icon className="h-10 w-10 text-primary" />
+                                )}
                             </div>
                             <CardTitle className="font-headline text-xl">{style.title}</CardTitle>
                             <CardDescription>{style.description}</CardDescription>
