@@ -97,28 +97,9 @@ function htmlToWhatsApp(html: string): string {
 }
 
 
-async function FreeReport() {
-  const searchParams = useSearchParams();
-  const answers = searchParams.get("answers");
+function FreeReport({ summary, answers }: { summary: string | null, answers: string | null }) {
   const { toast } = useToast();
   
-  let summary: string | null = null;
-  let error: string | null = null;
-
-  if (!answers) {
-    error = "Nenhuma resposta encontrada.";
-  } else {
-    try {
-      const insightsInput = { ...processAnswers(answers), style: "detailed" as const };
-      const insights = await generateRelationshipInsights(insightsInput);
-      summary = insights.detailedSummary;
-    } catch (e) {
-      console.error(e);
-      error = "Houve um problema ao contatar nossa IA. Por favor, tente novamente mais tarde.";
-    }
-  }
-  
-
   const handleShare = () => {
     if (!summary) return;
 
@@ -140,20 +121,15 @@ async function FreeReport() {
   };
 
 
-  if (error) {
-    return (
+  if (!summary) {
+     return (
      <Alert variant="destructive">
        <Terminal className="h-4 w-4" />
        <AlertTitle>Erro ao gerar diagnóstico</AlertTitle>
-       <AlertDescription>{error}</AlertDescription>
+       <AlertDescription>Não foi possível gerar seu resultado. Por favor, tente novamente.</AlertDescription>
      </Alert>
    );
  }
-
-  if (!summary) {
-    // This should not happen if error is also null, but as a fallback.
-    return <LoadingSkeleton />;
-  }
 
   return (
     <Card className="w-full shadow-lg">
@@ -229,12 +205,49 @@ function LoadingSkeleton() {
   );
 }
 
-export default function ResultsPage() {
+function ResultsPageClient({ summary, answers, error }: { summary: string | null; answers: string | null; error: string | null }) {
+    if (error) {
+        return (
+            <Alert variant="destructive">
+                <Terminal className="h-4 w-4" />
+                <AlertTitle>Erro ao gerar diagnóstico</AlertTitle>
+                <AlertDescription>{error}</AlertDescription>
+            </Alert>
+        );
+    }
+    return <FreeReport summary={summary} answers={answers} />;
+}
+
+export default function ResultsPageWrapper({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const answers = typeof searchParams.answers === 'string' ? searchParams.answers : null;
   return (
     <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4">
       <Suspense fallback={<LoadingSkeleton />}>
-        <FreeReport />
+        <ResultsPage answers={answers} />
       </Suspense>
     </div>
   );
+}
+
+async function ResultsPage({ answers }: { answers: string | null }) {
+    let summary: string | null = null;
+    let error: string | null = null;
+
+    if (!answers) {
+        error = "Nenhuma resposta encontrada.";
+    } else {
+        try {
+            const insightsInput = { ...processAnswers(answers), style: "detailed" as const };
+            const insights = await generateRelationshipInsights(insightsInput);
+            summary = insights.detailedSummary;
+        } catch (e) {
+            console.error(e);
+            error = "Houve um problema ao contatar nossa IA. Por favor, tente novamente mais tarde.";
+        }
+    }
+    return <ResultsPageClient summary={summary} answers={answers} error={error} />;
 }
