@@ -218,16 +218,16 @@ export function ResultsPageClient({ answers, style }: { answers: string | null; 
         if (!summary && !error) {
             const interval = setInterval(() => {
                 setProgress(prev => {
-                    if (prev >= 95) {
+                    if (prev >= 99) {
                         clearInterval(interval);
-                        return 95;
+                        return 99;
                     }
-                    const next = prev + 5;
+                    const next = prev + 1;
                     const messageIndex = Math.min(Math.floor(next / (100 / loadingMessages.length)), loadingMessages.length - 1);
                     setLoadingMessage(loadingMessages[messageIndex]);
                     return next;
                 });
-            }, 400);
+            }, 100);
             return () => clearInterval(interval);
         } else if (summary || error) {
             setProgress(100);
@@ -253,8 +253,9 @@ export function ResultsPageClient({ answers, style }: { answers: string | null; 
                 <p className="mt-4 font-headline text-xl md:text-2xl mb-2">
                     Analisando suas respostas...
                 </p>
-                <Progress value={progress} className="w-full mb-4" />
-                <p className="text-sm text-muted-foreground h-4">{loadingMessage}</p>
+                <Progress value={progress} className="w-full mb-2" />
+                <p className="text-sm font-semibold text-primary">{progress}%</p>
+                <p className="text-sm text-muted-foreground h-4 mt-2">{loadingMessage}</p>
             </div>
         )
     }

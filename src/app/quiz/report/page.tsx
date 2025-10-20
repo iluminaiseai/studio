@@ -8,28 +8,13 @@ import {
 } from "@/ai/flows/generate-relationship-insights";
 import { quizData } from "@/lib/quiz-data";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  BrainCircuit,
   Loader,
-  MessageSquare,
   Terminal,
-  CalendarCheck,
-  MousePointerClick,
-  Share2,
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useToast } from "@/hooks/use-toast";
 import { ReportDisplay } from "./report-client";
 import { Progress } from "@/components/ui/progress";
 
@@ -131,16 +116,16 @@ function FullReport() {
         if (!insights && !error) {
             const interval = setInterval(() => {
                 setProgress(prev => {
-                    if (prev >= 95) {
+                    if (prev >= 99) {
                         clearInterval(interval);
-                        return 95;
+                        return 99;
                     }
-                    const next = prev + 5;
+                    const next = prev + 1;
                     const messageIndex = Math.min(Math.floor(next / (100 / loadingMessages.length)), loadingMessages.length - 1);
                     setLoadingMessage(loadingMessages[messageIndex]);
                     return next;
                 });
-            }, 600); // Slower progress for the full report
+            }, 120); // Slower progress for the full report
             return () => clearInterval(interval);
         } else if (insights || error) {
             setProgress(100);
@@ -159,8 +144,9 @@ function FullReport() {
                 <p className="mt-4 font-headline text-xl md:text-2xl mb-2">
                    Gerando seu relatório completo...
                 </p>
-                 <Progress value={progress} className="w-full mb-4" />
-                <p className="text-sm text-muted-foreground h-4">{loadingMessage}</p>
+                 <Progress value={progress} className="w-full mb-2" />
+                 <p className="text-sm font-semibold text-primary">{progress}%</p>
+                <p className="text-sm text-muted-foreground h-4 mt-2">{loadingMessage}</p>
             </div>
         )
     }
