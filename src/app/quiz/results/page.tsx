@@ -3,13 +3,14 @@ import { Suspense } from "react";
 import {
   generateRelationshipInsights,
   RelationshipInsightsInput,
-  ReportStyle,
 } from "@/ai/flows/generate-relationship-insights";
 import { quizData } from "@/lib/quiz-data";
 import { ResultsPageClient } from "./results-client";
 import { Loader } from "lucide-react";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Terminal } from "lucide-react";
+
+export type ReportStyle = "detailed" | "gossipy_friend" | "spiritual";
 
 function processAnswers(
   encodedAnswers: string | null

@@ -14,7 +14,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
 import { Lock, Terminal, Share2 } from "lucide-react";
-import { ReportStyle } from "@/ai/flows/generate-relationship-insights";
+import type { ReportStyle } from "./page";
 
 
 // Function to convert HTML to WhatsApp formatted text

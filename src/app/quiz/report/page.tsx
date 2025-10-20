@@ -5,7 +5,6 @@ import { Suspense } from "react";
 import {
   generateRelationshipInsights,
   RelationshipInsightsInput,
-  ReportStyle,
 } from "@/ai/flows/generate-relationship-insights";
 import { quizData } from "@/lib/quiz-data";
 import { Button } from "@/components/ui/button";
@@ -33,6 +32,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState, useMemo, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
 
+export type ReportStyle = "detailed" | "gossipy_friend" | "spiritual";
 
 type FullReportData = {
     detailedSummary: string;
