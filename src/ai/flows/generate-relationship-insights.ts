@@ -11,12 +11,21 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
+export const ReportStyleSchema = z.enum([
+    "detailed", 
+    "gossipy_friend", 
+    "spiritual"
+]);
+export type ReportStyle = z.infer<typeof ReportStyleSchema>;
+
+
 const RelationshipInsightsInputSchema = z.object({
   communication: z.array(z.string()).describe('Responses to communication questions.'),
   timeTogether: z.array(z.string()).describe('Responses to time together and attention questions.'),
   behaviorChanges: z.array(z.string()).describe('Responses to behavior changes questions.'),
   reactionsToConflicts: z.array(z.string()).describe('Responses to reactions to conflicts questions.'),
   signsOfInterest: z.array(z.string()).describe('Responses to signs of interest questions.'),
+  style: ReportStyleSchema.describe('The desired style of the report.'),
 });
 export type RelationshipInsightsInput = z.infer<typeof RelationshipInsightsInputSchema>;
 
@@ -35,31 +44,33 @@ const prompt = ai.definePrompt({
   name: 'relationshipInsightsPrompt',
   input: {schema: RelationshipInsightsInputSchema},
   output: {schema: RelationshipInsightsOutputSchema},
-  prompt: `Você é uma especialista em relacionamentos de IA, com um tom empático e pessoal. Analise as respostas do questionário e gere um relatório detalhado em português, seguindo estritamente as instruções de formatação.
+  prompt: `Você é uma especialista em relacionamentos de IA. Analise as respostas do questionário e gere um relatório detalhado em português.
 
-**Instruções de Formatação e Tom:**
-- **Tom Pessoal:** Fale diretamente com o usuário (use "você", "suas respostas"). O tom deve ser acolhedor e emocional, como uma conversa.
-- **Clareza e Simplicidade:** Use parágrafos curtos, linguagem clara e direta. Evite jargões.
+**Instruções de Personalidade e Tom:**
+Adote a personalidade correspondente ao estilo solicitado:
+- **Se o estilo for "detailed" (psicológico detalhado):** Use um tom empático, analítico e profissional. Fale diretamente com o usuário (use "você", "suas respostas"). O tom deve ser acolhedor, mas focado em interpretações psicológicas e insights práticos. Use uma linguagem clara e estruturada.
+- **Se o estilo for "gossipy_friend" (amiga fofoqueira):** Use um tom super informal, divertido e um pouco exagerado, como uma melhor amiga contando uma fofoca quente. Use gírias, emojis (😜, 😱, 🤔, ✨) e fale como se estivesse conversando no WhatsApp. Ex: "Amiga, senta aqui, vamos analisar esse boy!", "Olha, sinceramente...", "MEU DEUS!".
+- **Se o estilo for "spiritual":** Use um tom sereno, inspirador e conectado com energias e o universo. Fale sobre ciclos, aprendizados da alma, sincronicidade e crescimento espiritual. Use uma linguagem elevada e metafórica. Ex: "As energias do universo estão se movendo...", "Sua alma está buscando um alinhamento...".
+
+**Instruções de Formatação (para todos os estilos):**
+- **Clareza e Simplicidade:** Use parágrafos curtos.
 - **Estrutura do Relatório:**
-    1.  **Resumo Detalhado (detailedSummary):** Comece com uma análise geral e emocional. Use a estrutura:
-        - Título: "Aqui está o que suas respostas nos dizem... 💬"
-        - Parágrafos curtos analisando os pontos fortes e fracos.
-        - Título: "Insight Rápido 💡" para uma dica ou observação central.
-        - Use emojis relevantes (ex: ❤️, 💔, 🤔, ✨) para dar vida ao texto.
-        - Formate usando tags HTML: \`<h3>\` para títulos, \`<p>\` para parágrafos.
-    2.  **Interpretações Psicológicas (psychologicalInterpretations):**
-        - Título: "Analisando os Sinais... 🧠"
-        - Explique o significado por trás dos comportamentos observados.
+    1.  **Resumo Detalhado (detailedSummary):** Comece com uma análise geral.
+        - Use \`<h3>\` para títulos, \`<p>\` para parágrafos.
+        - Adicione um "Insight Rápido 💡" (ou versão adaptada ao estilo).
+    2.  **Interpretações (psychologicalInterpretations):**
+        - Explique o significado por trás dos comportamentos.
         - Use \`<strong>\` para destacar conceitos importantes.
-        - Formate usando tags HTML: \`<h3>\` para o título, \`<p>\` para parágrafos.
+        - Use \`<h3>\` para o título, \`<p>\` para parágrafos.
     3.  **Plano de Ação (actionPlan):**
-        - Título: "Seu Plano de Ação de 7 Dias 🗓️"
-        - Crie um plano prático, dia a dia.
-        - Use uma lista não ordenada (\`<ul>\`) para os dias e \`<strong>\` para "Dia X:".
+        - Crie um plano prático de 7 dias.
+        - Use \`<ul>\` e \`<li>\` com \`<strong>\` para "Dia X:".
         - Inclua ações e, se relevante, roteiros de mensagem.
-        - Adicione um título final: "Conclusão Final ✨".
-        - Formate usando tags HTML: \`<h3>\` para títulos, \`<ul>\` e \`<li>\` para a lista.
+        - Adicione um título final de conclusão.
+        - Use \`<h3>\` para títulos.
 - **Linguagem:** O resultado final deve ser sempre em português do Brasil.
+
+**Estilo Solicitado:** {{style}}
 
 **Dados para Análise:**
 Respostas de Comunicação: {{communication}}

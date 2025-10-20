@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import {
   generateRelationshipInsights,
   RelationshipInsightsInput,
+  ReportStyle,
 } from "@/ai/flows/generate-relationship-insights";
 import { quizData } from "@/lib/quiz-data";
 import { Button } from "@/components/ui/button";
@@ -26,11 +27,22 @@ import {
   CalendarCheck,
   MousePointerClick,
   Share2,
+  Sparkles,
+  Drama,
+  Paintbrush,
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 
 type FullReport = {
     detailedSummary: string;
@@ -40,8 +52,8 @@ type FullReport = {
 
 function processAnswers(
   encodedAnswers: string | null
-): RelationshipInsightsInput {
-  const insightsInput: RelationshipInsightsInput = {
+): Omit<RelationshipInsightsInput, 'style'> {
+  const insightsInput: Omit<RelationshipInsightsInput, 'style'> = {
     communication: [],
     timeTogether: [],
     behaviorChanges: [],
@@ -58,7 +70,7 @@ function processAnswers(
   quizData.forEach((question, index) => {
     const answer = allAnswers[index];
     if (answer) {
-      const section = question.section as keyof RelationshipInsightsInput;
+      const section = question.section as keyof typeof insightsInput;
       if (insightsInput[section]) {
         insightsInput[section].push(answer);
       }
@@ -100,11 +112,9 @@ function htmlToWhatsApp(html: string): string {
     tempDiv.querySelectorAll('ul').forEach(tag => {
         tag.textContent = `\n${tag.textContent?.trim()}\n`;
     });
-
-    let text = tempDiv.innerText || tempDiv.textContent || '';
     
     // Remove emojis
-    text = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
+    let text = (tempDiv.innerText || tempDiv.textContent || '').replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
 
     // Final cleanup for extra spaces and ensuring single line breaks between list items
     text = text.replace(/(\n\s*){3,}/g, '\n\n'); 
@@ -118,29 +128,35 @@ function FullReport() {
     const [insights, setInsights] = useState<FullReport | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [style, setStyle] = useState<ReportStyle>("detailed");
     const { toast } = useToast();
 
-    useEffect(() => {
-        async function getInsights() {
-            if (!answers) {
-                setError("Nenhuma resposta encontrada para gerar o relatório.");
-                setIsLoading(false);
-                return;
-            }
-            try {
-                setIsLoading(true);
-                const insightsInput = processAnswers(answers);
-                const result = await generateRelationshipInsights(insightsInput);
-                setInsights(result);
-            } catch (e) {
-                console.error(e);
-                setError("Houve um problema ao gerar seu relatório. Tente novamente mais tarde.");
-            } finally {
-                setIsLoading(false);
-            }
+    const baseAnswers = useMemo(() => processAnswers(answers), [answers]);
+
+    const getInsights = useCallback(async (reportStyle: ReportStyle) => {
+        if (!answers) {
+            setError("Nenhuma resposta encontrada para gerar o relatório.");
+            setIsLoading(false);
+            return;
         }
-        getInsights();
-    }, [answers]);
+        try {
+            setIsLoading(true);
+            setError(null);
+            const insightsInput = { ...baseAnswers, style: reportStyle };
+            const result = await generateRelationshipInsights(insightsInput);
+            setInsights(result);
+        } catch (e) {
+            console.error(e);
+            setError("Houve um problema ao gerar seu relatório. Tente novamente mais tarde.");
+            setInsights(null);
+        } finally {
+            setIsLoading(false);
+        }
+    }, [answers, baseAnswers]);
+
+    useEffect(() => {
+        getInsights(style);
+    }, [style, getInsights]);
 
     const handleShare = () => {
         if (!insights) return;
@@ -162,6 +178,10 @@ function FullReport() {
         }
     };
 
+  const handleStyleChange = (newStyle: ReportStyle) => {
+    setStyle(newStyle);
+  };
+  
     if (isLoading) {
         return <LoadingSkeleton />;
     }
@@ -176,7 +196,8 @@ function FullReport() {
             {error || "Não foi possível carregar os dados do relatório."}
           </AlertDescription>
         </Alert>
-        <Button asChild>
+        <Button onClick={() => getInsights(style)}>Tentar novamente</Button>
+        <Button asChild variant="secondary">
           <Link href="/">Voltar ao início</Link>
         </Button>
       </div>
@@ -195,6 +216,37 @@ function FullReport() {
         </CardDescription>
       </CardHeader>
       <CardContent className="p-4 md:p-6">
+        <div className="mb-6 flex flex-col items-center gap-2">
+            <Label htmlFor="style-select" className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+                <Paintbrush className="h-4 w-4" />
+                Escolha o tom da análise:
+            </Label>
+            <Select onValueChange={(value: ReportStyle) => handleStyleChange(value)} defaultValue={style}>
+              <SelectTrigger id="style-select" className="w-full sm:w-[320px] font-medium">
+                <SelectValue placeholder="Selecione o estilo..." />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="detailed">
+                    <div className="flex items-center gap-2">
+                        <BrainCircuit className="h-4 w-4" />
+                        <span>Psicológico Detalhado</span>
+                    </div>
+                </SelectItem>
+                <SelectItem value="gossipy_friend">
+                     <div className="flex items-center gap-2">
+                        <Drama className="h-4 w-4" />
+                        <span>Amiga Fofoqueira 😜</span>
+                    </div>
+                </SelectItem>
+                <SelectItem value="spiritual">
+                     <div className="flex items-center gap-2">
+                        <Sparkles className="h-4 w-4" />
+                        <span>Espiritual</span>
+                    </div>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+        </div>
         <Tabs defaultValue="summary" className="w-full">
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
                 <MousePointerClick className="h-4 w-4" />

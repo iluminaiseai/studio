@@ -21,13 +21,13 @@ import Link from "next/link";
 import { Loader, Lock, Terminal, Share2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 function processAnswers(
   encodedAnswers: string | null
-): RelationshipInsightsInput {
-  const insightsInput: RelationshipInsightsInput = {
+): Omit<RelationshipInsightsInput, 'style'> {
+  const insightsInput: Omit<RelationshipInsightsInput, 'style'> = {
     communication: [],
     timeTogether: [],
     behaviorChanges: [],
@@ -44,7 +44,7 @@ function processAnswers(
   quizData.forEach((question, index) => {
     const answer = allAnswers[index];
     if (answer) {
-      const section = question.section as keyof RelationshipInsightsInput;
+      const section = question.section as keyof typeof insightsInput;
       if (insightsInput[section]) {
         insightsInput[section].push(answer);
       }
@@ -87,10 +87,8 @@ function htmlToWhatsApp(html: string): string {
         tag.textContent = `\n${tag.textContent?.trim()}\n`;
     });
 
-    let text = tempDiv.innerText || tempDiv.textContent || '';
-    
     // Remove emojis
-    text = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
+    let text = (tempDiv.innerText || tempDiv.textContent || '').replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
 
     // Final cleanup for extra spaces and ensuring single line breaks between list items
     text = text.replace(/(\n\s*){3,}/g, '\n\n'); 
@@ -111,7 +109,7 @@ async function FreeReport() {
     error = "Nenhuma resposta encontrada.";
   } else {
     try {
-      const insightsInput = processAnswers(answers);
+      const insightsInput = { ...processAnswers(answers), style: "detailed" as const };
       const insights = await generateRelationshipInsights(insightsInput);
       summary = insights.detailedSummary;
     } catch (e) {
@@ -199,11 +197,30 @@ async function FreeReport() {
 }
 
 function LoadingSkeleton() {
+  const [loadingText, setLoadingText] = useState("Analisando suas respostas...");
+  const texts = [
+    "Analisando suas respostas...",
+    "Consultando nossa especialista em relacionamentos...",
+    "Interpretando os sinais da sua conexão...",
+    "Montando seu diagnóstico gratuito...",
+    "Quase pronto!"
+  ];
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % texts.length;
+      setLoadingText(texts[currentIndex]);
+    }, 2000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center text-center p-4">
       <Loader className="h-12 w-12 animate-spin text-primary" />
       <p className="mt-4 font-headline text-xl md:text-2xl">
-        Analisando suas respostas...
+        {loadingText}
       </p>
       <p className="text-muted-foreground text-sm md:text-base">
         Nossa IA está preparando seu diagnóstico.
