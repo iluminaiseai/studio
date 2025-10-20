@@ -1,7 +1,6 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +13,8 @@ import {
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
-import { Loader, Lock, Terminal, Share2 } from "lucide-react";
+import { Lock, Terminal, Share2 } from "lucide-react";
+import { ReportStyle } from "@/ai/flows/generate-relationship-insights";
 
 
 // Function to convert HTML to WhatsApp formatted text
@@ -60,7 +60,7 @@ function htmlToWhatsApp(html: string): string {
 }
 
 
-function FreeReport({ summary, answers }: { summary: string | null, answers: string | null }) {
+function FreeReport({ summary, answers, style }: { summary: string | null, answers: string | null, style: ReportStyle | null }) {
   const { toast } = useToast();
   
   const handleShare = () => {
@@ -124,7 +124,7 @@ function FreeReport({ summary, answers }: { summary: string | null, answers: str
             Receba uma análise psicológica profunda, plano de ação de 7 dias e
             scripts de mensagem para transformar sua comunicação.
             <Button asChild className="mt-4 w-full sm:w-auto font-bold">
-              <Link href={`/quiz/report?answers=${answers || ""}`}>
+              <Link href={`/quiz/report?answers=${answers || ""}&style=${style || "detailed"}`}>
                 Ver Relatório Completo
               </Link>
             </Button>
@@ -136,7 +136,7 @@ function FreeReport({ summary, answers }: { summary: string | null, answers: str
 }
 
 
-export function ResultsPageClient({ summary, answers, error }: { summary: string | null; answers: string | null; error: string | null }) {
+export function ResultsPageClient({ summary, answers, style, error }: { summary: string | null; answers: string | null; style: ReportStyle | null; error: string | null }) {
     if (error) {
         return (
             <Alert variant="destructive">
@@ -146,5 +146,5 @@ export function ResultsPageClient({ summary, answers, error }: { summary: string
             </Alert>
         );
     }
-    return <FreeReport summary={summary} answers={answers} />;
+    return <FreeReport summary={summary} answers={answers} style={style} />;
 }

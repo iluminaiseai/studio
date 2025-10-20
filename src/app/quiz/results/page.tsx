@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import {
   generateRelationshipInsights,
   RelationshipInsightsInput,
+  ReportStyle,
 } from "@/ai/flows/generate-relationship-insights";
 import { quizData } from "@/lib/quiz-data";
 import { ResultsPageClient } from "./results-client";
@@ -41,9 +42,6 @@ function processAnswers(
 }
 
 function LoadingSkeleton() {
-  // This component doesn't use hooks, so it can be defined here
-  // even though the file doesn't start with "use client".
-  // Note: To use hooks, this would need to be in its own "use client" file.
   return (
     <div className="flex flex-col items-center justify-center text-center p-4">
       <Loader className="h-12 w-12 animate-spin text-primary" />
@@ -58,15 +56,18 @@ function LoadingSkeleton() {
 }
 
 
-async function ResultsData({ answers }: { answers: string | null }) {
+async function ResultsData({ answers, style }: { answers: string | null, style: ReportStyle | null }) {
     let summary: string | null = null;
     let error: string | null = null;
 
     if (!answers) {
         error = "Nenhuma resposta encontrada.";
-    } else {
+    } else if (!style) {
+        error = "Nenhum estilo de relatório foi selecionado.";
+    }
+    else {
         try {
-            const insightsInput = { ...processAnswers(answers), style: "detailed" as const };
+            const insightsInput = { ...processAnswers(answers), style: style };
             const insights = await generateRelationshipInsights(insightsInput);
             summary = insights.detailedSummary;
         } catch (e) {
@@ -85,21 +86,21 @@ async function ResultsData({ answers }: { answers: string | null }) {
         );
     }
     
-    return <ResultsPageClient summary={summary} answers={answers} error={error} />;
+    return <ResultsPageClient summary={summary} answers={answers} style={style} error={error} />;
 }
 
-// This is the main page component, a Server Component.
 export default function ResultsPage({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const answers = typeof searchParams.answers === 'string' ? searchParams.answers : null;
+  const style = typeof searchParams.style === 'string' ? searchParams.style as ReportStyle : null;
   
   return (
     <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4">
       <Suspense fallback={<LoadingSkeleton />}>
-        <ResultsData answers={answers} />
+        <ResultsData answers={answers} style={style} />
       </Suspense>
     </div>
   );

@@ -55,7 +55,7 @@ function QuizComponent() {
         setIsCompleting(true);
         const finalAnswers = [...newAnswers];
         const answersQueryParam = encodeURIComponent(finalAnswers.join("|"));
-        router.push(`/quiz/results?answers=${answersQueryParam}`);
+        router.push(`/quiz/select-style?answers=${answersQueryParam}`);
       } else {
         setShowFeedback(false);
         setFeedback(null);

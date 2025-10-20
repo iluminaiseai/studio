@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -6,16 +7,18 @@
  * - generateRelationshipInsights - A function that generates a detailed relationship report.
  * - RelationshipInsightsInput - The input type for the generateRelationshipInsights function.
  * - RelationshipInsightsOutput - The return type for the generateRelationshipInsights function.
+ * - ReportStyle - The enum for the different report styles.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-const ReportStyleSchema = z.enum([
+export const ReportStyleSchema = z.enum([
     "detailed", 
     "gossipy_friend", 
     "spiritual"
 ]);
+export type ReportStyle = z.infer<typeof ReportStyleSchema>;
 
 const RelationshipInsightsInputSchema = z.object({
   communication: z.array(z.string()).describe('Responses to communication questions.'),

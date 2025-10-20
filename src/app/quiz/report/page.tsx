@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import {
   generateRelationshipInsights,
   RelationshipInsightsInput,
+  ReportStyle,
 } from "@/ai/flows/generate-relationship-insights";
 import { quizData } from "@/lib/quiz-data";
 import { Button } from "@/components/ui/button";
@@ -26,33 +27,14 @@ import {
   CalendarCheck,
   MousePointerClick,
   Share2,
-  Sparkles,
-  Drama,
-  Paintbrush,
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, useMemo, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { z } from "zod";
-
-const ReportStyleSchema = z.enum([
-    "detailed",
-    "gossipy_friend",
-    "spiritual"
-]);
-type ReportStyle = z.infer<typeof ReportStyleSchema>;
 
 
-type FullReport = {
+type FullReportData = {
     detailedSummary: string;
     psychologicalInterpretations: string;
     actionPlan: string;
@@ -133,24 +115,30 @@ function htmlToWhatsApp(html: string): string {
 function FullReport() {
     const searchParams = useSearchParams();
     const answers = searchParams.get('answers');
-    const [insights, setInsights] = useState<FullReport | null>(null);
+    const style = searchParams.get('style') as ReportStyle | null;
+    
+    const [insights, setInsights] = useState<FullReportData | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [style, setStyle] = useState<ReportStyle>("detailed");
     const { toast } = useToast();
 
     const baseAnswers = useMemo(() => processAnswers(answers), [answers]);
 
-    const getInsights = useCallback(async (reportStyle: ReportStyle) => {
+    const getInsights = useCallback(async () => {
         if (!answers) {
             setError("Nenhuma resposta encontrada para gerar o relatório.");
+            setIsLoading(false);
+            return;
+        }
+        if (!style) {
+            setError("Nenhum estilo de relatório foi selecionado.");
             setIsLoading(false);
             return;
         }
         try {
             setIsLoading(true);
             setError(null);
-            const insightsInput = { ...baseAnswers, style: reportStyle };
+            const insightsInput = { ...baseAnswers, style: style };
             const result = await generateRelationshipInsights(insightsInput);
             setInsights(result);
         } catch (e) {
@@ -160,11 +148,11 @@ function FullReport() {
         } finally {
             setIsLoading(false);
         }
-    }, [answers, baseAnswers]);
+    }, [answers, style, baseAnswers]);
 
     useEffect(() => {
-        getInsights(style);
-    }, [style, getInsights]);
+        getInsights();
+    }, [getInsights]);
 
     const handleShare = () => {
         if (!insights) return;
@@ -185,10 +173,6 @@ function FullReport() {
             });
         }
     };
-
-  const handleStyleChange = (newStyle: ReportStyle) => {
-    setStyle(newStyle);
-  };
   
     if (isLoading) {
         return <LoadingSkeleton />;
@@ -204,7 +188,7 @@ function FullReport() {
             {error || "Não foi possível carregar os dados do relatório."}
           </AlertDescription>
         </Alert>
-        <Button onClick={() => getInsights(style)}>Tentar novamente</Button>
+        <Button onClick={getInsights}>Tentar novamente</Button>
         <Button asChild variant="secondary">
           <Link href="/">Voltar ao início</Link>
         </Button>
@@ -224,37 +208,6 @@ function FullReport() {
         </CardDescription>
       </CardHeader>
       <CardContent className="p-4 md:p-6">
-        <div className="mb-6 flex flex-col items-center gap-2">
-            <Label htmlFor="style-select" className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                <Paintbrush className="h-4 w-4" />
-                Escolha o tom da análise:
-            </Label>
-            <Select onValueChange={(value: ReportStyle) => handleStyleChange(value)} defaultValue={style}>
-              <SelectTrigger id="style-select" className="w-full sm:w-[320px] font-medium">
-                <SelectValue placeholder="Selecione o estilo..." />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="detailed">
-                    <div className="flex items-center gap-2">
-                        <BrainCircuit className="h-4 w-4" />
-                        <span>Psicológico Detalhado</span>
-                    </div>
-                </SelectItem>
-                <SelectItem value="gossipy_friend">
-                     <div className="flex items-center gap-2">
-                        <Drama className="h-4 w-4" />
-                        <span>Amiga Fofoqueira 😜</span>
-                    </div>
-                </SelectItem>
-                <SelectItem value="spiritual">
-                     <div className="flex items-center gap-2">
-                        <Sparkles className="h-4 w-4" />
-                        <span>Espiritual</span>
-                    </div>
-                </SelectItem>
-              </SelectContent>
-            </Select>
-        </div>
         <Tabs defaultValue="summary" className="w-full">
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
                 <MousePointerClick className="h-4 w-4" />
