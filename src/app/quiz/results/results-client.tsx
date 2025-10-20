@@ -222,7 +222,10 @@ export function ResultsPageClient({ answers, style }: { answers: string | null; 
                         clearInterval(interval);
                         return 99;
                     }
-                    const next = prev + 1;
+                    const remaining = 100 - prev;
+                    const increment = Math.max(1, Math.floor(remaining / 10));
+                    const next = Math.min(prev + increment, 99);
+                    
                     const messageIndex = Math.min(Math.floor(next / (100 / loadingMessages.length)), loadingMessages.length - 1);
                     setLoadingMessage(loadingMessages[messageIndex]);
                     return next;
@@ -254,7 +257,7 @@ export function ResultsPageClient({ answers, style }: { answers: string | null; 
                     Analisando suas respostas...
                 </p>
                 <Progress value={progress} className="w-full mb-2" />
-                <p className="text-sm font-semibold text-primary">{progress}%</p>
+                <p className="text-sm font-semibold text-primary">{Math.round(progress)}%</p>
                 <p className="text-sm text-muted-foreground h-4 mt-2">{loadingMessage}</p>
             </div>
         )
