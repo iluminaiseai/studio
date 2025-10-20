@@ -121,14 +121,14 @@ function FullReport() {
                         return 99;
                     }
                     const remaining = 100 - prev;
-                    const increment = Math.max(1, Math.floor(remaining / 10));
+                    const increment = Math.max(1, Math.floor(remaining / 20));
                     const next = Math.min(prev + increment, 99);
                     
                     const messageIndex = Math.min(Math.floor(next / (100 / loadingMessages.length)), loadingMessages.length - 1);
                     setLoadingMessage(loadingMessages[messageIndex]);
                     return next;
                 });
-            }, 120);
+            }, 250);
             return () => clearInterval(interval);
         } else if (insights || error) {
             setProgress(100);
