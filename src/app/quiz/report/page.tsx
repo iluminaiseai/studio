@@ -75,11 +75,11 @@ function ErrorMessage({ message, retryable = true }: { message: string, retryabl
 }
 
 const loadingMessages = [
-    "Analisando seus padrões de comunicação...",
-    "Interpretando os sinais de interesse...",
-    "Avaliando a dinâmica do tempo juntos...",
-    "Cruzando dados sobre as reações a conflitos...",
-    "Montando seu relatório completo e plano de ação...",
+    "Aprofundando a análise psicológica...",
+    "Construindo seu plano de ação de 7 dias...",
+    "Gerando scripts de mensagem personalizados...",
+    "Compilando seu relatório completo...",
+    "Finalizando os detalhes...",
 ];
 
 function FullReport() {
@@ -130,8 +130,8 @@ function FullReport() {
                 });
             }, 250);
             return () => clearInterval(interval);
-        } else if (insights || error) {
-            setProgress(100);
+        } else {
+             setProgress(100);
              setLoadingMessage(error ? "Ocorreu um erro" : "Seu relatório está pronto!");
         }
     }, [insights, error]);
