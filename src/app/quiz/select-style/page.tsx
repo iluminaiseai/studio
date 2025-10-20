@@ -1,13 +1,13 @@
 
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BrainCircuit, Drama, Loader } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { ResultsPageClient, ReportStyle } from '../results/results-client';
+import type { ReportStyle } from '@/lib/pregenerated-responses';
 
 const styles = [
   {
@@ -25,18 +25,10 @@ const styles = [
 ];
 
 function StyleSelector() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const answers = searchParams.get('answers');
-  const [selectedStyle, setSelectedStyle] = useState<ReportStyle | null>(null);
   const [loadingStyle, setLoadingStyle] = useState<string | null>(null);
-
-  if (selectedStyle) {
-    return (
-       <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4">
-        <ResultsPageClient answers={answers} style={selectedStyle} />
-       </div>
-    );
-  }
 
   if (!answers) {
     return (
@@ -52,8 +44,12 @@ function StyleSelector() {
   const handleStyleSelect = (style: ReportStyle) => {
     if (loadingStyle) return;
     setLoadingStyle(style);
-    // We now render the results component on the same page
-    setSelectedStyle(style);
+    
+    const params = new URLSearchParams();
+    params.set('answers', answers);
+    params.set('style', style);
+    
+    router.push(`/quiz/results?${params.toString()}`);
   };
 
   return (
@@ -61,7 +57,7 @@ function StyleSelector() {
         <div className="mb-8">
             <h1 className="font-headline text-3xl font-bold md:text-5xl">Quase lá!</h1>
             <p className="mt-2 text-lg text-muted-foreground md:text-xl">Como você prefere receber seu resultado?</p>
-            <p className="text-sm text-muted-foreground">(Isso vai definir o tom da análise gratuita e do relatório completo)</p>
+            <p className="text-sm text-muted-foreground">(Isso vai definir o tom da análise)</p>
         </div>
 
         <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:max-w-2xl">
