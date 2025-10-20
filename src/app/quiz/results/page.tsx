@@ -19,7 +19,6 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
 import { Loader, Lock, Terminal, Share2 } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useEffect } from "react";
 
@@ -218,22 +217,7 @@ function ResultsPageClient({ summary, answers, error }: { summary: string | null
     return <FreeReport summary={summary} answers={answers} />;
 }
 
-export default function ResultsPageWrapper({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const answers = typeof searchParams.answers === 'string' ? searchParams.answers : null;
-  return (
-    <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4">
-      <Suspense fallback={<LoadingSkeleton />}>
-        <ResultsPage answers={answers} />
-      </Suspense>
-    </div>
-  );
-}
-
-async function ResultsPage({ answers }: { answers: string | null }) {
+async function ResultsData({ answers }: { answers: string | null }) {
     let summary: string | null = null;
     let error: string | null = null;
 
@@ -250,4 +234,19 @@ async function ResultsPage({ answers }: { answers: string | null }) {
         }
     }
     return <ResultsPageClient summary={summary} answers={answers} error={error} />;
+}
+
+export default function ResultsPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const answers = typeof searchParams.answers === 'string' ? searchParams.answers : null;
+  return (
+    <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4">
+      <Suspense fallback={<LoadingSkeleton />}>
+        <ResultsData answers={answers} />
+      </Suspense>
+    </div>
+  );
 }
