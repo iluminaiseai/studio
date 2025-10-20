@@ -10,7 +10,7 @@ import { Loader } from "lucide-react";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Terminal } from "lucide-react";
 
-export type ReportStyle = "detailed" | "gossipy_friend" | "spiritual";
+export type ReportStyle = "detailed" | "gossipy_friend";
 
 function processAnswers(
   encodedAnswers: string | null

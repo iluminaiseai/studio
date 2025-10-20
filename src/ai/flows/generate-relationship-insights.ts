@@ -14,8 +14,7 @@ import {z} from 'genkit';
 
 const ReportStyleSchema = z.enum([
     "detailed", 
-    "gossipy_friend", 
-    "spiritual"
+    "gossipy_friend"
 ]);
 export type ReportStyle = z.infer<typeof ReportStyleSchema>;
 
@@ -50,7 +49,6 @@ const prompt = ai.definePrompt({
 Adote a personalidade correspondente ao estilo solicitado:
 - **Se o estilo for "detailed" (psicológico detalhado):** Use um tom empático, analítico e profissional. Fale diretamente com o usuário (use "você", "suas respostas"). O tom deve ser acolhedor, mas focado em interpretações psicológicas e insights práticos. Use uma linguagem clara e estruturada.
 - **Se o estilo for "gossipy_friend" (amiga fofoqueira):** Use um tom super informal, divertido e um pouco exagerado, como uma melhor amiga contando uma fofoca quente. Use gírias, emojis (😜, 😱, 🤔, ✨) e fale como se estivesse conversando no WhatsApp. Ex: "Amiga, senta aqui, vamos analisar esse boy!", "Olha, sinceramente...", "MEU DEUS!".
-- **Se o estilo for "spiritual":** Use um tom sereno, inspirador e conectado com energias e o universo. Fale sobre ciclos, aprendizados da alma, sincronicidade e crescimento espiritual. Use uma linguagem elevada e metafórica. Ex: "As energias do universo estão se movendo...", "Sua alma está buscando um alinhamento...".
 
 **Instruções de Formatação (para todos os estilos):**
 - **Clareza e Simplicidade:** Use parágrafos curtos.

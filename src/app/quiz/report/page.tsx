@@ -31,7 +31,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 
-export type ReportStyle = "detailed" | "gossipy_friend" | "spiritual";
+export type ReportStyle = "detailed" | "gossipy_friend";
 
 type FullReportData = {
     detailedSummary: string;

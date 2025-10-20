@@ -4,7 +4,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BrainCircuit, Drama, Loader, Sparkles } from 'lucide-react';
+import { BrainCircuit, Drama, Loader } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
@@ -20,12 +20,6 @@ const styles = [
     title: 'Amiga Fofoqueira 😜',
     description: 'Um tom super informal e divertido, como uma conversa no WhatsApp.',
     icon: Drama,
-  },
-  {
-    key: 'spiritual',
-    title: 'Espiritual',
-    description: 'Uma visão serena, conectada com energias, ciclos e crescimento da alma.',
-    icon: Sparkles,
   },
 ];
 
@@ -60,7 +54,7 @@ function StyleSelector() {
             <p className="text-sm text-muted-foreground">(Isso vai definir o tom da análise gratuita e do relatório completo)</p>
         </div>
 
-        <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:max-w-2xl">
             {styles.map((style) => {
                 const Icon = style.icon;
                 const isLoading = loadingStyle === style.key;
