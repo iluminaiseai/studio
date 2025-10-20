@@ -1,4 +1,5 @@
 
+
 "use client"
 
 import { Suspense } from "react";
@@ -24,6 +25,18 @@ function ResultsDataWrapper() {
   const searchParams = useSearchParams();
   const answers = searchParams.get('answers');
   const style = searchParams.get('style');
+
+  if (!style) {
+    // This case should ideally not be hit if navigation comes from select-style
+    return (
+      <div className="text-center text-destructive">
+        <p>Estilo de relatório não selecionado.</p>
+        <Link href="/quiz" className="text-primary hover:underline">
+          Voltar ao início do quiz
+        </Link>
+      </div>
+    );
+  }
 
   return <ResultsPageClient answers={answers} style={style as any} />;
 }

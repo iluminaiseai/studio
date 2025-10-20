@@ -1,22 +1,23 @@
 
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BrainCircuit, Drama, Loader } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { ResultsPageClient, ReportStyle } from '../results/results-client';
 
 const styles = [
   {
-    key: 'detailed',
+    key: 'detailed' as ReportStyle,
     title: 'Psicológico Detalhado',
     description: 'Uma análise profissional, empática e focada em insights práticos.',
     icon: BrainCircuit,
   },
   {
-    key: 'gossipy_friend',
+    key: 'gossipy_friend' as ReportStyle,
     title: 'Amiga Fofoqueira 😜',
     description: 'Um tom super informal e divertido, como uma conversa no WhatsApp.',
     icon: Drama,
@@ -24,10 +25,18 @@ const styles = [
 ];
 
 function StyleSelector() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const answers = searchParams.get('answers');
+  const [selectedStyle, setSelectedStyle] = useState<ReportStyle | null>(null);
   const [loadingStyle, setLoadingStyle] = useState<string | null>(null);
+
+  if (selectedStyle) {
+    return (
+       <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4">
+        <ResultsPageClient answers={answers} style={selectedStyle} />
+       </div>
+    );
+  }
 
   if (!answers) {
     return (
@@ -40,10 +49,11 @@ function StyleSelector() {
     );
   }
 
-  const handleStyleSelect = (style: string) => {
+  const handleStyleSelect = (style: ReportStyle) => {
     if (loadingStyle) return;
     setLoadingStyle(style);
-    router.push(`/quiz/results?answers=${answers}&style=${style}`);
+    // We now render the results component on the same page
+    setSelectedStyle(style);
   };
 
   return (
