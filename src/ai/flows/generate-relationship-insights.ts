@@ -29,7 +29,7 @@ const RelationshipInsightsInputSchema = z.object({
 export type RelationshipInsightsInput = z.infer<typeof RelationshipInsightsInputSchema>;
 
 const RelationshipInsightsOutputSchema = z.object({
-  detailedSummary: z.string().describe('A detailed summary of the relationship insights. Must be a single paragraph of about 10 lines.'),
+  detailedSummary: z.string().describe('A detailed summary of the relationship insights. Must be a single paragraph of about 6 lines.'),
   psychologicalInterpretations: z.string().describe('Psychological interpretations of observed signals.'),
   actionPlan: z.string().describe('A 7-day action plan with message scripts.'),
 });
@@ -53,7 +53,7 @@ Adote a personalidade correspondente ao estilo solicitado:
 **Instruções de Formatação e Conteúdo:**
 - **Clareza e Simplicidade:** Use parágrafos curtos.
 - **Estrutura do Relatório:**
-    1.  **Resumo Detalhado (detailedSummary):** Comece com uma análise geral concisa. **IMPORTANTE: Este resumo deve ser um único parágrafo com aproximadamente 10 linhas.**
+    1.  **Resumo Detalhado (detailedSummary):** Comece com uma análise geral concisa. **IMPORTANTE: Este resumo deve ser um único parágrafo com aproximadamente 6 linhas.**
         - Use \`<h3>\` para títulos, \`<p>\` para parágrafos.
         - Adicione um "Insight Rápido 💡" (ou versão adaptada ao estilo).
     2.  **Interpretações Psicológicas (psychologicalInterpretations):**
@@ -89,5 +89,3 @@ const generateRelationshipInsightsFlow = ai.defineFlow(
     return output!;
   }
 );
-
-
