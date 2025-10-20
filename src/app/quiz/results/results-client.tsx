@@ -14,10 +14,16 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
 import { Lock, Terminal, Share2, Loader } from "lucide-react";
-import type { ReportStyle } from "./page";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import {
+  generateRelationshipInsights,
+  RelationshipInsightsInput,
+} from "@/ai/flows/generate-relationship-insights";
+import { quizData } from "@/lib/quiz-data";
+import { Progress } from "@/components/ui/progress";
 
+export type ReportStyle = "detailed" | "gossipy_friend";
 
 // Function to convert HTML to WhatsApp formatted text
 function htmlToWhatsApp(html: string): string {
@@ -61,8 +67,38 @@ function htmlToWhatsApp(html: string): string {
     return text.trim();
 }
 
+function processAnswers(
+  encodedAnswers: string | null
+): Omit<RelationshipInsightsInput, 'style'> {
+  const insightsInput: Omit<RelationshipInsightsInput, 'style'> = {
+    communication: [],
+    timeTogether: [],
+    behaviorChanges: [],
+    reactionsToConflicts: [],
+    signsOfInterest: [],
+  };
 
-function FreeReport({ summary, answers, style }: { summary: string | null, answers: string | null, style: ReportStyle | null }) {
+  if (!encodedAnswers) {
+    return insightsInput;
+  }
+
+  const allAnswers = decodeURIComponent(encodedAnswers).split("|");
+
+  quizData.forEach((question, index) => {
+    const answer = allAnswers[index];
+    if (answer) {
+      const section = question.section as keyof typeof insightsInput;
+      if (insightsInput[section]) {
+        insightsInput[section].push(answer);
+      }
+    }
+  });
+
+  return insightsInput;
+}
+
+
+function FreeReport({ summary, answers, style }: { summary: string, answers: string | null, style: ReportStyle | null }) {
   const { toast } = useToast();
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
@@ -92,16 +128,6 @@ function FreeReport({ summary, answers, style }: { summary: string | null, answe
     router.push(`/quiz/report?answers=${answers || ""}&style=${style || "detailed"}`);
   };
 
-
-  if (!summary) {
-     return (
-     <Alert variant="destructive">
-       <Terminal className="h-4 w-4" />
-       <AlertTitle>Erro ao gerar diagnóstico</AlertTitle>
-       <AlertDescription>Não foi possível gerar seu resultado. Por favor, tente novamente.</AlertDescription>
-     </Alert>
-   );
- }
 
   return (
     <Card className="w-full shadow-lg">
@@ -153,16 +179,85 @@ function FreeReport({ summary, answers, style }: { summary: string | null, answe
   );
 }
 
+const loadingMessages = [
+    "Analisando seus padrões de comunicação...",
+    "Interpretando os sinais de interesse...",
+    "Avaliando a dinâmica do tempo juntos...",
+    "Cruzando dados sobre as reações a conflitos...",
+    "Montando seu diagnóstico personalizado...",
+];
 
-export function ResultsPageClient({ summary, answers, style, error }: { summary: string | null; answers: string | null; style: ReportStyle | null; error: string | null }) {
+export function ResultsPageClient({ answers, style }: { answers: string | null; style: ReportStyle | null;}) {
+    const [summary, setSummary] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [progress, setProgress] = useState(0);
+    const [loadingMessage, setLoadingMessage] = useState(loadingMessages[0]);
+    
+    useEffect(() => {
+        if (!answers || !style) {
+            setError("Parâmetros inválidos para gerar o resultado.");
+            return;
+        }
+
+        const generate = async () => {
+            try {
+                const insightsInput = { ...processAnswers(answers), style };
+                const insights = await generateRelationshipInsights(insightsInput);
+                setSummary(insights.detailedSummary);
+            } catch (e) {
+                console.error(e);
+                setError("Houve um problema ao contatar nossa IA. Por favor, tente novamente mais tarde.");
+            }
+        };
+
+        generate();
+    }, [answers, style]);
+
+
+     useEffect(() => {
+        if (!summary && !error) {
+            const interval = setInterval(() => {
+                setProgress(prev => {
+                    if (prev >= 95) {
+                        clearInterval(interval);
+                        return 95;
+                    }
+                    const next = prev + 5;
+                    const messageIndex = Math.min(Math.floor(next / (100 / loadingMessages.length)), loadingMessages.length - 1);
+                    setLoadingMessage(loadingMessages[messageIndex]);
+                    return next;
+                });
+            }, 400);
+            return () => clearInterval(interval);
+        } else if (summary || error) {
+            setProgress(100);
+            setLoadingMessage(error ? "Ocorreu um erro" : "Seu resultado está pronto!");
+        }
+    }, [summary, error]);
+
     if (error) {
         return (
             <Alert variant="destructive">
                 <Terminal className="h-4 w-4" />
                 <AlertTitle>Erro ao gerar diagnóstico</AlertTitle>
                 <AlertDescription>{error}</AlertDescription>
+                 <Button onClick={() => window.location.reload()} className="mt-4">Tentar novamente</Button>
             </Alert>
         );
     }
+    
+    if (!summary) {
+        return (
+            <div className="w-full max-w-md text-center">
+                 <Loader className="h-12 w-12 animate-spin text-primary mx-auto" />
+                <p className="mt-4 font-headline text-xl md:text-2xl mb-2">
+                    Analisando suas respostas...
+                </p>
+                <Progress value={progress} className="w-full mb-4" />
+                <p className="text-sm text-muted-foreground h-4">{loadingMessage}</p>
+            </div>
+        )
+    }
+
     return <FreeReport summary={summary} answers={answers} style={style} />;
 }
