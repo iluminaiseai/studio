@@ -29,7 +29,7 @@ const RelationshipInsightsInputSchema = z.object({
 export type RelationshipInsightsInput = z.infer<typeof RelationshipInsightsInputSchema>;
 
 const RelationshipInsightsOutputSchema = z.object({
-  detailedSummary: z.string().describe('A detailed summary of the relationship insights.'),
+  detailedSummary: z.string().describe('A detailed summary of the relationship insights. Must be a maximum of 3 short paragraphs.'),
   psychologicalInterpretations: z.string().describe('Psychological interpretations of observed signals.'),
   actionPlan: z.string().describe('A 7-day action plan with message scripts.'),
 });
@@ -50,13 +50,13 @@ Adote a personalidade correspondente ao estilo solicitado:
 - **Se o estilo for "detailed" (psicológico detalhado):** Use um tom empático, analítico e profissional. Fale diretamente com o usuário (use "você", "suas respostas"). O tom deve ser acolhedor, mas focado em interpretações psicológicas e insights práticos. Use uma linguagem clara e estruturada.
 - **Se o estilo for "gossipy_friend" (amiga fofoqueira):** Use um tom super informal, divertido e um pouco exagerado, como uma melhor amiga contando uma fofoca quente. Use gírias, emojis (😜, 😱, 🤔, ✨) e fale como se estivesse conversando no WhatsApp. Ex: "Amiga, senta aqui, vamos analisar esse boy!", "Olha, sinceramente...", "MEU DEUS!".
 
-**Instruções de Formatação (para todos os estilos):**
+**Instruções de Formatação e Conteúdo:**
 - **Clareza e Simplicidade:** Use parágrafos curtos.
 - **Estrutura do Relatório:**
-    1.  **Resumo Detalhado (detailedSummary):** Comece com uma análise geral.
+    1.  **Resumo Detalhado (detailedSummary):** Comece com uma análise geral concisa. **IMPORTANTE: Este resumo deve ter no máximo 3 parágrafos curtos.**
         - Use \`<h3>\` para títulos, \`<p>\` para parágrafos.
         - Adicione um "Insight Rápido 💡" (ou versão adaptada ao estilo).
-    2.  **Interpretações (psychologicalInterpretations):**
+    2.  **Interpretações Psicológicas (psychologicalInterpretations):**
         - Explique o significado por trás dos comportamentos.
         - Use \`<strong>\` para destacar conceitos importantes.
         - Use \`<h3>\` para o título, \`<p>\` para parágrafos.
@@ -89,3 +89,4 @@ const generateRelationshipInsightsFlow = ai.defineFlow(
     return output!;
   }
 );
+
