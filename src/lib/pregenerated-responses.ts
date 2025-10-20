@@ -13,14 +13,9 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
   positive: {
     detailed: {
       free: {
-        detailedSummary: `
-          <h3>Análise Inicial: Conexão Forte e Saudável 💡</h3>
-          <p>
-            Suas respostas indicam um relacionamento com uma base sólida de comunicação, interesse mútuo e reciprocidade. A consistência no comportamento, a abertura para diálogos e as demonstrações de afeto são sinais muito positivos de um vínculo seguro e saudável. Parece que vocês construíram um ambiente de confiança, onde ambos se sentem valorizados e ouvidos, com um compromisso claro para o futuro. Continue nutrindo essa conexão.
-          </p>
-        `,
-        psychologicalInterpretations: '', // Preenchido na versão completa
-        actionPlan: '', // Preenchido na versão completa
+        detailedSummary: ``,
+        psychologicalInterpretations: '', 
+        actionPlan: '', 
       },
       full: {
         detailedSummary: `
@@ -53,19 +48,13 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Dia 6 (Revisão de Memórias Felizes):</strong> Abram uma pasta de fotos antigas e relembrem um momento feliz. Conversem sobre o que sentiram naquele dia e o que aquela memória representa para vocês. Isso ativa sentimentos positivos associados ao início da relação.</li>
             <li><strong>Dia 7 (Meta de Crescimento Conjunto):</strong> Definam uma "meta de casal" para o próximo trimestre. Pode ser algo como "ler o mesmo livro e discutir", "aprender a investir juntos" ou "fazer um curso online". Crescer juntos é um dos antídotos mais poderosos contra a estagnação. 📚</li>
           </ul>
-          <h3>Conclusão Final 🌟</h3>
           <p>Seu relacionamento é um exemplo de saúde e equilíbrio. O segredo para o futuro é não se acomodar. A complacência é o inimigo silencioso dos grandes amores. Continue investindo intencionalmente na comunicação, na vulnerabilidade e nas experiências compartilhadas para que a conexão não apenas permaneça forte, mas continue a evoluir e surpreender vocês dois.</p>
         `,
       },
     },
     gossipy_friend: {
       free: {
-        detailedSummary: `
-          <h3>Amiga, tá tudo ótimo! ✨</h3>
-          <p>
-            Olha, pelo que você me contou, esse romance tá voando em céu de brigadeiro! 😱 Ele(a) responde rápido, presta atenção em você, inicia conversa e vocês até falam de sentimentos. Sinceramente? Isso é ouro! Parece que você tirou a sorte grande. A conexão de vocês é super forte, então pode guardar aquele medinho bobo na gaveta e curtir essa fase maravilhosa! 😜
-          </p>
-        `,
+        detailedSummary: ``,
         psychologicalInterpretations: '',
         actionPlan: '',
       },
@@ -100,7 +89,6 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Dia 6 (Sessão Nostalgia 2.0):</strong> "Qual a nossa memória mais engraçada juntos?". Relembrar perrengues que viraram história é o melhor tipo de terapia de casal. Prepare a pipoca! 🍿</li>
             <li><strong>Dia 7 (Desafio de Casal):</strong> "Desafio da semana: quem fizer o outro rir mais alto, ganha". O prêmio? O perdedor paga o jantar. Competição saudável é tudo! 🏆</li>
           </ul>
-          <h3>Resumindo, gata... 💅</h3>
           <p>Relaxa e aproveita! A vibe tá boa, a sintonia tá alta. Vocês já são incríveis juntos. O ponto agora é continuar se divertindo no processo e nunca deixar a peteca cair. Tá tudo lindo, e vai ficar ainda mais! Voa, minha filha! 🚀</p>
         `,
       },
@@ -109,12 +97,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
   mixed: {
     detailed: {
       free: {
-        detailedSummary: `
-          <h3>Análise Inicial: Sinais Mistos e Inconsistência 💡</h3>
-          <p>
-            O cenário que você descreve é de altos e baixos, o que pode gerar bastante ansiedade. Há momentos claros de conexão, mas são intercalados com períodos de distância e comunicação irregular. Essa inconsistência sugere que pode haver fatores externos (estresse, outras prioridades) ou uma incerteza interna da parte dele(a) sobre o relacionamento. É crucial observar os padrões e buscar um diálogo honesto para entender a raiz dessa dinâmica.
-          </p>
-        `,
+        detailedSummary: ``,
         psychologicalInterpretations: '',
         actionPlan: '',
       },
@@ -149,19 +132,13 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Dia 6 (Reforço Positivo Estratégico):</strong> Se ele(a) demonstrar um comportamento positivo que você deseja (iniciar uma conversa profunda, fazer um plano), reforce. "Adorei conversar com você hoje, foi leve e divertido!". Isso mostra o que você valoriza.</li>
             <li><strong>Dia 7 (A Conversa Honesta e Calma):</strong> Se a inconsistência persistir, prepare-se para uma conversa usando a técnica "Eu sinto". Ex: "Eu sinto que nossa comunicação tem sido um pouco instável, com altos e baixos. Isso me deixa um pouco confusa sobre onde estamos. Como você vê as coisas do seu lado?". É sobre seus sentimentos, não sobre acusá-lo(a).</li>
           </ul>
-          <h3>Conclusão Final 🧭</h3>
           <p>A inconsistência drena sua energia e autoestima. Este plano serve para tirar você do papel de "perseguidora" e te colocar no de "observadora consciente". As ações (ou a falta delas) da outra pessoa na próxima semana lhe darão a resposta mais clara que você precisa para decidir se vale a pena continuar investindo seu tempo e emoções nesse relacionamento.</p>
         `,
       },
     },
     gossipy_friend: {
       free: {
-        detailedSummary: `
-          <h3>Amiga, que rolo, hein? 🤔</h3>
-          <p>
-            Senta aqui, vamos fofocar. A situação é uma montanha-russa! Tem hora que ele(a) é um fofo, responde, parece super a fim. Daí, do nada, some, vira um fantasma. 👻 Essa coisa de "às vezes sim, às vezes não" deixa qualquer uma maluca, né? Fica parecendo um jogo que a gente não sabe as regras. Será que tá se fazendo de difícil ou tá só confuso(a) mesmo? Precisamos investigar isso!
-          </p>
-        `,
+        detailedSummary: ``,
         psychologicalInterpretations: '',
         actionPlan: '',
       },
@@ -196,7 +173,6 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Dia 6 (O Confronto de Veludo):</strong> Se a montanha-russa continuar, talvez seja hora daquela conversa. "Fulano(a), eu gosto muito de você, mas fico confusa com essa inconstância. Tem dias que estamos super conectados e outros que você some. Só queria entender o que se passa". Direta, mas sem acusar. Classe, sempre!</li>
             <li><strong>Dia 7 (Dia do Veredito):</strong> Analise a semana. Ele(a) se esforçou mais? Ou continuou na mesma ladainha? A reação ao seu sumiço e à sua conversa dirá TUDO. Confie nas ações, não nas palavras bonitas.</li>
           </ul>
-          <h3>Conclusão da fofoca ☕</h3>
           <p>Amiga, valorize seu tempo e sua paz de espírito! Você não é centro de reabilitação pra gente confusa. Ou a pessoa decide entrar no barco e remar junto, ou é melhor pular fora e pegar um jet ski sozinha. Você merece um amor que seja calmaria, não uma tempestade constante. E se não for ele, que venha o próximo! A fila anda, e a sua tá cheia de gente interessante. 😉</p>
         `,
       },
@@ -205,12 +181,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
   negative: {
     detailed: {
       free: {
-        detailedSummary: `
-          <h3>Análise Inicial: Sinais de Alerta e Distanciamento 💡</h3>
-          <p>
-            As respostas apontam para um padrão preocupante de distanciamento emocional e falta de reciprocidade. A demora constante nas respostas, a falta de iniciativa e a evasão de tópicos importantes são fortes indicativos de desinteresse ou de que a conexão se desgastou. A indiferença em conflitos e a ausência de afeto sugerem um cenário que exige uma avaliação honesta sobre a saúde deste relacionamento para você. É crucial proteger seu bem-estar.
-          </p>
-        `,
+        detailedSummary: ``,
         psychologicalInterpretations: '',
         actionPlan: '',
       },
@@ -245,19 +216,13 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Dia 6 (Construa Sua Rede de Apoio):</strong> Avise um ou dois amigos de confiança que você terá uma conversa difícil e que precisará de suporte. Peça para que eles estejam disponíveis para você conversar depois. Não passe por isso sozinha. 🤝</li>
             <li><strong>Dia 7 (A Conversa Libertadora):</strong> Tenha a conversa. Seja breve, clara e firme. Não caia em promessas vagas de mudança de última hora. O histórico de comportamento é o dado mais concreto que você tem. Sua paz de espírito é a prioridade número um.</li>
           </ul>
-          <h3>Conclusão Final 🚪</h3>
           <p>Você merece um relacionamento onde se sinta segura, vista, ouvida e celebrada. Os sinais indicam que isso não está acontecendo aqui. A decisão mais corajosa e saudável que você pode tomar agora é escolher a si mesma. O fim de um ciclo doloroso não é um fracasso, é o começo de uma nova fase de paz, autodescoberta e a abertura para um amor que te transborde, não que te esvazie.</p>
         `,
       },
     },
     gossipy_friend: {
       free: {
-        detailedSummary: `
-          <h3>Amiga, Red Flag Gigante! 🚩</h3>
-          <p>
-            PELO AMOR DE DEUS! O que você tá fazendo nesse barco furado? 😱 Ele(a) te ignora, não demonstra o mínimo de interesse, te trata com indiferença... Sinceramente, isso não é relacionamento, é um teste de paciência que você não deveria estar fazendo. Parece que só você tá remando. Acorda, mulher! Você merece muito mais do que essas migalhas. Vamos conversar sobre amor-próprio!
-          </p>
-        `,
+        detailedSummary: ``,
         psychologicalInterpretations: '',
         actionPlan: '',
       },
@@ -292,7 +257,6 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Dia 6 (Momento "Saudade? Que Saudade?"):</strong> Se a saudade bater (e ela pode bater, a gente é humana), leia a lista do Dia 4. Em voz alta. Lembre-se do alívio, não da dor. E depois, chame uma amiga pra ir fazer algo divertido.</li>
             <li><strong>Dia 7 (Celebre a Liberdade!):</strong> Brinde! Sozinha, com amigos, com o gato. Você se livrou de um peso morto que te impedia de voar. Hoje é o primeiro dia do resto da sua vida incrível, cheia de possibilidades e gente que te valoriza. 🎉</li>
           </ul>
-          <h3>Conselho de amiga do fundo do coração ❤️</h3>
           <p>Não aceite um amor que te faça duvidar de si mesma ou que te dê trabalho. Amor tem que ser leve, tem que somar. Você merece alguém que te olhe e pense "caramba, que sorte eu tenho". Se essa pessoa não viu o mulherão que você é, o azar é 100% dela. Próximo da fila, por favor! 💁‍♀️</p>
         `,
       },
@@ -302,13 +266,11 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
 
 export function getPregeneratedResponse(answerKey: AnswerKey, style: ReportStyle, type: ReportType): ReportContent | null {
   try {
-    return responses[answerKey][style][type];
+    // O tipo 'free' não existe mais, então sempre retornamos 'full'
+    return responses[answerKey][style]['full'];
   } catch (error) {
     console.error(`Could not find pre-generated response for: ${answerKey}, ${style}, ${type}`);
-    // Fallback to a default response to avoid crashing
-    if (type === 'full') {
-        return responses['mixed']['detailed']['full'];
-    }
-    return responses['mixed']['detailed']['free'];
+    // Fallback para uma resposta padrão para evitar quebrar a aplicação
+    return responses['mixed']['detailed']['full'];
   }
 }

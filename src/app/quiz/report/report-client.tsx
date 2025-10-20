@@ -1,7 +1,6 @@
 
 "use client";
 
-import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,14 +10,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  BrainCircuit,
-  MessageSquare,
-  CalendarCheck,
-  MousePointerClick,
-  Share2,
-} from "lucide-react";
+import { BrainCircuit, MessageSquare, CalendarCheck, Lock, ArrowRight } from "lucide-react";
+import Link from 'next/link';
 
 type FullReportData = {
     detailedSummary: string;
@@ -26,70 +19,52 @@ type FullReportData = {
     actionPlan: string;
 }
 
-// Function to convert HTML to WhatsApp formatted text
-function htmlToWhatsApp(html: string): string {
-    if (typeof document === 'undefined') {
-        return '';
+// Function to split the action plan into visible and blurred parts
+function getActionPlanParts(html: string): { visible: string, blurred: string } {
+  if (typeof document === 'undefined') {
+    return { visible: html, blurred: '' };
+  }
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = html;
+
+  const listItems = tempDiv.querySelectorAll('li');
+  const visibleItems: string[] = [];
+  const blurredItems: string[] = [];
+
+  listItems.forEach((item, index) => {
+    if (index < 3) {
+      visibleItems.push(item.outerHTML);
+    } else {
+      blurredItems.push(item.outerHTML);
     }
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = html;
+  });
 
-    // Replace <strong> with asterisks
-    tempDiv.querySelectorAll('strong, b').forEach(tag => {
-        tag.textContent = `*${tag.textContent?.trim()}*`;
-    });
+  const headers = tempDiv.querySelectorAll('h3, p');
+  let visibleHeader = '';
+  if (headers.length > 0) {
+    visibleHeader += headers[0].outerHTML;
+  }
+   if (headers.length > 1) {
+    visibleHeader += headers[1].outerHTML;
+  }
 
-    // Handle titles
-    tempDiv.querySelectorAll('h3').forEach(tag => {
-        tag.textContent = `\n\n*${tag.textContent?.trim()}*\n`;
-    });
+  // Ensure blurred part also includes the concluding paragraph if it exists
+  let blurredFooter = '';
+  const lastParagraph = tempDiv.querySelector('p:last-of-type');
+  if (lastParagraph && blurredItems.length > 0) {
+      blurredFooter = lastParagraph.outerHTML;
+  }
 
-    // Handle paragraphs
-    tempDiv.querySelectorAll('p').forEach(tag => {
-        tag.textContent = `${tag.textContent?.trim()}\n\n`;
-    });
 
-    // Handle list items
-    tempDiv.querySelectorAll('li').forEach(tag => {
-        tag.textContent = `- ${tag.textContent?.trim()}\n`;
-    });
-
-    // Handle unordered lists
-    tempDiv.querySelectorAll('ul').forEach(tag => {
-        tag.textContent = `\n${tag.textContent?.trim()}\n`;
-    });
-    
-    // Remove emojis
-    let text = (tempDiv.innerText || tempDiv.textContent || '').replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
-
-    // Final cleanup for extra spaces and ensuring single line breaks between list items
-    text = text.replace(/(\n\s*){3,}/g, '\n\n'); 
-
-    return text.trim();
+  return {
+    visible: `<ul>${visibleItems.join('')}</ul>`,
+    blurred: `<ul>${blurredItems.join('')}</ul>${blurredFooter}`,
+  };
 }
 
-export function ReportDisplay({ insights }: { insights: FullReportData }) {
-    const { toast } = useToast();
 
-    const handleShare = () => {
-        if (!insights) return;
-        
-        const formattedText = htmlToWhatsApp(insights.psychologicalInterpretations);
-        
-        const whatsappText = `*Meu resultado do Decodificador do Amor:*\n\n${formattedText}\n\n*Faça o teste você também:* ${window.location.origin}`;
-        
-        try {
-            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
-            window.open(whatsappUrl, '_blank');
-        } catch (err) {
-            console.error('Erro ao compartilhar:', err);
-            toast({
-                variant: "destructive",
-                title: "Erro ao compartilhar",
-                description: "Não foi possível abrir o WhatsApp.",
-            });
-        }
-    };
+export function ReportDisplay({ insights }: { insights: FullReportData }) {
+    const { visible: visiblePlan, blurred: blurredPlan } = getActionPlanParts(insights.actionPlan);
   
     return (
         <Card className="w-full shadow-2xl">
@@ -102,53 +77,55 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
               relacionamento.
             </CardDescription>
           </CardHeader>
-          <CardContent className="p-4 md:p-6">
-            <Tabs defaultValue="summary" className="w-full">
-                <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
-                    <MousePointerClick className="h-4 w-4" />
-                    <span>Clique nas opções abaixo para ver toda a análise</span>
-                </div>
-              <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-3">
-                <TabsTrigger value="summary" className="py-2 text-xs sm:text-sm">
-                  <MessageSquare className="mr-1 h-4 w-4 sm:mr-2" />
-                  Resumo
-                </TabsTrigger>
-                <TabsTrigger
-                  value="interpretations"
-                  className="py-2 text-xs sm:text-sm"
-                >
-                  <BrainCircuit className="mr-1 h-4 w-4 sm:mr-2" />
-                  Interpretações
-                </TabsTrigger>
-                <TabsTrigger value="plan" className="py-2 text-xs sm:text-sm">
-                  <CalendarCheck className="mr-1 h-4 w-4 sm:mr-2" />
-                  Plano de Ação
-                </TabsTrigger>
-              </TabsList>
-              <TabsContent
-                value="summary"
-                className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-              >
-                <div dangerouslySetInnerHTML={{ __html: insights.detailedSummary }} />
-              </TabsContent>
-              <TabsContent
-                value="interpretations"
-                className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-              >
-                <div dangerouslySetInnerHTML={{ __html: insights.psychologicalInterpretations }} />
-              </TabsContent>
-              <TabsContent
-                value="plan"
-                className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-              >
-                <div dangerouslySetInnerHTML={{ __html: insights.actionPlan }} />
-              </TabsContent>
-            </Tabs>
+          <CardContent className="space-y-6 p-4 md:p-6">
+            
+            {/* Detailed Summary */}
+            <div className="rounded-lg bg-secondary/30 p-4">
+                <h2 className="flex items-center gap-2 font-headline text-2xl mb-2 text-primary">
+                    <MessageSquare className="h-6 w-6"/>
+                    Resumo Detalhado
+                </h2>
+                <div className="prose prose-sm md:prose-base max-w-none leading-relaxed" dangerouslySetInnerHTML={{ __html: insights.detailedSummary }} />
+            </div>
+
+            {/* Psychological Interpretations */}
+            <div className="rounded-lg bg-secondary/30 p-4">
+                 <h2 className="flex items-center gap-2 font-headline text-2xl mb-2 text-primary">
+                    <BrainCircuit className="h-6 w-6"/>
+                    Interpretações Psicológicas
+                </h2>
+                <div className="prose prose-sm md:prose-base max-w-none leading-relaxed" dangerouslySetInnerHTML={{ __html: insights.psychologicalInterpretations }} />
+            </div>
+
+            {/* Action Plan */}
+            <div className="rounded-lg bg-secondary/30 p-4">
+                 <h2 className="flex items-center gap-2 font-headline text-2xl mb-2 text-primary">
+                    <CalendarCheck className="h-6 w-6"/>
+                    Plano de Ação
+                </h2>
+                <div className="prose prose-sm md:prose-base max-w-none leading-relaxed" dangerouslySetInnerHTML={{ __html: visiblePlan }} />
+
+                {blurredPlan && (
+                     <div className="relative mt-4">
+                        <div className="prose prose-sm md:prose-base max-w-none leading-relaxed blur-md select-none" dangerouslySetInnerHTML={{ __html: blurredPlan }} />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-background/60 p-4 text-center rounded-lg">
+                            <Lock className="h-8 w-8 text-primary"/>
+                            <h3 className="font-headline text-xl font-bold text-foreground">Receba o Plano de Ação Completo</h3>
+                            <p className="text-sm text-muted-foreground">Desbloqueie todas as dicas e transforme seu relacionamento com nosso guia exclusivo.</p>
+                            <Button asChild className="font-bold">
+                                <Link href="/ebook-landing">
+                                    Quero o plano completo <ArrowRight className="ml-2 h-5 w-5"/>
+                                </Link>
+                            </Button>
+                        </div>
+                    </div>
+                )}
+            </div>
+            
           </CardContent>
            <CardFooter className="flex flex-col gap-4 p-4 md:p-6">
-            <Button onClick={handleShare} className="w-full font-bold bg-[#7B2CBF] hover:bg-[#C77DFF]/80" size="lg">
-              <Share2 className="mr-2 h-5 w-5" />
-              💌 Compartilhar meu resultado
+            <Button onClick={() => window.location.href = '/quiz'} className="w-full font-bold" size="lg" variant="outline">
+              Refazer o Quiz
             </Button>
           </CardFooter>
         </Card>

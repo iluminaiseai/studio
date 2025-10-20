@@ -49,7 +49,7 @@ function StyleSelector() {
     params.set('answers', answers);
     params.set('style', style);
     
-    router.push(`/quiz/results?${params.toString()}`);
+    router.push(`/quiz/report?${params.toString()}`);
   };
 
   return (

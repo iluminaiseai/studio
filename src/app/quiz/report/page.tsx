@@ -44,7 +44,7 @@ function ReportComponent() {
   }
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-4xl flex-col items-center justify-center p-4">
+    <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-4xl flex-col items-center justify-center p-4 py-8">
         <ReportDisplay insights={fullReport} />
     </div>
   );
