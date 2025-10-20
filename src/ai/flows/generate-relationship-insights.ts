@@ -11,13 +11,11 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-export const ReportStyleSchema = z.enum([
+const ReportStyleSchema = z.enum([
     "detailed", 
     "gossipy_friend", 
     "spiritual"
 ]);
-export type ReportStyle = z.infer<typeof ReportStyleSchema>;
-
 
 const RelationshipInsightsInputSchema = z.object({
   communication: z.array(z.string()).describe('Responses to communication questions.'),

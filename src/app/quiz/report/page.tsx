@@ -5,7 +5,6 @@ import { Suspense } from "react";
 import {
   generateRelationshipInsights,
   RelationshipInsightsInput,
-  ReportStyle,
 } from "@/ai/flows/generate-relationship-insights";
 import { quizData } from "@/lib/quiz-data";
 import { Button } from "@/components/ui/button";
@@ -43,6 +42,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { z } from "zod";
+
+const ReportStyleSchema = z.enum([
+    "detailed",
+    "gossipy_friend",
+    "spiritual"
+]);
+type ReportStyle = z.infer<typeof ReportStyleSchema>;
+
 
 type FullReport = {
     detailedSummary: string;
