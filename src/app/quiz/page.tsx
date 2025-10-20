@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Answer, quizData, sections } from "@/lib/quiz-data";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -10,14 +10,32 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Loader } from "lucide-react";
+import { Suspense } from "react";
 
-export default function QuizPage() {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+function QuizComponent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const isTestMode = searchParams.get('test') === 'true';
+
+  const getInitialState = () => {
+    if (isTestMode) {
+      const prefilledAnswers = quizData.slice(0, 24).map(q => q.answers[0].text);
+      return {
+        currentQuestionIndex: 24,
+        answers: prefilledAnswers,
+      };
+    }
+    return {
+      currentQuestionIndex: 0,
+      answers: [],
+    };
+  };
+
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(getInitialState().currentQuestionIndex);
+  const [answers, setAnswers] = useState<string[]>(getInitialState().answers);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCompleting, setIsCompleting] = useState(false);
-  const router = useRouter();
 
   const currentQuestion = quizData[currentQuestionIndex];
   const currentSection = sections.find(s => s.key === currentQuestion?.section);
@@ -35,7 +53,6 @@ export default function QuizPage() {
     setTimeout(() => {
       if (currentQuestionIndex >= quizData.length - 1) {
         setIsCompleting(true);
-        // We need to pass the final set of answers to the results page
         const finalAnswers = [...newAnswers];
         const answersQueryParam = encodeURIComponent(finalAnswers.join("|"));
         router.push(`/quiz/results?answers=${answersQueryParam}`);
@@ -47,7 +64,6 @@ export default function QuizPage() {
     }, 2500);
   };
   
-  // This check now correctly handles the state right after the last answer is given
   if (isCompleting) {
     return (
       <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
@@ -59,7 +75,6 @@ export default function QuizPage() {
   }
 
   if (!currentQuestion || !currentSection) {
-    // This handles the initial loading state or any unexpected error
      return (
       <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
         <Loader className="h-12 w-12 animate-spin text-primary" />
@@ -121,4 +136,17 @@ export default function QuizPage() {
       </div>
     </div>
   );
+}
+
+export default function QuizPage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
+        <Loader className="h-12 w-12 animate-spin text-primary" />
+        <p className="mt-4 font-headline text-xl md:text-2xl">Carregando...</p>
+      </div>
+    }>
+      <QuizComponent />
+    </Suspense>
+  )
 }

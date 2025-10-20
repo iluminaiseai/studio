@@ -1,9 +1,10 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Sparkles } from "lucide-react";
+import { Sparkles, TestTube } from "lucide-react";
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(p => p.id === "hero");
@@ -21,6 +22,12 @@ export default function Home() {
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button asChild size="lg" className="font-bold">
             <Link href="/quiz">Começar o Quiz</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="font-bold">
+            <Link href="/quiz?test=true">
+              <TestTube className="mr-2 h-5 w-5" />
+              Teste Rápido
+            </Link>
           </Button>
         </div>
         <Card className="mt-4 w-full overflow-hidden shadow-2xl md:mt-8">
