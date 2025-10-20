@@ -2,12 +2,13 @@
 'use client';
 
 import { Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { getPregeneratedResponse, ReportStyle } from '@/lib/pregenerated-responses';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
-import { Share2, Lock, Terminal, MessageSquare, BrainCircuit, CalendarCheck, MousePointerClick } from 'lucide-react';
+import { Share2, Lock, Terminal, MessageSquare, BrainCircuit, CalendarCheck, MousePointerClick, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -27,6 +28,7 @@ function htmlToWhatsApp(html: string): string {
 
 function ResultsComponent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const { toast } = useToast();
   const answersParam = searchParams.get('answers');
   const style = (searchParams.get('style') as ReportStyle) || 'detailed';
@@ -63,6 +65,8 @@ function ResultsComponent() {
       });
     }
   };
+
+  const fullReportURL = `/quiz/report?${searchParams.toString()}`;
 
   return (
     <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-4xl flex-col items-center justify-center p-4">
@@ -103,6 +107,11 @@ function ResultsComponent() {
                 <div dangerouslySetInnerHTML={{ __html: fullReport.actionPlan }} />
               </TabsContent>
             </Tabs>
+             <Button asChild className="w-full mt-4 font-bold">
+                <Link href={fullReportURL}>
+                    Ver Relatório Completo <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+            </Button>
           </Alert>
         </CardContent>
         <CardFooter className="flex flex-col gap-4 p-4 md:p-6">
