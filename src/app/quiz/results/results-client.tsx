@@ -13,8 +13,10 @@ import {
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
-import { Lock, Terminal, Share2 } from "lucide-react";
+import { Lock, Terminal, Share2, Loader } from "lucide-react";
 import type { ReportStyle } from "./page";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 // Function to convert HTML to WhatsApp formatted text
@@ -62,6 +64,8 @@ function htmlToWhatsApp(html: string): string {
 
 function FreeReport({ summary, answers, style }: { summary: string | null, answers: string | null, style: ReportStyle | null }) {
   const { toast } = useToast();
+  const router = useRouter();
+  const [isNavigating, setIsNavigating] = useState(false);
   
   const handleShare = () => {
     if (!summary) return;
@@ -81,6 +85,11 @@ function FreeReport({ summary, answers, style }: { summary: string | null, answe
             description: "Não foi possível abrir o WhatsApp.",
         });
     }
+  };
+
+  const handleSeeFullReport = () => {
+    setIsNavigating(true);
+    router.push(`/quiz/report?answers=${answers || ""}&style=${style || "detailed"}`);
   };
 
 
@@ -123,10 +132,19 @@ function FreeReport({ summary, answers, style }: { summary: string | null, answe
           <AlertDescription className="text-sm text-muted-foreground md:text-base">
             Receba uma análise psicológica profunda, plano de ação de 7 dias e
             scripts de mensagem para transformar sua comunicação.
-            <Button asChild className="mt-4 w-full sm:w-auto font-bold">
-              <Link href={`/quiz/report?answers=${answers || ""}&style=${style || "detailed"}`}>
-                Ver Relatório Completo
-              </Link>
+            <Button 
+              onClick={handleSeeFullReport} 
+              disabled={isNavigating}
+              className="mt-4 w-full sm:w-auto font-bold"
+            >
+              {isNavigating ? (
+                <>
+                  <Loader className="mr-2 h-4 w-4 animate-spin" />
+                  Gerando relatório...
+                </>
+              ) : (
+                "Ver Relatório Completo"
+              )}
             </Button>
           </AlertDescription>
         </Alert>
