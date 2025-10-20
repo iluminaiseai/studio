@@ -29,7 +29,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, useMemo, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 export type ReportStyle = "detailed" | "gossipy_friend" | "spiritual";
@@ -112,47 +111,8 @@ function htmlToWhatsApp(html: string): string {
     return text.trim();
 }
 
-function FullReport() {
-    const searchParams = useSearchParams();
-    const answers = searchParams.get('answers');
-    const style = searchParams.get('style') as ReportStyle | null;
-    
-    const [insights, setInsights] = useState<FullReportData | null>(null);
-    const [error, setError] = useState<string | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
+function ReportDisplay({ insights }: { insights: FullReportData }) {
     const { toast } = useToast();
-
-    const baseAnswers = useMemo(() => processAnswers(answers), [answers]);
-
-    const getInsights = useCallback(async () => {
-        if (!answers) {
-            setError("Nenhuma resposta encontrada para gerar o relatório.");
-            setIsLoading(false);
-            return;
-        }
-        if (!style) {
-            setError("Nenhum estilo de relatório foi selecionado.");
-            setIsLoading(false);
-            return;
-        }
-        try {
-            setIsLoading(true);
-            setError(null);
-            const insightsInput = { ...baseAnswers, style: style };
-            const result = await generateRelationshipInsights(insightsInput);
-            setInsights(result);
-        } catch (e) {
-            console.error(e);
-            setError("Houve um problema ao gerar seu relatório. Tente novamente mais tarde.");
-            setInsights(null);
-        } finally {
-            setIsLoading(false);
-        }
-    }, [answers, style, baseAnswers]);
-
-    useEffect(() => {
-        getInsights();
-    }, [getInsights]);
 
     const handleShare = () => {
         if (!insights) return;
@@ -174,90 +134,110 @@ function FullReport() {
         }
     };
   
-    if (isLoading) {
-        return <LoadingSkeleton />;
-    }
-
-  if (error || !insights) {
     return (
-      <div className="flex flex-col items-center gap-4">
-        <Alert variant="destructive">
-          <Terminal className="h-4 w-4" />
-          <AlertTitle>Erro ao gerar relatório</AlertTitle>
-          <AlertDescription>
-            {error || "Não foi possível carregar os dados do relatório."}
-          </AlertDescription>
-        </Alert>
-        <Button onClick={getInsights}>Tentar novamente</Button>
-        <Button asChild variant="secondary">
-          <Link href="/">Voltar ao início</Link>
-        </Button>
-      </div>
-    );
-  }
+        <Card className="w-full shadow-2xl">
+          <CardHeader className="text-center px-4 pt-6 md:p-6">
+            <CardTitle className="font-headline text-3xl md:text-4xl">
+              Seu Relatório Completo
+            </CardTitle>
+            <CardDescription className="text-sm md:text-base">
+              Análise aprofundada, interpretações e um plano de ação para seu
+              relacionamento.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="p-4 md:p-6">
+            <Tabs defaultValue="summary" className="w-full">
+                <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
+                    <MousePointerClick className="h-4 w-4" />
+                    <span>Clique nas opções abaixo para ver toda a análise</span>
+                </div>
+              <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-3">
+                <TabsTrigger value="summary" className="py-2 text-xs sm:text-sm">
+                  <MessageSquare className="mr-1 h-4 w-4 sm:mr-2" />
+                  Resumo
+                </TabsTrigger>
+                <TabsTrigger
+                  value="interpretations"
+                  className="py-2 text-xs sm:text-sm"
+                >
+                  <BrainCircuit className="mr-1 h-4 w-4 sm:mr-2" />
+                  Interpretações
+                </TabsTrigger>
+                <TabsTrigger value="plan" className="py-2 text-xs sm:text-sm">
+                  <CalendarCheck className="mr-1 h-4 w-4 sm:mr-2" />
+                  Plano de Ação
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent
+                value="summary"
+                className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
+              >
+                <div dangerouslySetInnerHTML={{ __html: insights.detailedSummary }} />
+              </TabsContent>
+              <TabsContent
+                value="interpretations"
+                className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
+              >
+                <div dangerouslySetInnerHTML={{ __html: insights.psychologicalInterpretations }} />
+              </TabsContent>
+              <TabsContent
+                value="plan"
+                className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
+              >
+                <div dangerouslySetInnerHTML={{ __html: insights.actionPlan }} />
+              </TabsContent>
+            </Tabs>
+          </CardContent>
+           <CardFooter className="flex flex-col gap-4 p-4 md:p-6">
+            <Button onClick={handleShare} className="w-full font-bold bg-[#7B2CBF] hover:bg-[#C77DFF]/80" size="lg">
+              <Share2 className="mr-2 h-5 w-5" />
+              💌 Compartilhar meu resultado
+            </Button>
+          </CardFooter>
+        </Card>
+      );
+}
 
-  return (
-    <Card className="w-full shadow-2xl">
-      <CardHeader className="text-center px-4 pt-6 md:p-6">
-        <CardTitle className="font-headline text-3xl md:text-4xl">
-          Seu Relatório Completo
-        </CardTitle>
-        <CardDescription className="text-sm md:text-base">
-          Análise aprofundada, interpretações e um plano de ação para seu
-          relacionamento.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="p-4 md:p-6">
-        <Tabs defaultValue="summary" className="w-full">
-            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-2">
-                <MousePointerClick className="h-4 w-4" />
-                <span>Clique nas opções abaixo para ver toda a análise</span>
-            </div>
-          <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-3">
-            <TabsTrigger value="summary" className="py-2 text-xs sm:text-sm">
-              <MessageSquare className="mr-1 h-4 w-4 sm:mr-2" />
-              Resumo
-            </TabsTrigger>
-            <TabsTrigger
-              value="interpretations"
-              className="py-2 text-xs sm:text-sm"
-            >
-              <BrainCircuit className="mr-1 h-4 w-4 sm:mr-2" />
-              Interpretações
-            </TabsTrigger>
-            <TabsTrigger value="plan" className="py-2 text-xs sm:text-sm">
-              <CalendarCheck className="mr-1 h-4 w-4 sm:mr-2" />
-              Plano de Ação
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent
-            value="summary"
-            className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-          >
-            <div dangerouslySetInnerHTML={{ __html: insights.detailedSummary }} />
-          </TabsContent>
-          <TabsContent
-            value="interpretations"
-            className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-          >
-            <div dangerouslySetInnerHTML={{ __html: insights.psychologicalInterpretations }} />
-          </TabsContent>
-          <TabsContent
-            value="plan"
-            className="prose prose-sm md:prose-base mt-4 max-w-none rounded-lg bg-secondary/30 p-4 leading-relaxed md:mt-6"
-          >
-            <div dangerouslySetInnerHTML={{ __html: insights.actionPlan }} />
-          </TabsContent>
-        </Tabs>
-      </CardContent>
-       <CardFooter className="flex flex-col gap-4 p-4 md:p-6">
-        <Button onClick={handleShare} className="w-full font-bold bg-[#7B2CBF] hover:bg-[#C77DFF]/80" size="lg">
-          <Share2 className="mr-2 h-5 w-5" />
-          💌 Compartilhar meu resultado
-        </Button>
-      </CardFooter>
-    </Card>
-  );
+
+async function FullReport() {
+    const searchParams = useSearchParams();
+    const answers = searchParams.get('answers');
+    const style = searchParams.get('style') as ReportStyle | null;
+    
+    if (!answers) {
+        return <ErrorMessage message="Nenhuma resposta encontrada para gerar o relatório." />;
+    }
+    if (!style) {
+        return <ErrorMessage message="Nenhum estilo de relatório foi selecionado." />;
+    }
+    
+    try {
+        const baseAnswers = processAnswers(answers)
+        const insightsInput = { ...baseAnswers, style: style };
+        const insights = await generateRelationshipInsights(insightsInput);
+        return <ReportDisplay insights={insights} />;
+    } catch (e) {
+        console.error(e);
+        return <ErrorMessage message="Houve um problema ao gerar seu relatório. Tente novamente mais tarde." retryable={false} />;
+    }
+}
+
+function ErrorMessage({ message, retryable = true }: { message: string, retryable?: boolean }) {
+    return (
+        <div className="flex flex-col items-center gap-4">
+            <Alert variant="destructive">
+                <Terminal className="h-4 w-4" />
+                <AlertTitle>Erro ao gerar relatório</AlertTitle>
+                <AlertDescription>
+                    {message}
+                </AlertDescription>
+            </Alert>
+            {retryable && <Button onClick={() => window.location.reload()}>Tentar novamente</Button>}
+            <Button asChild variant="secondary">
+                <Link href="/">Voltar ao início</Link>
+            </Button>
+        </div>
+    );
 }
 
 function LoadingSkeleton() {
@@ -283,3 +263,5 @@ export default function ReportPage() {
     </div>
   );
 }
+
+    
