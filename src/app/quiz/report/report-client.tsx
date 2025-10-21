@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,6 +23,8 @@ type FullReportData = {
 // Function to split the action plan into visible and blurred parts
 function getActionPlanParts(html: string): { visible: string, blurred: string } {
   if (typeof document === 'undefined') {
+    // This case should ideally not be hit with the new useEffect logic,
+    // but it's a safe fallback for server-side rendering.
     return { visible: html, blurred: '' };
   }
   const tempDiv = document.createElement('div');
@@ -38,33 +41,47 @@ function getActionPlanParts(html: string): { visible: string, blurred: string } 
       blurredItems.push(item.outerHTML);
     }
   });
-
-  const headers = tempDiv.querySelectorAll('h3, p');
-  let visibleHeader = '';
-  if (headers.length > 0) {
-    visibleHeader += headers[0].outerHTML;
-  }
-   if (headers.length > 1) {
-    visibleHeader += headers[1].outerHTML;
-  }
-
-  // Ensure blurred part also includes the concluding paragraph if it exists
+  
   let blurredFooter = '';
   const lastParagraph = tempDiv.querySelector('p:last-of-type');
   if (lastParagraph && blurredItems.length > 0) {
       blurredFooter = lastParagraph.outerHTML;
   }
+  
+  // Find the introductory paragraph(s) for the action plan
+  const firstUl = tempDiv.querySelector('ul');
+  let visibleHeader = '';
+  if(firstUl) {
+    let currentNode = firstUl.previousSibling;
+    while(currentNode) {
+      if(currentNode.nodeType === Node.ELEMENT_NODE) {
+        visibleHeader = (currentNode as Element).outerHTML + visibleHeader;
+      }
+       currentNode = currentNode.previousSibling;
+    }
+  }
 
 
   return {
-    visible: `<ul>${visibleItems.join('')}</ul>`,
+    visible: `${visibleHeader}<ul>${visibleItems.join('')}</ul>`,
     blurred: `<ul>${blurredItems.join('')}</ul>${blurredFooter}`,
   };
 }
 
 
 export function ReportDisplay({ insights }: { insights: FullReportData }) {
-    const { visible: visiblePlan, blurred: blurredPlan } = getActionPlanParts(insights.actionPlan);
+    const [actionPlanState, setActionPlanState] = useState({
+        visible: insights.actionPlan,
+        blurred: ''
+    });
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+        setActionPlanState(getActionPlanParts(insights.actionPlan));
+    }, [insights.actionPlan]);
+
+    const { visible: visiblePlan, blurred: blurredPlan } = actionPlanState;
   
     return (
         <Card className="w-full shadow-2xl">
@@ -105,7 +122,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
                 </h2>
                 <div className="prose prose-sm md:prose-base max-w-none leading-relaxed" dangerouslySetInnerHTML={{ __html: visiblePlan }} />
 
-                {blurredPlan && (
+                {isClient && blurredPlan && (
                      <div className="relative mt-4">
                         <div className="prose prose-sm md:prose-base max-w-none leading-relaxed blur-md select-none" dangerouslySetInnerHTML={{ __html: blurredPlan }} />
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-background/60 p-4 text-center rounded-lg">
