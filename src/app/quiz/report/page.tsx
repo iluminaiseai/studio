@@ -3,11 +3,41 @@
 
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getPregeneratedResponse, ReportStyle } from '@/lib/pregenerated-responses';
+import { getPregeneratedResponse, ReportStyle, AnswerKey } from '@/lib/pregenerated-responses';
 import { ReportDisplay } from './report-client';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
 import { Loader } from 'lucide-react';
+import { quizData } from '@/lib/quiz-data';
+
+function calculateScoreAndDetermineKey(answers: string[]): AnswerKey {
+  let totalScore = 0;
+  const totalQuestions = answers.length;
+
+  answers.forEach((answerText, index) => {
+    const question = quizData[index];
+    if (question) {
+      const answer = question.answers.find(a => a.text === answerText);
+      if (answer) {
+        totalScore += answer.score;
+      }
+    }
+  });
+
+  // Normalize score to a percentage of max possible score
+  // Max score per question is 2, so max total is totalQuestions * 2
+  const maxScore = totalQuestions * 2;
+  const scorePercentage = (totalScore / maxScore) * 100;
+
+  if (scorePercentage > 50) {
+    return 'positive';
+  } else if (scorePercentage >= 0) {
+    return 'mixed';
+  } else {
+    return 'negative';
+  }
+}
+
 
 function ReportComponent() {
   const searchParams = useSearchParams();
@@ -26,8 +56,8 @@ function ReportComponent() {
     );
   }
 
-  // Lógica para determinar a chave da resposta
-  const answerKey = (answersParam.split('|').filter(a => a.toLowerCase().includes('sim')).length || 0) > 12 ? 'positive' : 'mixed';
+  const answersArray = answersParam.split('|');
+  const answerKey = calculateScoreAndDetermineKey(answersArray);
   
   const fullReport = getPregeneratedResponse(answerKey, style, 'full');
 
