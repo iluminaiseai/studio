@@ -299,7 +299,7 @@ function QuizFlow() {
   const SectionIcon = currentSection.icon;
 
   return (
-    <div className="container mx-auto flex max-w-2xl flex-col items-center justify-center p-4 py-8 sm:py-12 animate-in fade-in">
+    <div className="container mx-auto flex max-w-2xl flex-col items-center p-4 pt-8 sm:pt-12 animate-in fade-in">
       <div className="w-full">
         <div className="mb-6 text-center md:mb-8">
             <div className="mb-2 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider text-primary md:mb-4">
