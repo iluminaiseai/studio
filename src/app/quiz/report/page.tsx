@@ -10,31 +10,41 @@ import { Terminal } from 'lucide-react';
 import { Loader } from 'lucide-react';
 import { quizData } from '@/lib/quiz-data';
 
-function calculateScoreAndDetermineKey(answers: string[]): AnswerKey {
+/**
+ * Calcula a pontuação total com base nas respostas e determina a chave de resultado.
+ * @param answersText - Um array com o texto de cada resposta selecionada pelo usuário.
+ * @returns A chave de resultado: 'positive', 'mixed', ou 'negative'.
+ */
+function calculateScoreAndDetermineKey(answersText: string[]): AnswerKey {
   let totalScore = 0;
-  const totalQuestions = answers.length;
+  // O score máximo possível é 2 por pergunta.
+  const maxScore = quizData.length * 2;
 
-  answers.forEach((answerText, index) => {
+  // Itera sobre as respostas do usuário.
+  answersText.forEach((answerText, index) => {
+    // Encontra a pergunta correspondente no quizData.
     const question = quizData[index];
     if (question) {
+      // Encontra a resposta específica que o usuário escolheu.
       const answer = question.answers.find(a => a.text === answerText);
       if (answer) {
+        // Soma a pontuação daquela resposta ao total.
         totalScore += answer.score;
       }
     }
   });
 
-  // Normalize score to a percentage of max possible score
-  // Max score per question is 2, so max total is totalQuestions * 2
-  const maxScore = totalQuestions * 2;
+  // Normaliza a pontuação para uma porcentagem do score máximo possível.
+  // Isso torna a lógica independente do número de perguntas.
   const scorePercentage = (totalScore / maxScore) * 100;
 
+  // Determina a chave de resultado com base na faixa de pontuação.
   if (scorePercentage > 50) {
-    return 'positive';
+    return 'positive'; // Mais de 50% do score máximo = relacionamento saudável.
   } else if (scorePercentage >= 0) {
-    return 'mixed';
+    return 'mixed'; // Entre 0% e 50% = relacionamento com altos e baixos.
   } else {
-    return 'negative';
+    return 'negative'; // Score negativo = relacionamento com problemas significativos.
   }
 }
 
@@ -56,9 +66,12 @@ function ReportComponent() {
     );
   }
 
-  const answersArray = answersParam.split('|');
+  // Decodifica e divide as respostas da URL em um array.
+  const answersArray = decodeURIComponent(answersParam).split('|');
+  // Calcula a chave de resultado com base nas respostas.
   const answerKey = calculateScoreAndDetermineKey(answersArray);
   
+  // Busca o relatório completo pré-gerado usando a chave e o estilo.
   const fullReport = getPregeneratedResponse(answerKey, style, 'full');
 
   if (!fullReport) {
@@ -84,7 +97,7 @@ function LoadingFallback() {
     return (
         <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
             <Loader className="h-12 w-12 animate-spin text-primary" />
-            <p className="mt-4 font-headline text-xl md:text-2xl">Carregando seu relatório...</p>
+            <p className="mt-4 font-headline text-xl md:text-2xl">Gerando seu relatório...</p>
         </div>
     )
 }
