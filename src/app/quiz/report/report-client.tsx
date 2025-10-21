@@ -112,7 +112,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
     const { visible: visiblePlan, blurred: blurredPlan } = actionPlanState;
   
     return (
-        <Card className="w-full shadow-2xl">
+        <Card className="w-full shadow-2xl animate-in fade-in zoom-in-95 duration-500">
           <CardHeader className="text-center px-4 pt-6 md:p-6">
             <CardTitle className="font-headline text-3xl md:text-4xl">
               Seu Relatório Completo
@@ -125,7 +125,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
           <CardContent className="space-y-6 p-4 md:p-6">
             
             {/* Detailed Summary */}
-            <div className="rounded-lg bg-secondary/30 p-4">
+            <div className="rounded-lg bg-secondary/30 p-4 animate-in fade-in slide-in-from-bottom-4 delay-300 duration-500">
                 <h2 className="flex items-center gap-2 font-headline text-2xl mb-2 text-primary">
                     <MessageSquare className="h-6 w-6"/>
                     Resumo Detalhado
@@ -134,7 +134,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
             </div>
 
             {/* Psychological Interpretations */}
-            <div className="rounded-lg bg-secondary/30 p-4">
+            <div className="rounded-lg bg-secondary/30 p-4 animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500">
                  <h2 className="flex items-center gap-2 font-headline text-2xl mb-2 text-primary">
                     <BrainCircuit className="h-6 w-6"/>
                     Interpretações Psicológicas
@@ -143,7 +143,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
             </div>
 
             {/* Action Plan */}
-            <div className="rounded-lg bg-secondary/30 p-4">
+            <div className="rounded-lg bg-secondary/30 p-4 animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
                  <h2 className="flex items-center gap-2 font-headline text-2xl mb-2 text-primary">
                     <CalendarCheck className="h-6 w-6"/>
                     Plano de Ação

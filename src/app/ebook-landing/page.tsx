@@ -11,7 +11,7 @@ export default function EbookLandingPage() {
     const ebookImage = PlaceHolderImages.find(p => p.id === "ebook_cover") ?? { imageUrl: 'https://picsum.photos/seed/ebook/600/800', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-background overflow-hidden">
       <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
@@ -25,8 +25,8 @@ export default function EbookLandingPage() {
       </header>
 
       <main className="flex-1">
-        <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-12 text-center md:flex-row md:py-24">
-          <div className="flex-1 md:text-left">
+        <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-12 text-center md:flex-row md:py-24 animate-in fade-in">
+          <div className="flex-1 md:text-left animate-in fade-in slide-in-from-left-8 duration-500">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-6xl">
               Transforme Seu Relacionamento em 30 Dias
             </h1>
@@ -40,8 +40,8 @@ export default function EbookLandingPage() {
               </a>
             </Button>
           </div>
-          <div className="flex-1">
-            <Card className="overflow-hidden shadow-2xl rounded-lg">
+          <div className="flex-1 animate-in fade-in slide-in-from-right-8 duration-500">
+            <Card className="overflow-hidden shadow-2xl rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-primary/20">
               <Image
                 src={ebookImage.imageUrl}
                 alt={ebookImage.description}
@@ -56,12 +56,12 @@ export default function EbookLandingPage() {
         </section>
 
         <section className="bg-secondary/50 py-16">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 animate-in fade-in">
             <h2 className="text-center font-headline text-3xl font-bold md:text-4xl">
               O que você vai receber?
             </h2>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
-              <Card>
+              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -72,7 +72,7 @@ export default function EbookLandingPage() {
                   Um guia passo a passo de 30 dias com ações diárias para fortalecer a comunicação, a intimidade e a confiança.
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -83,7 +83,7 @@ export default function EbookLandingPage() {
                   Modelos de mensagens e diálogos para ter conversas difíceis, expressar sentimentos e resolver conflitos de forma saudável.
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -99,7 +99,7 @@ export default function EbookLandingPage() {
         </section>
         
         <section id="comprar" className="container mx-auto px-4 py-16">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 animate-in fade-in">
                 <Gift className="mx-auto h-16 w-16 text-primary"/>
                 <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Escolha o Plano Perfeito Para Você</h2>
                 <p className="mt-2 text-lg text-muted-foreground">Desbloqueie hoje o caminho para um relacionamento mais feliz.</p>
@@ -107,7 +107,7 @@ export default function EbookLandingPage() {
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:items-start">
               {/* Plano 1 - Básico */}
-              <Card className="flex flex-col">
+              <Card className="flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500">
                 <CardHeader className="text-center">
                   <CardTitle className="font-headline text-2xl">Guia Essencial</CardTitle>
                   <CardDescription>O ponto de partida perfeito.</CardDescription>
@@ -125,7 +125,7 @@ export default function EbookLandingPage() {
               </Card>
 
               {/* Plano 2 - Mais Popular */}
-              <Card className="flex flex-col border-2 border-primary shadow-2xl relative -my-4">
+              <Card className="flex flex-col border-2 border-primary shadow-2xl relative -my-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500">
                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-sm font-bold text-primary-foreground flex items-center gap-1">
                     <Star className="h-4 w-4" />
                     <span>MAIS POPULAR</span>
@@ -149,7 +149,7 @@ export default function EbookLandingPage() {
               </Card>
 
               {/* Plano 3 - Premium */}
-              <Card className="flex flex-col">
+              <Card className="flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500">
                 <CardHeader className="text-center">
                   <CardTitle className="font-headline text-2xl">Método Completo</CardTitle>
                   <CardDescription>A transformação definitiva.</CardDescription>

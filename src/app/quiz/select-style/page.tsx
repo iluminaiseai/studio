@@ -53,14 +53,14 @@ function StyleSelector() {
   };
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4 text-center">
-        <div className="mb-8">
+    <div className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl flex-col items-center justify-center p-4 text-center animate-in fade-in">
+        <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 delay-300 duration-500">
             <h1 className="font-headline text-3xl font-bold md:text-5xl">Quase lá!</h1>
             <p className="mt-2 text-lg text-muted-foreground md:text-xl">Como você prefere receber seu resultado?</p>
             <p className="text-sm text-muted-foreground">(Isso vai definir o tom da análise)</p>
         </div>
 
-        <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:max-w-2xl">
+        <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:max-w-2xl animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500">
             {styles.map((style) => {
                 const Icon = style.icon;
                 const isLoading = loadingStyle === style.key;
@@ -69,7 +69,7 @@ function StyleSelector() {
                         key={style.key}
                         onClick={() => handleStyleSelect(style.key)}
                         className={cn(
-                          "cursor-pointer transition-all hover:scale-105 hover:shadow-xl hover:border-primary",
+                          "cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-primary",
                           loadingStyle && !isLoading && "opacity-50 cursor-not-allowed",
                           isLoading && "ring-2 ring-primary border-primary"
                         )}

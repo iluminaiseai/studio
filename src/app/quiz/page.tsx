@@ -16,7 +16,7 @@ import { Suspense } from "react";
 function MiniFeedback({ feedback, onContinue }: { feedback: { title: string, text: string }, onContinue: () => void }) {
     return (
         <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
-            <Card className="w-full animate-in fade-in">
+            <Card className="w-full animate-in fade-in zoom-in-95">
                 <CardHeader>
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                         <MessageCircleHeart className="h-6 w-6 text-primary" />
@@ -93,7 +93,7 @@ function QuizComponent() {
         setFeedback(null);
         setCurrentQuestionIndex((prev) => prev + 1);
       }
-    }, 2500);
+    }, 1500); // Reduced delay for a snappier feel
   };
 
   const handleContinueFromFeedback = () => {
@@ -130,7 +130,7 @@ function QuizComponent() {
   const SectionIcon = currentSection.icon;
 
   return (
-    <div className="container mx-auto flex max-w-2xl flex-col items-center justify-center p-4 py-8 sm:py-12">
+    <div className="container mx-auto flex max-w-2xl flex-col items-center justify-center p-4 py-8 sm:py-12 animate-in fade-in">
       <div className="w-full">
         <div className="mb-6 text-center md:mb-8">
             <div className="mb-2 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider text-primary md:mb-4">
@@ -141,7 +141,7 @@ function QuizComponent() {
         </div>
         <Progress value={progress} className="mb-6 h-2 md:mb-8" />
 
-        <Card className="w-full text-center shadow-lg">
+        <Card className="w-full text-center shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-500">
           <CardHeader>
             <CardTitle className="font-body text-xl font-semibold leading-tight md:text-2xl">
               {currentQuestion.text}
@@ -154,7 +154,7 @@ function QuizComponent() {
                   key={index}
                   variant="outline"
                   size="lg"
-                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm md:text-base"
+                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base"
                   onClick={() => handleAnswer(answer)}
                   disabled={showFeedback || showMiniFeedback}
                 >
