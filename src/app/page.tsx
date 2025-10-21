@@ -18,7 +18,7 @@ export default function Home() {
           Decodificador do Amor
         </h1>
         <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
-          Será que o interesse ainda existe? Desvende os sinais do seu relacionamento com nosso quiz e receba uma análise completa sobre a saúde da sua conexão.
+          Ele anda distante ou é só coisa da sua cabeça? Responda o quiz e descubra a verdade por trás dos sinais que ele te dá.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 delay-900 duration-500">
           <Button asChild size="lg" className="font-bold">
