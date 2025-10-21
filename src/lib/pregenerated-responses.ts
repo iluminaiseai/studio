@@ -83,7 +83,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
           <ul>
             <li><strong>Dia 1 (Fofoca do Bem):</strong> Pergunta qual foi o maior mico que ele(a) já pagou. Depois conta o seu. Rir de si mesmo juntos cria uma conexão absurda. É terapia de graça! 🤣</li>
             <li><strong>Dia 2 (Ataque de Fofura):</strong> Do nada, no meio da tarde, manda um áudio: "Só pra dizer que tô com saudade da sua voz". Custa zero reais e o impacto é milionário. Vai por mim.</li>
-            <li><strong>Dia 3 (Missão Secreta):</strong> Diga "Temos uma missão pro finde: fazer algo que nunca fizemos antes". E aí planejem juntos, pode ser desde provar comida esquisita até uma aula de dança. O importante é a aventura! 🗺️</li>
+            <li><strong>Dia 3 (Missão Secreta):</strong> Diga "Temos uma missão para o fim de semana: fazer algo que nunca fizemos antes". E aí planejem juntos, pode ser desde provar comida esquisita até uma aula de dança. O importante é a aventura! 🗺️</li>
             <li><strong>Dia 4 (Consultoria de Sonhos):</strong> "Se dinheiro não fosse problema, qual a primeira coisa que você faria?". Conhecer os sonhos do outro é super sexy! E te dá ideias de presentes, fica a dica. 🎁</li>
             <li><strong>Dia 5 (Stalking do Bem):</strong> Acha uma foto antiga da pessoa nas redes sociais e comenta "Olha esse neném! Já era uma gracinha!". É fofo, engraçado e mostra que você tava pensando nela.</li>
             <li><strong>Dia 6 (Sessão Nostalgia 2.0):</strong> "Qual a nossa memória mais engraçada juntos?". Relembrar perrengues que viraram história é o melhor tipo de terapia de casal. Prepare a pipoca! 🍿</li>
@@ -252,10 +252,10 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Dia 1 (A Lista da Verdade):</strong> Escreve num papel todas as vezes que essa pessoa te fez sentir pequena, ignorada ou insuficiente. Deixe no bloco de notas do celular. Essa será sua vacina anti-recaída. Leia sempre que a saudade idiota bater.</li>
             <li><strong>Dia 2 (Terapia Intensiva de Amigas):</strong> Me liga. Agora. Ou chama aquela sua amiga parceira. Vocês vão desabafar e lembrar da pessoa f*da e maravilhosa que você é. É proibido se diminuir!</li>
             <li><strong>Dia 3 (Dia da Beleza e da Besteira):</strong> Dia de se mimar como se não houvesse amanhã. Máscara no rosto, sua playlist de "superação" no talo, e aquela comida que te faz feliz. Assista à comédia mais idiota que encontrar. Rir é o melhor remédio. 💄</li>
-            <li><strong>Dia 4 (A Conversa do Espelho):</strong> Olhe para si mesma e diga em voz alta: "Eu mereço ser amada, respeitada e valorizada". Repita até acreditar. Parece bobo, mas é poderoso.</li>
-            <li><strong>Dia 5 (Defina Seus Mínimos Aceitáveis):</strong> Qual é o mínimo que você aceita em uma relação? Respeito? Comunicação? Carinho? Se a pessoa não oferece nem o mínimo, por que você está dando o seu máximo?</li>
-            <li><strong>Dia 6 (A Conversa Final... ou o Início dela):</strong> Prepare-se para uma conversa séria. Não para brigar, mas para se posicionar. "Eu não estou feliz com a forma como estamos nos comunicando. Eu me sinto [sozinha/ignorada/etc]. Ou nós encontramos uma forma de mudar isso juntos, ou eu preciso seguir meu caminho para ficar bem".</li>
-            <li><strong>Dia 7 (Busque Ajuda Real):</strong> Se você está num relacionamento sério ou casamento, a melhor "amiga fofoqueira" nessas horas é uma terapeuta de casal. Um profissional pode ajudar a traduzir o que vocês não conseguem dizer. Pense nisso como um investimento em você.</li>
+            <li><strong>Dia 4 (Defina Seus Mínimos Aceitáveis):</strong> Qual é o mínimo que você aceita em uma relação? Respeito? Comunicação? Carinho? Se a pessoa não oferece nem o mínimo, por que você está dando o seu máximo?</li>
+            <li><strong>Dia 5 (O Confronto de Veludo):</strong> Prepare-se para uma conversa séria. Não para brigar, mas para se posicionar. "Eu não estou feliz com a forma como estamos nos comunicando. Eu me sinto [sozinha/ignorada/etc]. Ou nós encontramos uma forma de mudar isso juntos, ou eu preciso seguir meu caminho para ficar bem".</li>
+            <li><strong>Dia 6 (Busque Ajuda Real):</strong> Se você está num relacionamento sério ou casamento, a melhor "amiga fofoqueira" nessas horas é uma terapeuta de casal. Um profissional pode ajudar a traduzir o que vocês não conseguem dizer. Pense nisso como um investimento em você.</li>
+            <li><strong>Dia 7 (Dia do Veredito):</strong> Analise a semana. A pessoa se esforçou mais? Ou continuou na mesma ladainha? A reação ao seu sumiço e à sua conversa dirá TUDO. Confie nas ações, não nas palavras bonitas.</li>
           </ul>
           <p>Não aceite um amor que te faça duvidar de si mesma. Amor tem que ser leve, tem que somar. Você merece alguém que te olhe e pense "caramba, que sorte eu tenho". Se essa pessoa não viu a mulherão que você é, o azar é 100% dela. O primeiro passo para a mudança é se colocar como prioridade. ✨</p>
         `,
@@ -274,5 +274,3 @@ export function getPregeneratedResponse(answerKey: AnswerKey, style: ReportStyle
     return responses['mixed']['detailed']['full'];
   }
 }
-
-    

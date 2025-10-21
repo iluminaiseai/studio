@@ -22,50 +22,58 @@ type FullReportData = {
 
 // Function to split the action plan into visible and blurred parts
 function getActionPlanParts(html: string): { visible: string, blurred: string } {
-  if (typeof document === 'undefined') {
-    // This case should ideally not be hit with the new useEffect logic,
-    // but it's a safe fallback for server-side rendering.
-    return { visible: html, blurred: '' };
-  }
-  const tempDiv = document.createElement('div');
-  tempDiv.innerHTML = html;
-
-  const listItems = tempDiv.querySelectorAll('li');
-  const visibleItems: string[] = [];
-  const blurredItems: string[] = [];
-
-  listItems.forEach((item, index) => {
-    if (index < 3) {
-      visibleItems.push(item.outerHTML);
-    } else {
-      blurredItems.push(item.outerHTML);
+    if (typeof document === 'undefined') {
+        return { visible: html, blurred: '' };
     }
-  });
-  
-  let blurredFooter = '';
-  const lastParagraph = tempDiv.querySelector('p:last-of-type');
-  if (lastParagraph && blurredItems.length > 0) {
-      blurredFooter = lastParagraph.outerHTML;
-  }
-  
-  // Find the introductory paragraph(s) for the action plan
-  const firstUl = tempDiv.querySelector('ul');
-  let visibleHeader = '';
-  if(firstUl) {
-    let currentNode = firstUl.previousSibling;
-    while(currentNode) {
-      if(currentNode.nodeType === Node.ELEMENT_NODE) {
-        visibleHeader = (currentNode as Element).outerHTML + visibleHeader;
-      }
-       currentNode = currentNode.previousSibling;
+
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+
+    const listItems = Array.from(tempDiv.querySelectorAll('li'));
+    const visibleItems: string[] = [];
+    let enticingTeaser = '';
+    const blurredItems: string[] = [];
+
+    listItems.forEach((item, index) => {
+        if (index < 3) { // Itens 1, 2, 3 são totalmente visíveis
+            visibleItems.push(item.outerHTML);
+        } else if (index === 3) { // Para o item 4, criamos a isca
+            const tempItemDiv = document.createElement('div');
+            tempItemDiv.innerHTML = item.innerHTML;
+            const firstLine = tempItemDiv.querySelector('strong');
+            if (firstLine) {
+                 enticingTeaser = `<li><strong>${firstLine.innerText}</strong>...</li>`;
+            }
+            blurredItems.push(item.outerHTML);
+        } else { // Itens 5, 6, 7 ficam totalmente embaçados
+            blurredItems.push(item.outerHTML);
+        }
+    });
+
+    let blurredFooter = '';
+    const lastParagraph = tempDiv.querySelector('p:last-of-type');
+    if (lastParagraph && blurredItems.length > 0) {
+        blurredFooter = lastParagraph.outerHTML;
     }
-  }
 
+    const firstUl = tempDiv.querySelector('ul');
+    let visibleHeader = '';
+    if (firstUl) {
+        let currentNode = firstUl.previousSibling;
+        while (currentNode) {
+            if (currentNode.nodeType === Node.ELEMENT_NODE) {
+                visibleHeader = (currentNode as Element).outerHTML + visibleHeader;
+            }
+            currentNode = currentNode.previousSibling;
+        }
+    }
 
-  return {
-    visible: `${visibleHeader}<ul>${visibleItems.join('')}</ul>`,
-    blurred: `<ul>${blurredItems.join('')}</ul>${blurredFooter}`,
-  };
+    const finalVisibleHtml = `${visibleHeader}<ul>${visibleItems.join('')}${enticingTeaser}</ul>`;
+
+    return {
+        visible: finalVisibleHtml,
+        blurred: `<ul>${blurredItems.join('')}</ul>${blurredFooter}`,
+    };
 }
 
 
