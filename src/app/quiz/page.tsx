@@ -58,6 +58,8 @@ function QuizComponent() {
   const [answers, setAnswers] = useState<string[]>(getInitialState().answers);
   const [isCompleting, setIsCompleting] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showMiniFeedback, setShowMiniFeedback] = useState(false);
+  const [feedbackContent, setFeedbackContent] = useState({ title: '', text: '' });
 
 
   const currentQuestion = quizData[currentQuestionIndex];
@@ -72,19 +74,39 @@ function QuizComponent() {
     const newAnswers = [...answers, answer.text];
     setAnswers(newAnswers);
 
+    const isFeedbackPoint = (currentQuestionIndex + 1) % 4 === 0 && currentQuestionIndex < quizData.length -1;
+
     setTimeout(() => {
+        if(isFeedbackPoint) {
+            setFeedbackContent(getFeedbackForAnswers(newAnswers));
+            setShowMiniFeedback(true);
+            setIsProcessing(false);
+        } else {
+            advanceQuestion(newAnswers);
+        }
+    }, 500);
+  };
+
+  const advanceQuestion = (currentAnswers: string[]) => {
       if (currentQuestionIndex >= quizData.length - 1) {
         setIsCompleting(true);
-        const finalAnswers = [...newAnswers];
-        const answersQueryParam = encodeURIComponent(finalAnswers.join("|"));
+        const answersQueryParam = encodeURIComponent(currentAnswers.join("|"));
         router.push(`/quiz/select-style?answers=${answersQueryParam}`);
       } else {
         setCurrentQuestionIndex((prev) => prev + 1);
         setIsProcessing(false);
       }
-    }, 500); // A small delay to give feedback to the user on click before transitioning
-  };
+  }
+
+  const handleContinueFromFeedback = () => {
+      setShowMiniFeedback(false);
+      advanceQuestion(answers);
+  }
   
+  if (showMiniFeedback) {
+      return <MiniFeedback feedback={feedbackContent} onContinue={handleContinueFromFeedback} />;
+  }
+
   if (isCompleting) {
     return (
       <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
