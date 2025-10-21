@@ -14,7 +14,7 @@ export default function Home() {
     <main className="flex min-h-screen w-full items-center justify-center p-4 overflow-hidden">
       <div className="container flex max-w-4xl flex-col items-center justify-center gap-6 text-center md:gap-8 animate-fade-in">
         <LogoCapricho className="h-20 w-auto text-primary md:h-24 animate-in fade-in zoom-in-50 delay-300" />
-        <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500">
+        <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500 -mt-2">
           Decodificador do Amor
         </h1>
         <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
@@ -22,8 +22,11 @@ export default function Home() {
         </p>
 
         <div className="mt-4 text-center text-muted-foreground animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
-            <p className="font-semibold text-foreground">Leva menos de 2 minutos:</p>
             <ul className="mt-2 space-y-1 text-sm">
+                <li className="flex items-center justify-center gap-2">
+                    <Check className="h-4 w-4 text-green-500" />
+                    <span>Leva menos de 2 minutos</span>
+                </li>
                 <li className="flex items-center justify-center gap-2">
                     <Check className="h-4 w-4 text-green-500" />
                     <span>Teste rápido e confidencial</span>
