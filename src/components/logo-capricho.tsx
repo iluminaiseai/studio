@@ -20,9 +20,10 @@ export function LogoCapricho({ className }: LogoCaprichoProps) {
       <Image
         src="/logo-capricho.png"
         alt="Logo Capricho"
-        width={100} // Ajuste a largura conforme necessário
-        height={50} // Ajuste a altura conforme necessário
+        width={200} // Ajuste a largura conforme necessário
+        height={100} // Ajuste a altura conforme necessário
         className="h-full w-auto object-contain"
+        priority
       />
     </div>
   );
