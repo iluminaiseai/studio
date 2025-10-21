@@ -56,11 +56,8 @@ function QuizComponent() {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(getInitialState().currentQuestionIndex);
   const [answers, setAnswers] = useState<string[]>(getInitialState().answers);
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [showFeedback, setShowFeedback] = useState(false);
   const [isCompleting, setIsCompleting] = useState(false);
-  const [showMiniFeedback, setShowMiniFeedback] = useState(false);
-  const [miniFeedbackContent, setMiniFeedbackContent] = useState<{ title: string; text: string } | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
 
   const currentQuestion = quizData[currentQuestionIndex];
@@ -69,45 +66,25 @@ function QuizComponent() {
   const progress = ((currentQuestionIndex) / quizData.length) * 100;
 
   const handleAnswer = (answer: Answer) => {
-    if (showFeedback || showMiniFeedback) return;
+    if (isProcessing) return;
     
+    setIsProcessing(true);
     const newAnswers = [...answers, answer.text];
     setAnswers(newAnswers);
-    setFeedback(answer.feedback);
-    setShowFeedback(true);
-
-    const isCheckpoint = (currentQuestionIndex + 1) % 4 === 0 && currentQuestionIndex < quizData.length - 1;
 
     setTimeout(() => {
-      if (isCheckpoint) {
-        const feedback = getFeedbackForAnswers(newAnswers);
-        setMiniFeedbackContent(feedback);
-        setShowMiniFeedback(true);
-      } else if (currentQuestionIndex >= quizData.length - 1) {
+      if (currentQuestionIndex >= quizData.length - 1) {
         setIsCompleting(true);
         const finalAnswers = [...newAnswers];
         const answersQueryParam = encodeURIComponent(finalAnswers.join("|"));
         router.push(`/quiz/select-style?answers=${answersQueryParam}`);
       } else {
-        setShowFeedback(false);
-        setFeedback(null);
         setCurrentQuestionIndex((prev) => prev + 1);
+        setIsProcessing(false);
       }
-    }, 1500); // Reduced delay for a snappier feel
-  };
-
-  const handleContinueFromFeedback = () => {
-    setShowMiniFeedback(false);
-    setMiniFeedbackContent(null);
-    setShowFeedback(false);
-    setFeedback(null);
-    setCurrentQuestionIndex((prev) => prev + 1);
+    }, 500); // A small delay to give feedback to the user on click before transitioning
   };
   
-  if (showMiniFeedback && miniFeedbackContent) {
-    return <MiniFeedback feedback={miniFeedbackContent} onContinue={handleContinueFromFeedback} />;
-  }
-
   if (isCompleting) {
     return (
       <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
@@ -154,9 +131,9 @@ function QuizComponent() {
                   key={index}
                   variant="outline"
                   size="lg"
-                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base"
+                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base active:bg-primary/10"
                   onClick={() => handleAnswer(answer)}
-                  disabled={showFeedback || showMiniFeedback}
+                  disabled={isProcessing}
                 >
                   {answer.text}
                 </Button>
@@ -165,18 +142,6 @@ function QuizComponent() {
           </CardContent>
         </Card>
 
-        {showFeedback && feedback && !showMiniFeedback && (
-          <div className={cn("mt-6", showFeedback ? "animate-in fade-in" : "animate-out fade-out")}>
-            <Card className="bg-primary/10 border-primary/20">
-              <CardContent className="p-4 md:p-6">
-                <div className="flex items-center gap-3 md:gap-4 text-primary">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 md:h-8 md:w-8" />
-                  <p className="font-semibold text-primary text-sm md:text-base">{feedback}</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
       </div>
     </div>
   );
