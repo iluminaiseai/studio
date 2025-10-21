@@ -1,10 +1,11 @@
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, BookOpen, Gift, Heart } from "lucide-react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle2, BookOpen, Gift, Heart, Check, Star } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { cn } from "@/lib/utils";
 
 export default function EbookLandingPage() {
     const ebookImage = PlaceHolderImages.find(p => p.id === "ebook_cover") ?? { imageUrl: 'https://picsum.photos/seed/ebook/600/800', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
@@ -97,17 +98,76 @@ export default function EbookLandingPage() {
           </div>
         </section>
         
-        <section id="comprar" className="container mx-auto px-4 py-16 text-center">
-            <Card className="mx-auto max-w-2xl bg-card p-8 shadow-2xl">
+        <section id="comprar" className="container mx-auto px-4 py-16">
+            <div className="text-center mb-12">
                 <Gift className="mx-auto h-16 w-16 text-primary"/>
-                <h2 className="mt-4 font-headline text-3xl font-bold">Oferta Especial de Lançamento</h2>
-                <p className="mt-2 text-4xl font-bold text-primary">R$ 29,90</p>
-                <p className="text-muted-foreground">Acesso vitalício ao guia completo.</p>
-                <Button size="lg" className="mt-6 w-full font-bold">
-                    Comprar Agora e Transformar Meu Relacionamento
-                </Button>
-                <p className="mt-2 text-xs text-muted-foreground">Compra segura e entrega imediata por e-mail.</p>
-            </Card>
+                <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Escolha o Plano Perfeito Para Você</h2>
+                <p className="mt-2 text-lg text-muted-foreground">Desbloqueie hoje o caminho para um relacionamento mais feliz.</p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:items-start">
+              {/* Plano 1 - Básico */}
+              <Card className="flex flex-col">
+                <CardHeader className="text-center">
+                  <CardTitle className="font-headline text-2xl">Guia Essencial</CardTitle>
+                  <CardDescription>O ponto de partida perfeito.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow space-y-4">
+                  <p className="text-center text-4xl font-bold">R$ 29,90</p>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-center gap-2"><Check className="h-5 w-5 text-green-500" /> <span>Ebook "Decodificador do Amor"</span></li>
+                    <li className="flex items-center gap-2"><Check className="h-5 w-5 text-green-500" /> <span>Plano de Ação de 30 dias</span></li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full font-bold">Comprar Agora</Button>
+                </CardFooter>
+              </Card>
+
+              {/* Plano 2 - Mais Popular */}
+              <Card className="flex flex-col border-2 border-primary shadow-2xl relative -my-4">
+                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-sm font-bold text-primary-foreground flex items-center gap-1">
+                    <Star className="h-4 w-4" />
+                    <span>MAIS POPULAR</span>
+                </div>
+                <CardHeader className="text-center pt-10">
+                  <CardTitle className="font-headline text-3xl">Decodificador Plus</CardTitle>
+                  <CardDescription>O pacote completo para resultados rápidos.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow space-y-4">
+                  <p className="text-center text-5xl font-bold text-primary">R$ 47,90</p>
+                  <ul className="space-y-2 text-left">
+                    <li className="flex items-center gap-2"><Check className="h-5 w-5 text-green-500" /> <span>Ebook "Decodificador do Amor"</span></li>
+                    <li className="flex items-center gap-2"><Check className="h-5 w-5 text-green-500" /> <span>Plano de Ação de 30 dias</span></li>
+                    <li className="flex items-center gap-2 font-semibold"><Check className="h-5 w-5 text-green-500" /> <span>[BÔNUS] Scripts de Conversa Prontos</span></li>
+                    <li className="flex items-center gap-2 font-semibold"><Check className="h-5 w-5 text-green-500" /> <span>[BÔNUS] Guia em áudio das Linguagens do Amor</span></li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button size="lg" className="w-full font-bold">Quero o Plano Plus!</Button>
+                </CardFooter>
+              </Card>
+
+              {/* Plano 3 - Premium */}
+              <Card className="flex flex-col">
+                <CardHeader className="text-center">
+                  <CardTitle className="font-headline text-2xl">Método Completo</CardTitle>
+                  <CardDescription>A transformação definitiva.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow space-y-4">
+                  <p className="text-center text-4xl font-bold">R$ 69,90</p>
+                  <ul className="space-y-2 text-left">
+                     <li className="flex items-center gap-2"><Check className="h-5 w-5 text-green-500" /> <span>Tudo do Plano Plus</span></li>
+                    <li className="flex items-center gap-2 font-semibold"><Check className="h-5 w-5 text-green-500" /> <span>[EXCLUSIVO] Workshop "Reconexão Íntima"</span></li>
+                    <li className="flex items-center gap-2 font-semibold"><Check className="h-5 w-5 text-green-500" /> <span>[EXCLUSIVO] Desafio de 7 dias para casais</span></li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full font-bold">Garantir Acesso Total</Button>
+                </CardFooter>
+              </Card>
+            </div>
+             <p className="mt-8 text-center text-xs text-muted-foreground">Compra segura e entrega imediata por e-mail.</p>
         </section>
       </main>
        <footer className="border-t">
