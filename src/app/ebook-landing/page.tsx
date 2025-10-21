@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart } from "lucide-react";
+import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -122,9 +122,34 @@ export default function EbookLandingPage() {
             </div>
           </div>
         </section>
+
+        {/* Spoiler Section */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-4xl text-center animate-in fade-in">
+            <h2 className="font-headline text-3xl font-bold md:text-4xl">Uma Amostra do Método 🤫</h2>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
+              Pequenas mudanças na comunicação geram resultados gigantes. Veja um exemplo de um dos nossos scripts:
+            </p>
+            <Card className="mt-8 text-left shadow-lg bg-background">
+                <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 className="font-bold text-lg text-destructive">❌ O Jeito Errado (a queixa que gera briga)</h3>
+                        <p className="mt-2 text-muted-foreground italic">"Você nunca me ouve quando eu falo! Parece que entra por um ouvido e sai pelo outro."</p>
+                    </div>
+                    <div className="border-t md:border-t-0 md:border-l border-border pt-6 md:pt-0 md:pl-6">
+                        <h3 className="font-bold text-lg text-green-600">✅ O Jeito Certo (o pedido que conecta)</h3>
+                        <p className="mt-2 text-muted-foreground italic">"Amor, tem algo importante que eu queria compartilhar. Significaria muito pra mim se pudéssemos conversar por 5 minutinhos sem distrações. Quando seria um bom momento pra você?"</p>
+                    </div>
+                </CardContent>
+                <CardFooter className="bg-accent/50 p-4">
+                   <p className="text-sm text-accent-foreground mx-auto flex items-center gap-2"><Lightbulb className="h-5 w-5 text-amber-500" /> O ebook está cheio de scripts como este para dezenas de situações.</p>
+                </CardFooter>
+            </Card>
+          </div>
+        </section>
         
         {/* Social Proof Section */}
-        <section className="py-16 bg-secondary/30">
+        <section className="py-16">
             <div className="container mx-auto px-4 text-center animate-in fade-in">
                 <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Depoimentos Reais</h2>
                  <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -287,5 +312,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
