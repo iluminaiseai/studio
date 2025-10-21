@@ -21,7 +21,7 @@ export default function Home() {
           Ele anda distante ou é só coisa da sua cabeça? Responda o quiz e descubra a verdade por trás dos sinais que ele te dá.
         </p>
 
-        <div className="mt-4 text-center text-muted-foreground animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
+        <div className="text-center text-muted-foreground animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
             <ul className="mt-2 space-y-1 text-sm">
                 <li className="flex items-center justify-center gap-2">
                     <Check className="h-4 w-4 text-green-500" />
