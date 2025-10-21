@@ -1,4 +1,5 @@
-import { Sparkles } from "lucide-react";
+
+import { LogoCapricho } from "@/components/logo-capricho";
 import Link from "next/link";
 
 export default function QuizLayout({
@@ -11,7 +12,7 @@ export default function QuizLayout({
       <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary" />
+            <LogoCapricho className="h-6 w-auto text-primary" />
             <span className="font-headline text-xl font-bold">Decodificador do Amor</span>
           </Link>
         </div>

@@ -1,5 +1,6 @@
 
-import { HeartHandshake, MessagesSquare, Repeat, ShieldAlert, Sparkles } from "lucide-react";
+import { HeartHandshake, MessagesSquare, Repeat, ShieldAlert } from "lucide-react";
+import { LogoCapricho } from "@/components/logo-capricho";
 
 export type Answer = {
   text: string;
@@ -24,7 +25,7 @@ export const sections: Section[] = [
   { key: 'timeTogether', title: 'Tempo juntos e atenção', icon: HeartHandshake },
   { key: 'behaviorChanges', title: 'Mudanças de comportamento', icon: Repeat },
   { key: 'reactionsToConflicts', title: 'Reações a conflitos', icon: ShieldAlert },
-  { key: 'signsOfInterest', title: 'Sinais de interesse/atração', icon: Sparkles },
+  { key: 'signsOfInterest', title: 'Sinais de interesse/atração', icon: LogoCapricho },
 ];
 
 export const quizData: Question[] = [
