@@ -1,3 +1,5 @@
-// This file is no longer used and will be removed in a future step.
-// The logic has been migrated to src/app/quiz/page.tsx to create a single-page flow.
-// You can safely delete this file.
+// This file is no longer used. The logic was migrated to src/app/quiz/page.tsx.
+// It is replaced with a null component to prevent Next.js from throwing a build error.
+export default function ObsoleteReportPage() {
+  return null;
+}
