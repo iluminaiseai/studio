@@ -56,37 +56,14 @@ export default function EbookLandingPage() {
           </div>
         </section>
         
-        {/* "Is This You?" Section */}
-        <section className="bg-secondary/30 py-16">
-            <div className="container mx-auto px-4 text-center animate-in fade-in">
-                <MessageCircleQuestion className="mx-auto h-12 w-12 text-primary" />
-                <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Você se identifica com alguma dessas situações?</h2>
-                <p className="mt-2 text-lg text-muted-foreground max-w-3xl mx-auto">Se você respondeu "sim" a uma ou mais perguntas, você não está sozinha. E o mais importante: existe um caminho.</p>
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                    <div className="flex items-start gap-4 rounded-lg bg-background p-4 shadow-sm">
-                        <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1"/>
-                        <p>Você sente que é sempre você quem inicia as conversas e faz os planos?</p>
-                    </div>
-                     <div className="flex items-start gap-4 rounded-lg bg-background p-4 shadow-sm">
-                        <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1"/>
-                        <p>As respostas demoram horas (ou dias) e você se sente ansiosa e insegura?</p>
-                    </div>
-                     <div className="flex items-start gap-4 rounded-lg bg-background p-4 shadow-sm">
-                        <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1"/>
-                        <p>Conversas sobre o futuro são vagas e você se sente como se estivesse em um "limbo"?</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         {/* What You'll Get Section */}
-        <section className="py-16">
+        <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 animate-in fade-in">
             <h2 className="text-center font-headline text-3xl font-bold md:text-4xl">
               Com o Decodificador do Amor, você vai...
             </h2>
             <div className="mt-8 grid max-w-4xl mx-auto gap-6 md:grid-cols-2">
-              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500">
+              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500 bg-background">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -97,7 +74,7 @@ export default function EbookLandingPage() {
                   Aprenda a ler os sinais por trás das ações e do silêncio, para nunca mais ficar na dúvida.
                 </CardContent>
               </Card>
-              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500">
+              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500 bg-background">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -108,7 +85,7 @@ export default function EbookLandingPage() {
                   Use nossos scripts para ter conversas difíceis, expressar seus sentimentos e ser ouvida de verdade.
                 </CardContent>
               </Card>
-              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500">
+              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500 bg-background">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -119,7 +96,7 @@ export default function EbookLandingPage() {
                  Com nosso plano de ação, você trará de volta a admiração, o carinho e a iniciativa do início.
                 </CardContent>
               </Card>
-               <Card className="animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
+               <Card className="animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500 bg-background">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CheckCircle2 className="h-6 w-6 text-green-500" />
@@ -135,7 +112,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Social Proof Section */}
-        <section className="bg-secondary/30 py-16">
+        <section className="py-16">
             <div className="container mx-auto px-4 text-center animate-in fade-in">
                 <ThumbsUp className="mx-auto h-12 w-12 text-primary" />
                 <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">O que dizem nossas leitoras</h2>
@@ -178,7 +155,8 @@ export default function EbookLandingPage() {
         </section>
         
         {/* Pricing Section */}
-        <section id="comprar" className="container mx-auto px-4 py-16 scroll-mt-20">
+        <section id="comprar" className="py-16 scroll-mt-20 bg-secondary/30 my-16">
+          <div className="container mx-auto px-4">
             <div className="text-center mb-12 animate-in fade-in">
                 <Gift className="mx-auto h-16 w-16 text-primary"/>
                 <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Escolha o Plano Perfeito Para Você</h2>
@@ -187,7 +165,7 @@ export default function EbookLandingPage() {
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:items-start">
               {/* Plano 1 - Básico */}
-              <Card className="flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500">
+              <Card className="flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500 bg-card">
                 <CardHeader className="text-center">
                   <CardTitle className="font-headline text-2xl">Guia Essencial</CardTitle>
                   <CardDescription>O ponto de partida perfeito.</CardDescription>
@@ -205,7 +183,7 @@ export default function EbookLandingPage() {
               </Card>
 
               {/* Plano 2 - Mais Popular */}
-              <Card className="flex flex-col border-2 border-primary shadow-2xl relative -my-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500">
+              <Card className="flex flex-col border-2 border-primary shadow-2xl relative -my-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500 bg-card">
                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-sm font-bold text-primary-foreground flex items-center gap-1">
                     <Star className="h-4 w-4" />
                     <span>MAIS POPULAR</span>
@@ -229,7 +207,7 @@ export default function EbookLandingPage() {
               </Card>
 
               {/* Plano 3 - Premium */}
-              <Card className="flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500">
+              <Card className="flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500 bg-card">
                 <CardHeader className="text-center">
                   <CardTitle className="font-headline text-2xl">Método Completo</CardTitle>
                   <CardDescription>A transformação definitiva.</CardDescription>
@@ -248,10 +226,11 @@ export default function EbookLandingPage() {
               </Card>
             </div>
              <p className="mt-8 text-center text-xs text-muted-foreground">Compra segura e entrega imediata por e-mail.</p>
+          </div>
         </section>
 
         {/* Guarantee Section */}
-        <section className="bg-secondary/30 py-16">
+        <section className="py-16">
             <div className="container mx-auto px-4 text-center flex flex-col md:flex-row items-center gap-8">
                 <div className="animate-in fade-in slide-in-from-left-8 duration-500">
                     <ShieldCheck className="h-24 w-24 text-primary mx-auto md:mx-0" />
@@ -275,3 +254,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
