@@ -158,7 +158,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
                             <h3 className="font-headline text-xl font-bold text-foreground">Receba o Plano de Ação Completo</h3>
                             <p className="text-sm text-muted-foreground">Desbloqueie todas as dicas e transforme seu relacionamento com nosso guia exclusivo.</p>
                             <Button asChild className="font-bold">
-                                <Link href="/ebook-landing">
+                                <Link href="/ebook-landing" prefetch={true}>
                                     Quero o plano completo <ArrowRight className="ml-2 h-5 w-5"/>
                                 </Link>
                             </Button>
