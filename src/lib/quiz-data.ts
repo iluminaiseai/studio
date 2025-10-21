@@ -1,4 +1,3 @@
-
 import { HeartHandshake, MessagesSquare, Repeat, ShieldAlert } from "lucide-react";
 import { LogoCapricho } from "@/components/logo-capricho";
 
@@ -21,114 +20,114 @@ export type Section = {
 }
 
 export const sections: Section[] = [
-  { key: 'communication', title: 'Comunicação', icon: MessagesSquare },
-  { key: 'timeTogether', title: 'Tempo juntos e atenção', icon: HeartHandshake },
-  { key: 'behaviorChanges', title: 'Mudanças de comportamento', icon: Repeat },
-  { key: 'reactionsToConflicts', title: 'Reações a conflitos', icon: ShieldAlert },
-  { key: 'signsOfInterest', title: 'Sinais de interesse/atração', icon: LogoCapricho },
+  { key: 'communication', title: 'Papo reto', icon: MessagesSquare },
+  { key: 'timeTogether', title: 'Grudinhos ou nem tanto?', icon: HeartHandshake },
+  { key: 'behaviorChanges', title: 'Mudou, né?', icon: Repeat },
+  { key: 'reactionsToConflicts', title: 'Eita, treta!', icon: ShieldAlert },
+  { key: 'signsOfInterest', title: 'Tá a fim ou não?', icon: LogoCapricho },
 ];
 
 export const quizData: Question[] = [
-  // Seção 1 — Comunicação (Max score: 4)
+  // Seção 1 — Comunicação
   {
     id: 1,
     section: 'communication',
-    text: 'Quem geralmente inicia as conversas?',
+    text: 'Na hora de chamar no zap, quem manda o primeiro "oi"?',
     answers: [
-      { text: 'Ambos iniciamos, é bem equilibrado.', score: 2 },
-      { text: 'Na maioria das vezes, sou eu quem procuro.', score: -2 },
-      { text: 'Normalmente é ele(a) quem me procura.', score: 1 },
+      { text: 'A gente se reveza, super de boa.', score: 2 },
+      { text: 'Quase sempre sou eu que tenho que ir atrás...', score: -2 },
+      { text: 'Normalmente é o crush que me chama.', score: 1 },
     ],
   },
   {
     id: 2,
     section: 'communication',
-    text: 'Quando você conta algo importante, como é a reação?',
+    text: 'Quando você conta uma fofoca ou algo importante, o crush...',
     answers: [
-      { text: 'Ele(a) presta atenção e se lembra dos detalhes depois.', score: 2 },
-      { text: 'Parece que ouve, mas logo esquece o que eu disse.', score: -2 },
-      { text: 'Ouve, mas não demonstra muito interesse.', score: -1 },
+      { text: 'Presta atenção e até lembra dos detalhes depois. Um fofo!', score: 2 },
+      { text: 'Parece que ouve, mas entra por um ouvido e sai pelo outro.', score: -2 },
+      { text: 'Escuta, mas com a mesma empolgação de quem vê a tinta secar.', score: -1 },
     ],
   },
-  // Seção 2 — Tempo juntos e atenção (Max score: 4)
+  // Seção 2 — Tempo juntos e atenção
   {
     id: 3,
     section: 'timeTogether',
-    text: 'Ele(a) faz planos com você para o futuro? (Ex: viagens, eventos distantes)',
+    text: 'E os rolês futuros? O crush te inclui nos planos?',
     answers: [
-      { text: 'Sim, sempre me inclui em seus planos de longo prazo.', score: 2 },
-      { text: 'Não, os planos são sempre de última hora ou para o fim de semana.', score: -2 },
-      { text: 'Às vezes, mas de forma vaga e sem muita certeza.', score: -1 },
+      { text: 'Sim! Já falamos de viagens, shows... me sinto super incluída.', score: 2 },
+      { text: 'Não, os planos são sempre pra "agora" ou pro finde, nada muito longe.', score: -2 },
+      { text: 'Até comenta, mas fica tudo no ar, sem nada muito certo.', score: -1 },
     ],
   },
   {
     id: 4,
     section: 'timeTogether',
-    text: 'Quando estão juntos, o carinho físico (abraços, andar de mãos dadas) acontece de forma natural?',
+    text: 'Quando vocês estão juntos, o carinho (tipo abraço, andar de mãos dadas) rola naturalmente?',
     answers: [
-      { text: 'Sim, o toque é constante e espontâneo.', score: 2 },
-      { text: 'É raro e às vezes parece forçado ou por obrigação.', score: -2 },
+      { text: 'Sim, o tempo todo, é super espontâneo e gostoso.', score: 2 },
+      { text: 'É raro. Às vezes parece que é por obrigação, sabe?', score: -2 },
     ],
   },
-    // Seção 3 — Mudanças de comportamento (Max score: 4)
+    // Seção 3 — Mudanças de comportamento
   {
     id: 5,
     section: 'behaviorChanges',
-    text: 'O esforço para te agradar ou surpreender mudou com o tempo?',
+    text: 'Aquele esforço pra te agradar ou fazer uma surpresinha... mudou com o tempo?',
     answers: [
-      { text: 'Sim, hoje ele(a) se esforça ainda mais do que no início.', score: 2 },
-      { text: 'Sim, o esforço do início praticamente desapareceu.', score: -2 },
-      { text: 'Continua igual, nem mais, nem menos.', score: 1 },
+      { text: 'Sim, hoje em dia se esforça até MAIS que no começo. Um sonho!', score: 2 },
+      { text: 'Sim, o esforço do início simplesmente sumiu no mapa.', score: -2 },
+      { text: 'Tá na mesma, nem pra mais, nem pra menos.', score: 1 },
     ],
   },
   {
     id: 6,
     section: 'behaviorChanges',
-    text: 'Ele(a) passou a ter mais segredos ou esconder o celular de um jeito que não fazia antes?',
+    text: 'O celular virou um cofre? O crush tá mais misterioso(a) e esconde o aparelho?',
     answers: [
-      { text: 'Sim, sinto que ele(a) esconde coisas e a privacidade aumentou.', score: -2 },
-      { text: 'Não, a transparência e a confiança são as mesmas de sempre.', score: 2 },
+      { text: 'Sim, tá cheio de segredinhos e o celular virou área proibida.', score: -2 },
+      { text: 'Não, a confiança é a mesma de sempre, super transparente.', score: 2 },
     ],
   },
-  // Seção 4 — Reações a conflitos (Max score: 4)
+  // Seção 4 — Reações a conflitos
   {
     id: 7,
     section: 'reactionsToConflicts',
-    text: 'Quando você fica chateada com algo, qual é a reação dele(a)?',
+    text: 'Quando você fica chateada com alguma coisa, qual a reação do crush?',
     answers: [
-      { text: 'Ele(a) tenta entender o meu lado e ouvir o que sinto.', score: 2 },
-      { text: 'Diz que estou exagerando ou fazendo "drama".', score: -2 },
-      { text: 'Ele(a) fica irritado(a) e a conversa vira uma briga.', score: -1 },
+      { text: 'Tenta me entender, ouvir meu lado e o que eu tô sentindo.', score: 2 },
+      { text: 'Me chama de dramática ou diz que tô exagerando.', score: -2 },
+      { text: 'Fica com raiva e uma conversinha vira uma briga gigante.', score: -1 },
     ],
   },
   {
     id: 8,
     section: 'reactionsToConflicts',
-    text: 'Depois de uma briga, quem procura para resolver?',
+    text: 'E depois de uma treta, quem é que vai atrás pra fazer as pazes?',
     answers: [
-      { text: 'Ele(a) costuma me procurar para fazer as pazes.', score: 1 },
-      { text: 'Ele(a) me ignora por dias, como se estivesse me punindo.', score: -2 },
-      { text: 'Ambos esperamos a poeira baixar e depois conversamos.', score: 2 },
+      { text: 'Ele(a) geralmente vem falar comigo e resolve as coisas.', score: 1 },
+      { text: 'Me ignora por dias, parece até que tá me castigando.', score: -2 },
+      { text: 'A gente espera a poeira baixar e depois conversa, numa boa.', score: 2 },
     ],
   },
-    // Seção 5 — Sinais de interesse (Max score: 4)
+    // Seção 5 — Sinais de interesse
   {
     id: 9,
     section: 'signsOfInterest',
-    text: 'Em público ou com amigos, como ele(a) se refere a você?',
+    text: 'Na frente dos amigos ou em público, como o crush fala de você?',
     answers: [
-      { text: 'Fala de mim com orgulho, me elogia na frente dos outros.', score: 2 },
-      { text: 'Evita falar de mim ou me apresenta de forma superficial.', score: -2 },
+      { text: 'Fala de mim com orgulho, me elogia na frente de todo mundo!', score: 2 },
+      { text: 'Evita falar de mim ou me apresenta só como "uma amiga".', score: -2 },
     ],
   },
   {
     id: 10,
     section: 'signsOfInterest',
-    text: 'Ele(a) apoia seus sonhos e projetos pessoais?',
+    text: 'E seus sonhos e projetos? O crush te apoia?',
     answers: [
-      { text: 'Sim, é meu maior fã e sempre me incentiva a crescer.', score: 2 },
-      { text: 'Não muito, às vezes até faz piada ou minimiza o que eu quero.', score: -2 },
-      { text: 'É indiferente, não apoia mas também não atrapalha.', score: -1 },
+      { text: 'Sim, é meu fã número 1, sempre me bota pra cima!', score: 2 },
+      { text: 'Não muito. Às vezes até tira sarro ou diminui o que eu quero.', score: -2 },
+      { text: 'É indiferente. Não ajuda, mas também não atrapalha.', score: -1 },
     ],
   },
 ];
