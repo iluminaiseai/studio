@@ -35,20 +35,37 @@ function getActionPlanParts(html: string): { visible: string, blurred: string } 
     const blurredItems: string[] = [];
 
     listItems.forEach((item, index) => {
-        if (index < 3) { // Itens 1, 2, 3 são totalmente visíveis
+        if (index < 2) { // Items 1 and 2 are fully visible
             visibleItems.push(item.outerHTML);
-        } else if (index === 3) { // Para o item 4, criamos a isca
+        } else if (index === 2) { // For item 3, create the teaser
             const tempItemDiv = document.createElement('div');
             tempItemDiv.innerHTML = item.innerHTML;
-            const firstLine = tempItemDiv.querySelector('strong');
-            if (firstLine) {
-                 enticingTeaser = `<li><strong>${firstLine.innerText}</strong>...</li>`;
+            const title = tempItemDiv.querySelector('strong');
+            // Remove the title to get only the description text
+            if (title) {
+                title.remove();
+            }
+            const descriptionText = tempItemDiv.textContent?.trim() || '';
+            const firstWords = descriptionText.split(' ').slice(0, 10).join(' ');
+
+            if (title) {
+                enticingTeaser = `<li><strong>${title.innerText}</strong> ${firstWords}...</li>`;
+            } else {
+                 enticingTeaser = `<li>${firstWords}...</li>`;
             }
             blurredItems.push(item.outerHTML);
-        } else { // Itens 5, 6, 7 ficam totalmente embaçados
+        } else { // All subsequent items are blurred
             blurredItems.push(item.outerHTML);
         }
     });
+    
+    // Also add the items from index 2 onwards to the blurred list
+    listItems.slice(2).forEach(item => {
+        if (!blurredItems.includes(item.outerHTML)) {
+            blurredItems.push(item.outerHTML);
+        }
+    });
+
 
     let blurredFooter = '';
     const lastParagraph = tempDiv.querySelector('p:last-of-type');
@@ -56,8 +73,8 @@ function getActionPlanParts(html: string): { visible: string, blurred: string } 
         blurredFooter = lastParagraph.outerHTML;
     }
 
-    const firstUl = tempDiv.querySelector('ul');
     let visibleHeader = '';
+    const firstUl = tempDiv.querySelector('ul');
     if (firstUl) {
         let currentNode = firstUl.previousSibling;
         while (currentNode) {
@@ -69,10 +86,13 @@ function getActionPlanParts(html: string): { visible: string, blurred: string } 
     }
 
     const finalVisibleHtml = `${visibleHeader}<ul>${visibleItems.join('')}${enticingTeaser}</ul>`;
+    
+    // Ensure blurredItems does not contain duplicates and is correctly ordered
+    const uniqueBlurredItems = listItems.slice(2).map(item => item.outerHTML);
 
     return {
         visible: finalVisibleHtml,
-        blurred: `<ul>${blurredItems.join('')}</ul>${blurredFooter}`,
+        blurred: `<ul>${uniqueBlurredItems.join('')}</ul>${blurredFooter}`,
     };
 }
 
