@@ -1,3 +1,4 @@
+
 import { HeartHandshake, MessagesSquare, Repeat, ShieldAlert, Sparkles } from "lucide-react";
 
 export type Answer = {
@@ -32,96 +33,96 @@ export const quizData: Question[] = [
   {
     id: 1,
     section: 'communication',
-    text: 'Ele(a) inicia conversas ou só responde quando você chama?',
+    text: 'Quando você pensa em iniciar uma conversa, você sente leveza, como se fosse um espaço seguro, ou sente um peso, como se estivesse interrompendo ou incomodando?',
     answers: [
-      { text: 'Ele(a) geralmente inicia', feedback: 'Ótimo! Iniciativa é um forte sinal de interesse.', score: 2 },
-      { text: 'Apenas responde', feedback: 'Pode indicar reatividade. Vamos ver os outros sinais.', score: -1 },
-      { text: 'É bem equilibrado', feedback: 'Reciprocidade é um pilar de relacionamentos saudáveis.', score: 1 },
+      { text: 'Sinto leveza, é um espaço seguro e recíproco.', feedback: 'Isso é um sinal vital. A comunicação que flui sem esforço é a base de uma conexão saudável.', score: 2 },
+      { text: 'Sinto um peso, como se eu fosse um incômodo.', feedback: 'Esse sentimento é um alerta importante. Ninguém deveria se sentir como um fardo.', score: -2 },
+      { text: 'Depende do dia, é um pouco instável.', feedback: 'A instabilidade pode gerar ansiedade. Vamos entender por que isso acontece.', score: -1 },
     ],
   },
   {
     id: 2,
     section: 'communication',
-    text: 'Quando vocês conversam, ele(a) parece genuinamente atento(a) ou distraído(a)?',
+    text: 'Pense na última vez que você compartilhou algo importante. Ele(a) lembrou do assunto dias depois ou pareceu esquecer completamente?',
     answers: [
-      { text: 'Parece atento(a) e presente', feedback: 'Atenção plena demonstra grande respeito e interesse.', score: 2 },
-      { text: 'Frequentemente parece distraído(a)', feedback: 'Isso pode ser um sinal de alerta sobre as prioridades dele(a).', score: -1 },
+      { text: 'Sim, ele(a) lembrou e até perguntou sobre o assunto.', feedback: 'Memória e acompanhamento são provas de atenção genuína. Ele(a) está investindo em você.', score: 2 },
+      { text: 'Não, parece que a conversa nunca aconteceu.', feedback: 'A falta de retenção pode indicar que a atenção dele(a) estava em outro lugar.', score: -2 },
     ],
   },
   // Seção 2 — Tempo juntos e atenção (Max score: 4)
   {
     id: 3,
     section: 'timeTogether',
-    text: 'Ele(a) faz planos concretos para o futuro com você (viagens, eventos) ou evita o assunto?',
+    text: 'Ele(a) te inclui em planos futuros (uma viagem no próximo ano, um grande evento) ou o futuro de vocês parece se limitar à próxima semana?',
     answers: [
-      { text: 'Sim, faz planos', feedback: 'Incluir você no futuro é um sinal claro de compromisso.', score: 2 },
-      { text: 'Não, evita ou desconversa', feedback: 'Evitar o futuro pode indicar incerteza ou medo de compromisso.', score: -1 },
+      { text: 'Sim, sou parte clara dos planos de longo prazo.', feedback: 'Isso é excelente. Ser incluída no futuro demonstra um compromisso real.', score: 2 },
+      { text: 'Não, os planos raramente passam do próximo fim de semana.', feedback: 'Viver no curto prazo pode ser um sinal de que ele(a) não vê ou não quer um futuro juntos.', score: -2 },
     ],
   },
   {
     id: 4,
     section: 'timeTogether',
-    text: 'Quando estão juntos, ele(a) demonstra carinho com gestos e toques ou mantém distância?',
+    text: 'Quando estão juntos, o toque físico (um abraço, um carinho no cabelo, dar as mãos) é algo natural e frequente ou é raro e calculado?',
     answers: [
-      { text: 'Sim, demonstra carinho', feedback: 'O contato físico fortalece a intimidade e a conexão.', score: 2 },
-      { text: 'Não, mantém uma certa distância', feedback: 'A falta de contato pode ser um sinal de distanciamento emocional.', score: -1 },
+      { text: 'É natural e frequente, parte da nossa dinâmica.', feedback: 'A intimidade física espontânea é um pilar que fortalece a conexão emocional.', score: 2 },
+      { text: 'É raro e parece forçado, quase protocolar.', feedback: 'A distância física muitas vezes reflete uma distância emocional. É um ponto a ser observado.', score: -2 },
     ],
   },
     // Seção 3 — Mudanças de comportamento (Max score: 4)
   {
     id: 5,
     section: 'behaviorChanges',
-    text: 'Comparado ao início, a frequência e a qualidade das conversas diminuíram drasticamente?',
+    text: 'Compare o início do relacionamento com agora. O esforço para te agradar e surpreender (um elogio, uma pequena gentileza) aumentou ou desapareceu?',
     answers: [
-      { text: 'Sim, diminuíram muito', feedback: 'Uma queda brusca é um sinal de alerta importante a ser observado.', score: -2 },
-      { text: 'Não, continuam consistentes ou melhoraram', feedback: 'Consistência é um sinal de estabilidade e interesse contínuo.', score: 2 },
+      { text: 'Desapareceu quase que por completo.', feedback: 'Quando o esforço inicial some, é um sinal de que a fase de conquista acabou e a de manutenção não começou.', score: -2 },
+      { text: 'Continua consistente ou até melhorou.', feedback: 'Isso é raro e valioso. Mostra que o desejo de te fazer feliz é genuíno e contínuo.', score: 2 },
     ],
   },
   {
     id: 6,
     section: 'behaviorChanges',
-    text: 'Ele(a) costumava ser mais aberto(a) sobre a vida pessoal e agora parece mais reservado(a)?',
+    text: 'Ele(a) tem novos "segredos" ou uma vida "privada" no celular que antes não existia, fazendo você se sentir um pouco de fora?',
     answers: [
-      { text: 'Sim, está mais reservado(a)', feedback: 'Fechar-se pode indicar que algo o(a) está incomodando.', score: -2 },
-      { text: 'Não, a transparência continua a mesma', feedback: 'Manter a abertura é um sinal de confiança mútua.', score: 2 },
+      { text: 'Sim, sinto que há um mundo ali do qual não faço parte.', feedback: 'Novos segredos e privacidade excessiva são bandeiras vermelhas clássicas. A confiança é abalada.', score: -2 },
+      { text: 'Não, a transparência e a confiança continuam as mesmas.', feedback: 'Abertura e transparência são o antídoto para a desconfiança. Sinal de um ambiente seguro.', score: 2 },
     ],
   },
   // Seção 4 — Reações a conflitos (Max score: 4)
   {
     id: 7,
     section: 'reactionsToConflicts',
-    text: 'Quando você tenta discutir um problema, ele(a) se irrita e te acusa ou tenta ouvir e entender?',
+    text: 'Quando você expressa uma frustração, a reação dele(a) é de curiosidade para entender sua dor ou de irritação por você estar "reclamando"?',
     answers: [
-      { text: 'Tenta ouvir e entender', feedback: 'Uma abordagem madura para resolver conflitos é essencial.', score: 2 },
-      { text: 'Fica na defensiva ou se irrita', feedback: 'Reatividade excessiva pode impedir a resolução de problemas.', score: -2 },
+      { text: 'Ele(a) tenta genuinamente entender meu ponto de vista.', feedback: 'Parceiros que ouvem a dor do outro constroem pontes, não muros. Isso é maturidade.', score: 2 },
+      { text: 'Sou vista como "reclamona" ou "dramática".', feedback: 'Invalidar seus sentimentos é uma forma de manipulação. Seu sentir é legítimo.', score: -2 },
     ],
   },
   {
     id: 8,
     section: 'reactionsToConflicts',
-    text: 'Após uma discussão, ele(a) busca a reconciliação ou age com indiferença e "gelo"?',
+    text: 'Após uma briga, ele(a) te procura para resolver e se reconectar ou te pune com silêncio, esperando que você "aprenda a lição"?',
     answers: [
-      { text: 'Busca a reconciliação', feedback: 'Isso mostra que ele(a) valoriza mais o relacionamento do que o orgulho.', score: 2 },
-      { text: 'Age com indiferença (me dá um gelo)', feedback: 'O "tratamento de silêncio" é uma forma passiva de agressão.', score: -2 },
+      { text: 'Ele(a) busca a reconciliação, mesmo que demore um pouco.', feedback: 'Priorizar a relação acima do orgulho é um sinal de quem realmente se importa em resolver.', score: 2 },
+      { text: 'Recebo o "tratamento de silêncio" por dias.', feedback: 'O silêncio como punição é uma forma de abuso emocional. É cruel e destrutivo.', score: -2 },
     ],
   },
     // Seção 5 — Sinais de interesse (Max score: 4)
   {
     id: 9,
     section: 'signsOfInterest',
-    text: 'Ele(a) elogia você ou demonstra apreciação por suas qualidades e conquistas?',
+    text: 'Em uma roda de amigos, ele(a) conta uma história sua com um brilho no olho, te elogiando, ou evita te mencionar?',
     answers: [
-      { text: 'Sim, com frequência', feedback: 'Reconhecimento e admiração são combustíveis para a autoestima e a conexão.', score: 2 },
-      { text: 'Raramente ou nunca', feedback: 'A falta de validação pode criar um sentimento de invisibilidade.', score: -2 },
+      { text: 'Sim, ele(a) fala de mim com orgulho visível.', feedback: 'Ter orgulho de você em público é uma das maiores demonstrações de valor e parceria.', score: 2 },
+      { text: 'Raramente sou o foco, é como se eu fosse um detalhe.', feedback: 'Sentir-se invisível ao lado de quem você ama é solitário e doloroso.', score: -2 },
     ],
   },
   {
     id: 10,
     section: 'signsOfInterest',
-    text: 'Ele(a) demonstra ter orgulho de estar com você na frente de amigos e familiares?',
+    text: 'Ele(a) apoia seus sonhos e projetos pessoais, mesmo que não os entenda completamente, ou os minimiza como se fossem bobagem?',
     answers: [
-      { text: 'Sim, claramente', feedback: 'Apresentar você e falar bem de você publicamente é um forte sinal de compromisso.', score: 2 },
-      { text: 'Não, parece me "esconder"', feedback: 'Isso é uma grande bandeira vermelha sobre as intenções dele(a).', score: -2 },
+      { text: 'É meu maior incentivador(a), sempre me impulsiona.', feedback: 'Um parceiro que rega seus sonhos é um tesouro. Isso constrói um futuro juntos.', score: 2 },
+      { text: 'Minimiza ou faz piada dos meus sonhos.', feedback: 'Quem não respeita seus sonhos, não respeita uma parte essencial de quem você é.', score: -2 },
     ],
   },
 ];
