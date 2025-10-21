@@ -4,13 +4,35 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Answer, quizData, sections } from "@/lib/quiz-data";
+import { getFeedbackForAnswers } from "@/lib/feedback-data";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, MessageCircleHeart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Loader } from "lucide-react";
 import { Suspense } from "react";
+
+function MiniFeedback({ feedback, onContinue }: { feedback: { title: string, text: string }, onContinue: () => void }) {
+    return (
+        <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
+            <Card className="w-full animate-in fade-in">
+                <CardHeader>
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                        <MessageCircleHeart className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="font-headline text-2xl md:text-3xl">{feedback.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground md:text-lg">{feedback.text}</p>
+                    <Button onClick={onContinue} size="lg" className="mt-8 font-bold">
+                        Continuar o Quiz
+                    </Button>
+                </CardContent>
+            </Card>
+        </div>
+    );
+}
 
 function QuizComponent() {
   const router = useRouter();
@@ -37,6 +59,9 @@ function QuizComponent() {
   const [feedback, setFeedback] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCompleting, setIsCompleting] = useState(false);
+  const [showMiniFeedback, setShowMiniFeedback] = useState(false);
+  const [miniFeedbackContent, setMiniFeedbackContent] = useState<{ title: string; text: string } | null>(null);
+
 
   const currentQuestion = quizData[currentQuestionIndex];
   const currentSection = sections.find(s => s.key === currentQuestion?.section);
@@ -44,15 +69,21 @@ function QuizComponent() {
   const progress = ((currentQuestionIndex) / quizData.length) * 100;
 
   const handleAnswer = (answer: Answer) => {
-    if (showFeedback) return;
+    if (showFeedback || showMiniFeedback) return;
     
     const newAnswers = [...answers, answer.text];
     setAnswers(newAnswers);
     setFeedback(answer.feedback);
     setShowFeedback(true);
 
+    const isCheckpoint = (currentQuestionIndex + 1) % 4 === 0 && currentQuestionIndex < quizData.length - 1;
+
     setTimeout(() => {
-      if (currentQuestionIndex >= quizData.length - 1) {
+      if (isCheckpoint) {
+        const feedback = getFeedbackForAnswers(newAnswers);
+        setMiniFeedbackContent(feedback);
+        setShowMiniFeedback(true);
+      } else if (currentQuestionIndex >= quizData.length - 1) {
         setIsCompleting(true);
         const finalAnswers = [...newAnswers];
         const answersQueryParam = encodeURIComponent(finalAnswers.join("|"));
@@ -64,7 +95,19 @@ function QuizComponent() {
       }
     }, 2500);
   };
+
+  const handleContinueFromFeedback = () => {
+    setShowMiniFeedback(false);
+    setMiniFeedbackContent(null);
+    setShowFeedback(false);
+    setFeedback(null);
+    setCurrentQuestionIndex((prev) => prev + 1);
+  };
   
+  if (showMiniFeedback && miniFeedbackContent) {
+    return <MiniFeedback feedback={miniFeedbackContent} onContinue={handleContinueFromFeedback} />;
+  }
+
   if (isCompleting) {
     return (
       <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
@@ -113,7 +156,7 @@ function QuizComponent() {
                   size="lg"
                   className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm md:text-base"
                   onClick={() => handleAnswer(answer)}
-                  disabled={showFeedback}
+                  disabled={showFeedback || showMiniFeedback}
                 >
                   {answer.text}
                 </Button>
@@ -122,7 +165,7 @@ function QuizComponent() {
           </CardContent>
         </Card>
 
-        {showFeedback && feedback && (
+        {showFeedback && feedback && !showMiniFeedback && (
           <div className={cn("mt-6", showFeedback ? "animate-in fade-in" : "animate-out fade-out")}>
             <Card className="bg-primary/10 border-primary/20">
               <CardContent className="p-4 md:p-6">
