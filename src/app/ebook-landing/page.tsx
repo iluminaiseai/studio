@@ -292,19 +292,31 @@ export default function EbookLandingPage() {
                   <AccordionItem value="item-1">
                     <AccordionTrigger className="font-bold text-lg">É só para mulheres?</AccordionTrigger>
                     <AccordionContent className="text-base text-muted-foreground">
-                      Sim, o conteúdo é voltado à mulher que quer reconquistar, fortalecer ou salvar seu relacionamento.
+                      Sim, o conteúdo é voltado à mulher que quer reconquistar, fortalecer ou salvar seu relacionamento, seja com homens ou mulheres. A psicologia da comunicação é universal.
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="item-2">
                     <AccordionTrigger className="font-bold text-lg">Funciona se ele está distante ou frio?</AccordionTrigger>
                     <AccordionContent className="text-base text-muted-foreground">
-                      Sim — você aprenderá como quebrar o gelo e reativar o vínculo emocional de forma natural.
+                      Sim — na verdade, é um dos cenários ideais. Você aprenderá como quebrar o gelo e reativar o vínculo emocional de forma natural, sem parecer desesperada.
                     </AccordionContent>
                   </AccordionItem>
-                  <AccordionItem value="item-3">
+                   <AccordionItem value="item-3">
+                    <AccordionTrigger className="font-bold text-lg">Como vou receber o acesso?</AccordionTrigger>
+                    <AccordionContent className="text-base text-muted-foreground">
+                     Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para baixar o ebook e todos os bônus. O acesso é seu para sempre.
+                    </AccordionContent>
+                  </AccordionItem>
+                   <AccordionItem value="item-4">
+                    <AccordionTrigger className="font-bold text-lg">E se meu relacionamento já acabou?</AccordionTrigger>
+                    <AccordionContent className="text-base text-muted-foreground">
+                     Muitas leitoras usam o método para reconquistar, pois ele foca em reestabelecer a admiração e a comunicação. No entanto, o foco principal é fortalecer seu amor-próprio, o que te tornará mais atraente em qualquer situação.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-5">
                     <AccordionTrigger className="font-bold text-lg">E se eu já tentei de tudo?</AccordionTrigger>
                     <AccordionContent className="text-base text-muted-foreground">
-                      A maioria das nossas leitoras também tentou “de tudo”. O diferencial aqui é o método psicológico prático, testado e aprovado por mais de 12 mil mulheres.
+                      A maioria das nossas leitoras também tentou “de tudo”. O diferencial aqui é o método psicológico prático, testado e aprovado por mais de 12 mil mulheres. Não é sobre tentar mais, é sobre tentar do jeito certo.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
