@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { TestTube } from "lucide-react";
+import { TestTube, Check } from "lucide-react";
 import { LogoCapricho } from "@/components/logo-capricho";
 
 export default function Home() {
@@ -20,7 +20,22 @@ export default function Home() {
         <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
           Ele anda distante ou é só coisa da sua cabeça? Responda o quiz e descubra a verdade por trás dos sinais que ele te dá.
         </p>
-        <div className="flex flex-col gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 delay-900 duration-500">
+
+        <div className="mt-4 text-center text-muted-foreground animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
+            <p className="font-semibold text-foreground">Leva menos de 2 minutos:</p>
+            <ul className="mt-2 space-y-1 text-sm">
+                <li className="flex items-center justify-center gap-2">
+                    <Check className="h-4 w-4 text-green-500" />
+                    <span>Teste rápido e confidencial</span>
+                </li>
+                <li className="flex items-center justify-center gap-2">
+                    <Check className="h-4 w-4 text-green-500" />
+                    <span>Diagnóstico personalizado baseado em suas respostas</span>
+                </li>
+            </ul>
+        </div>
+
+        <div className="flex flex-col gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 delay-900 duration-500 mt-4">
           <Button asChild size="lg" className="font-bold">
             <Link href="/quiz">Começar o Quiz</Link>
           </Button>
