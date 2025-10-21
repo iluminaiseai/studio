@@ -19,9 +19,10 @@ function QuizComponent() {
 
   const getInitialState = () => {
     if (isTestMode) {
-      const prefilledAnswers = quizData.slice(0, 24).map(q => q.answers[0].text);
+      // Pre-fill answers for the first 9 questions to jump to the last one
+      const prefilledAnswers = quizData.slice(0, 9).map(q => q.answers[0].text);
       return {
-        currentQuestionIndex: 24,
+        currentQuestionIndex: 9,
         answers: prefilledAnswers,
       };
     }

@@ -31,232 +31,96 @@ export const quizData: Question[] = [
   {
     id: 1,
     section: 'communication',
-    text: 'Ele(a) responde suas mensagens rapidamente ou demora sem explicação?',
+    text: 'Ele(a) inicia conversas ou só responde quando você chama?',
     answers: [
-      { text: 'Sim', feedback: 'Ele(a) está presente e atento(a), mostrando interesse genuíno.' },
-      { text: 'Não', feedback: 'Pode estar distraído(a) ou com prioridades divididas, observe padrões.' },
-      { text: 'Às vezes', feedback: 'Respostas inconsistentes podem gerar dúvidas, mas observe a frequência.' },
+      { text: 'Ele(a) geralmente inicia', feedback: 'Ótimo! Iniciativa é um forte sinal de interesse.' },
+      { text: 'Apenas responde', feedback: 'Pode indicar reatividade. Vamos ver os outros sinais.' },
+      { text: 'É bem equilibrado', feedback: 'Reciprocidade é um pilar de relacionamentos saudáveis.' },
     ],
   },
   {
     id: 2,
     section: 'communication',
-    text: 'Quando vocês conversam, ele(a) parece atento(a) ou distraído(a)?',
+    text: 'Quando vocês conversam, ele(a) parece genuinamente atento(a) ou distraído(a)?',
     answers: [
-      { text: 'Atento', feedback: 'Demonstra interesse real em suas palavras e sentimentos.' },
-      { text: 'Distraído', feedback: 'Talvez esteja com outras preocupações, fique atento(a) a padrões.' },
-    ],
-  },
-  {
-    id: 3,
-    section: 'communication',
-    text: 'Ele(a) inicia conversas ou só responde quando você chama?',
-    answers: [
-      { text: 'Inicia', feedback: 'Mostra iniciativa e envolvimento no relacionamento.' },
-      { text: 'Só responde', feedback: 'Pode indicar menor proatividade, mas ainda há atenção quando responde.' },
-      { text: 'Ambos', feedback: 'Existe reciprocidade na comunicação, bom sinal de equilíbrio.' },
-    ],
-  },
-  {
-    id: 4,
-    section: 'communication',
-    text: 'Ele(a) evita falar sobre sentimentos ou sobre o relacionamento?',
-    answers: [
-      { text: 'Não', feedback: 'Comunicação aberta é um ponto forte da relação.' },
-      { text: 'Sim', feedback: 'Evitar falar de sentimentos pode indicar medo ou insegurança, fique atento(a).' },
-    ],
-  },
-  {
-    id: 5,
-    section: 'communication',
-    text: 'Ele(a) te conta sobre o dia dele(a) ou mantém segredo de coisas simples?',
-    answers: [
-      { text: 'Conta', feedback: 'Transparência fortalece confiança e intimidade.' },
-      { text: 'Mantém segredo', feedback: 'Falta de compartilhamento pode gerar desconexão emocional.' },
+      { text: 'Parece atento(a) e presente', feedback: 'Atenção plena demonstra grande respeito e interesse.' },
+      { text: 'Frequentemente parece distraído(a)', feedback: 'Isso pode ser um sinal de alerta sobre as prioridades dele(a).' },
     ],
   },
   // Seção 2 — Tempo juntos e atenção
   {
-    id: 6,
+    id: 3,
     section: 'timeTogether',
-    text: 'Ele(a) busca estar sozinho(a) com você ou prefere se distanciar?',
+    text: 'Ele(a) faz planos concretos para o futuro com você (viagens, eventos) ou evita o assunto?',
     answers: [
-      { text: 'Sempre busca estar sozinho(a)', feedback: 'Ele(a) valoriza tempo de qualidade com você.' },
-      { text: 'Prefere se distanciar', feedback: 'Pode indicar que precisa de espaço ou está distraído(a).' },
+      { text: 'Sim, faz planos', feedback: 'Incluir você no futuro é um sinal claro de compromisso.' },
+      { text: 'Não, evita ou desconversa', feedback: 'Evitar o futuro pode indicar incerteza ou medo de compromisso.' },
     ],
   },
   {
-    id: 7,
+    id: 4,
     section: 'timeTogether',
-    text: 'Quando estão juntos, ele(a) presta atenção ou parece distante?',
+    text: 'Quando estão juntos, ele(a) demonstra carinho com gestos e toques ou mantém distância?',
     answers: [
-      { text: 'Presta atenção', feedback: 'Sua presença é valorizada e ele(a) está emocionalmente disponível.' },
-      { text: 'Parece distante', feedback: 'Observe se é momentâneo ou padrão de comportamento.' },
+      { text: 'Sim, demonstra carinho', feedback: 'O contato físico fortalece a intimidade e a conexão.' },
+      { text: 'Não, mantém uma certa distância', feedback: 'A falta de contato pode ser um sinal de distanciamento emocional.' },
+    ],
+  },
+    // Seção 3 — Mudanças de comportamento
+  {
+    id: 5,
+    section: 'behaviorChanges',
+    text: 'Comparado ao início, a frequência e a qualidade das conversas diminuíram drasticamente?',
+    answers: [
+      { text: 'Sim, diminuíram muito', feedback: 'Uma queda brusca é um sinal de alerta importante a ser observado.' },
+      { text: 'Não, continuam consistentes ou melhoraram', feedback: 'Consistência é um sinal de estabilidade e interesse contínuo.' },
+    ],
+  },
+  {
+    id: 6,
+    section: 'behaviorChanges',
+    text: 'Ele(a) costumava ser mais aberto(a) sobre a vida pessoal e agora parece mais reservado(a)?',
+    answers: [
+      { text: 'Sim, está mais reservado(a)', feedback: 'Fechar-se pode indicar que algo o(a) está incomodando.' },
+      { text: 'Não, a transparência continua a mesma', feedback: 'Manter a abertura é um sinal de confiança mútua.' },
+    ],
+  },
+  // Seção 4 — Reações a conflitos
+  {
+    id: 7,
+    section: 'reactionsToConflicts',
+    text: 'Quando você tenta discutir um problema, ele(a) se irrita e te acusa ou tenta ouvir e entender?',
+    answers: [
+      { text: 'Tenta ouvir e entender', feedback: 'Uma abordagem madura para resolver conflitos é essencial.' },
+      { text: 'Fica na defensiva ou se irrita', feedback: 'Reatividade excessiva pode impedir a resolução de problemas.' },
     ],
   },
   {
     id: 8,
-    section: 'timeTogether',
-    text: 'Ele(a) faz planos futuros com você ou evita falar sobre isso?',
+    section: 'reactionsToConflicts',
+    text: 'Após uma discussão, ele(a) busca a reconciliação ou age com indiferença e "gelo"?',
     answers: [
-      { text: 'Faz planos', feedback: 'Isso mostra compromisso e visão de futuro juntos.' },
-      { text: 'Evita falar', feedback: 'Pode indicar insegurança ou medo de se comprometer.' },
+      { text: 'Busca a reconciliação', feedback: 'Isso mostra que ele(a) valoriza mais o relacionamento do que o orgulho.' },
+      { text: 'Age com indiferença (me dá um gelo)', feedback: 'O "tratamento de silêncio" é uma forma passiva de agressão.' },
     ],
   },
+    // Seção 5 — Sinais de interesse
   {
     id: 9,
-    section: 'timeTogether',
-    text: 'Ele(a) demonstra carinho em público ou parece indiferente?',
+    section: 'signsOfInterest',
+    text: 'Ele(a) elogia você ou demonstra apreciação por suas qualidades e conquistas?',
     answers: [
-      { text: 'Demonstra', feedback: 'O carinho público reforça a conexão e orgulho no relacionamento.' },
-      { text: 'Indiferente', feedback: 'Evitar carinho público pode indicar timidez ou falta de confiança.' },
+      { text: 'Sim, com frequência', feedback: 'Reconhecimento e admiração são combustíveis para a autoestima e a conexão.' },
+      { text: 'Raramente ou nunca', feedback: 'A falta de validação pode criar um sentimento de invisibilidade.' },
     ],
   },
   {
     id: 10,
-    section: 'timeTogether',
-    text: 'Ele(a) interrompe atividades importantes para te dar atenção?',
-    answers: [
-      { text: 'Sim', feedback: 'Prioriza você e valoriza momentos juntos.' },
-      { text: 'Não', feedback: 'Pode ser uma questão de equilíbrio ou foco em outras tarefas.' },
-    ],
-  },
-  // Seção 3 — Mudanças de comportamento
-  {
-    id: 11,
-    section: 'behaviorChanges',
-    text: 'Você percebeu mudanças na rotina dele(a) que te deixaram insegura?',
-    answers: [
-      { text: 'Não', feedback: 'Rotina está consistente, bom sinal de estabilidade.' },
-      { text: 'Sim', feedback: 'Mudanças podem indicar estresse ou ajustes na vida pessoal.' },
-    ],
-  },
-  {
-    id: 12,
-    section: 'behaviorChanges',
-    text: 'Ele(a) costumava demonstrar interesse/afeto e agora parece menos interessado(a)?',
-    answers: [
-      { text: 'Não', feedback: 'O interesse permanece constante, ótimo sinal.' },
-      { text: 'Sim', feedback: 'Observe se é passageiro ou padrão de comportamento.' },
-    ],
-  },
-  {
-    id: 13,
-    section: 'behaviorChanges',
-    text: 'Ele(a) evita contato físico que antes era comum?',
-    answers: [
-      { text: 'Não', feedback: 'Contato físico consistente indica afeto contínuo.' },
-      { text: 'Sim', feedback: 'Pode ser sinal de distração, cansaço ou desinteresse momentâneo.' },
-    ],
-  },
-  {
-    id: 14,
-    section: 'behaviorChanges',
-    text: 'Ele(a) mudou hábitos de comunicação, como mensagens ou ligações?',
-    answers: [
-      { text: 'Não', feedback: 'Consistência na comunicação é excelente para estabilidade.' },
-      { text: 'Sim', feedback: 'Mudanças podem indicar prioridades ou desconexão emocional temporária.' },
-    ],
-  },
-  {
-    id: 15,
-    section: 'behaviorChanges',
-    text: 'Você sente que ele(a) está emocionalmente distante recentemente?',
-    answers: [
-      { text: 'Não', feedback: 'Presença emocional está intacta, bom sinal de vínculo saudável.' },
-      { text: 'Sim', feedback: 'Vale observar frequência e contexto, para entender se é momentâneo.' },
-    ],
-  },
-  // Seção 4 — Reações a conflitos ou conversas
-  {
-    id: 16,
-    section: 'reactionsToConflicts',
-    text: 'Ele(a) evita discutir problemas do relacionamento ou reage com irritação?',
-    answers: [
-      { text: 'Evita', feedback: 'Pode ser estratégia de evitar conflitos, mas atenção se padrões se repetem.' },
-      { text: 'Reage com irritação', feedback: 'Pode indicar dificuldade em lidar com críticas, observe padrões.' },
-    ],
-  },
-  {
-    id: 17,
-    section: 'reactionsToConflicts',
-    text: 'Ele(a) aceita feedbacks e tenta melhorar, ou ignora o que você diz?',
-    answers: [
-      { text: 'Aceita', feedback: 'Disposição para melhorar é ótimo sinal de maturidade emocional.' },
-      { text: 'Ignora', feedback: 'Ignorar feedbacks pode gerar problemas de comunicação.' },
-    ],
-  },
-  {
-    id: 18,
-    section: 'reactionsToConflicts',
-    text: 'Ele(a) muda de assunto quando você fala de sentimentos?',
-    answers: [
-      { text: 'Não', feedback: 'Está aberto(a) à comunicação emocional, excelente sinal.' },
-      { text: 'Sim', feedback: 'Evitar falar de sentimentos pode indicar medo ou insegurança.' },
-    ],
-  },
-  {
-    id: 19,
-    section: 'reactionsToConflicts',
-    text: 'Ele(a) demonstra preocupação com seu bem-estar ou parece indiferente?',
-    answers: [
-      { text: 'Demonstra', feedback: 'Mostra cuidado e empatia constante.' },
-      { text: 'Indiferente', feedback: 'Pode indicar desinteresse ou desconexão momentânea.' },
-    ],
-  },
-  {
-    id: 20,
-    section: 'reactionsToConflicts',
-    text: 'Ele(a) se desculpa quando erra ou minimiza os problemas?',
-    answers: [
-      { text: 'Pede desculpas', feedback: 'Reconhece erros e mantém o relacionamento saudável.' },
-      { text: 'Minimiza', feedback: 'Pode gerar frustração a longo prazo, observe padrão.' },
-    ],
-  },
-  // Seção 5 — Sinais de interesse/atração
-  {
-    id: 21,
     section: 'signsOfInterest',
-    text: 'Ele(a) demonstra ciúmes quando você se aproxima de outras pessoas?',
+    text: 'Ele(a) demonstra ter orgulho de estar com você na frente de amigos e familiares?',
     answers: [
-      { text: 'Sim', feedback: 'Sinais de ciúmes saudáveis indicam interesse e cuidado.' },
-      { text: 'Não', feedback: 'Falta de ciúmes não significa desinteresse, apenas confiança no relacionamento.' },
-    ],
-  },
-  {
-    id: 22,
-    section: 'signsOfInterest',
-    text: 'Ele(a) elogia ou demonstra apreciação pelo que você faz?',
-    answers: [
-      { text: 'Sim', feedback: 'Reconhecimento fortalece vínculo e autoestima.' },
-      { text: 'Não', feedback: 'A ausência de elogios pode ser cultural ou hábito, observe consistência.' },
-    ],
-  },
-  {
-    id: 23,
-    section: 'signsOfInterest',
-    text: 'Ele(a) te procura fisicamente e emocionalmente ou só responde por obrigação?',
-    answers: [
-      { text: 'Procura', feedback: 'Busca conexão genuína, muito positivo.' },
-      { text: 'Apenas por obrigação', feedback: 'Pode indicar falta de motivação ou desinteresse emocional.' },
-    ],
-  },
-  {
-    id: 24,
-    section: 'signsOfInterest',
-    text: 'Ele(a) demonstra empolgação ao planejar encontros com você?',
-    answers: [
-      { text: 'Sim', feedback: 'Empolgação reforça desejo de estar junto e compromisso.' },
-      { text: 'Não', feedback: 'A falta de empolgação pode indicar rotina ou distração.' },
-    ],
-  },
-  {
-    id: 25,
-    section: 'signsOfInterest',
-    text: 'Ele(a) lembra de detalhes importantes sobre você ou esquece com frequência?',
-    answers: [
-      { text: 'Lembra', feedback: 'Demonstra atenção e envolvimento real.' },
-      { text: 'Esquece', feedback: 'Pode ser desatenção momentânea, observe padrões.' },
+      { text: 'Sim, claramente', feedback: 'Apresentar você e falar bem de você publicamente é um forte sinal de compromisso.' },
+      { text: 'Não, parece me "esconder"', feedback: 'Isso é uma grande bandeira vermelha sobre as intenções dele(a).' },
     ],
   },
 ];
