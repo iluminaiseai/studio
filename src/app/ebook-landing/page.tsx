@@ -218,8 +218,8 @@ export default function EbookLandingPage() {
                   <p className="text-center text-4xl font-bold">R$ 69,90</p>
                    <ul className="space-y-3 text-left p-4 bg-secondary/30 rounded-md">
                      <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Tudo do Plano Plus</span></li>
-                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] Workshop "Reconexão Íntima"</span></li>
-                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] Desafio de 7 dias para Casais</span></li>
+                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] Guia de Autoconfiança e Amor-próprio</span></li>
+                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] Checklists de Comunicação para Casais</span></li>
                   </ul>
                 </CardContent>
                 <CardFooter>
@@ -271,13 +271,6 @@ export default function EbookLandingPage() {
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
-                <div className="mt-12 p-6 bg-destructive/80 text-destructive-foreground rounded-lg text-center shadow-lg">
-                    <h3 className="font-headline font-bold text-2xl">Bônus Limitado</h3>
-                    <p className="mt-2">As vagas para o Workshop e o Desafio de 7 Dias são limitadas. Garanta seu acesso antes que o bônus seja removido.</p>
-                     <Button asChild size="lg" className="mt-6 font-bold text-lg bg-primary text-primary-foreground hover:bg-primary/90">
-                        <a href="#comprar">👉 Quero Transformar Meu Relacionamento Agora!</a>
-                    </Button>
-                </div>
             </div>
         </section>
 
@@ -288,7 +281,6 @@ export default function EbookLandingPage() {
            <div className="flex gap-4">
             <Link href="#" className="hover:text-primary">Política de Privacidade</Link>
             <Link href="#" className="hover:text-primary">Termos de Uso</Link>
-            <Link href="#" className="hover:text-primary">Suporte</Link>
            </div>
         </div>
       </footer>
