@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen w-full items-center justify-center p-4 overflow-hidden">
       <div className="container flex max-w-4xl flex-col items-center justify-center gap-6 text-center md:gap-8 animate-fade-in">
-        <LogoCapricho className="h-12 w-auto text-primary md:h-16 animate-in fade-in zoom-in-50 delay-300" />
+        <LogoCapricho className="h-16 w-auto text-primary md:h-20 animate-in fade-in zoom-in-50 delay-300" />
         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500">
           Decodificador do Amor
         </h1>

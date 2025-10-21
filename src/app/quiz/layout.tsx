@@ -12,7 +12,7 @@ export default function QuizLayout({
       <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
-            <LogoCapricho className="h-6 w-auto text-primary" />
+            <LogoCapricho className="h-8 w-auto text-primary" />
             <span className="font-headline text-xl font-bold">Decodificador do Amor</span>
           </Link>
         </div>
