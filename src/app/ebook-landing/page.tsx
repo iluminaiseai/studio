@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb } from "lucide-react";
+import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -123,39 +123,51 @@ export default function EbookLandingPage() {
           </div>
         </section>
 
-        {/* Spoiler Section */}
+        {/* Impact Section */}
         <section className="py-16 bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-4xl text-center animate-in fade-in">
-            <h2 className="font-headline text-3xl font-bold md:text-4xl">Uma Amostra do Conteúdo 🤫</h2>
+          <div className="container mx-auto px-4 max-w-5xl text-center animate-in fade-in">
+            <h2 className="font-headline text-3xl font-bold md:text-4xl">Sua mente agora... vs. Sua mente com o Decodificador</h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
-              Pequenas mudanças na comunicação geram resultados gigantes. Veja alguns exemplos de nossos scripts:
+              Pare de viver em um ciclo de ansiedade e dúvida. Recupere o controle e a paz.
             </p>
-            <Card className="mt-8 text-left shadow-lg bg-background">
-                <CardContent className="p-6 space-y-6">
-                    <div>
-                        <h3 className="font-bold text-lg text-destructive">❌ O Jeito Errado (a queixa que gera briga)</h3>
-                        <p className="mt-2 text-muted-foreground italic">"Você nunca me ouve quando eu falo! Parece que entra por um ouvido e sai pelo outro."</p>
-                    </div>
-                    <div className="border-t border-border pt-6">
-                        <h3 className="font-bold text-lg text-green-600">✅ O Jeito Certo (o pedido que conecta)</h3>
-                        <p className="mt-2 text-muted-foreground italic">"Amor, tem algo importante que eu queria compartilhar. Significaria muito pra mim se pudéssemos conversar por 5 minutinhos sem distrações. Quando seria um bom momento pra você?"</p>
-                    </div>
-                </CardContent>
-            </Card>
-            <Card className="mt-6 text-left shadow-lg bg-background">
-                 <CardContent className="p-6 space-y-6">
-                    <div>
-                        <h3 className="font-bold text-lg text-destructive">❌ O Jeito Errado (a cobrança que afasta)</h3>
-                        <p className="mt-2 text-muted-foreground italic">"Você não me dá mais atenção. Fica só nesse celular o tempo todo!"</p>
-                    </div>
-                    <div className="border-t border-border pt-6">
-                        <h3 className="font-bold text-lg text-green-600">✅ O Jeito Certo (o convite que aproxima)</h3>
-                        <p className="mt-2 text-muted-foreground italic">"Estou com saudade de você, de verdade. Que tal a gente deixar os celulares de lado por uma horinha hoje à noite e só curtir um momento nosso?"</p>
-                    </div>
-                </CardContent>
-            </Card>
-            <div className="bg-accent/50 p-4 rounded-b-lg -mt-2 relative z-10">
-               <p className="text-sm text-accent-foreground mx-auto flex items-center justify-center gap-2"><Lightbulb className="h-5 w-5 text-amber-500" /> O ebook está cheio de scripts como estes para dezenas de situações.</p>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="text-left shadow-lg bg-background border-destructive/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3 text-destructive">
+                      <AlertTriangle className="h-6 w-6"/>
+                      O Ciclo da Ansiedade
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                      <p className="italic text-muted-foreground">"Por que sumiu? Falei algo errado?"</p>
+                      <p className="italic text-muted-foreground">"Essa resposta seca foi só impressão minha?"</p>
+                      <p className="italic text-muted-foreground">"Será que tem outra pessoa?"</p>
+                      <p className="italic text-muted-foreground">"Devo mandar mensagem ou espero?"</p>
+                  </CardContent>
+              </Card>
+              <Card className="text-left shadow-lg bg-background border-primary/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3 text-primary">
+                      <Lightbulb className="h-6 w-6"/>
+                      O Poder da Clareza
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                       <p className="italic text-muted-foreground">"Ok, ela não sumiu. Ela está me mostrando quem é. E eu sei o que fazer."</p>
+                       <p className="italic text-muted-foreground">"Essa resposta foi seca. Vou usar o script X para entender o que está acontecendo sem brigar."</p>
+                       <p className="italic text-muted-foreground">"Meu valor não depende da atenção de ninguém."</p>
+                       <p className="italic text-muted-foreground">"Eu vou focar na minha vida. Quem quiser estar nela, que se esforce."</p>
+                  </CardContent>
+              </Card>
+            </div>
+            <div className="mt-12 text-center">
+                <p className="mb-4 text-lg font-bold">Qual lado você escolhe para viver?</p>
+                 <Button asChild size="lg" className="font-bold text-lg animate-pulse">
+                  <a href="#comprar">
+                    <ShoppingCart className="mr-2 h-5 w-5" />
+                    Eu escolho a clareza!
+                  </a>
+                </Button>
             </div>
           </div>
         </section>
@@ -336,3 +348,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
