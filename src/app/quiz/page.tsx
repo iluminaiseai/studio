@@ -313,8 +313,22 @@ function QuizFlow() {
   const SectionIcon = currentSection.icon;
 
   return (
-    <div className="container mx-auto flex max-w-2xl flex-col items-center p-4 pt-8 sm:pt-12 animate-in fade-in">
+    <div className="container mx-auto flex max-w-2xl flex-col p-4 pt-8 sm:pt-12 animate-in fade-in">
       <div className="w-full">
+        <div className="flex h-10 items-center">
+            {currentQuestionIndex > 0 && (
+            <Button
+                variant="ghost"
+                onClick={handleBack}
+                className="text-muted-foreground -ml-4"
+                disabled={isProcessing}
+            >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+            </Button>
+            )}
+        </div>
+
         <div className="mb-6 text-center md:mb-8">
             <div className="mb-2 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider text-primary md:mb-4">
                <SectionIcon className="h-5 w-5" />
@@ -347,19 +361,6 @@ function QuizFlow() {
             </div>
           </CardContent>
         </Card>
-        
-        {currentQuestionIndex > 0 && (
-          <Button 
-            variant="ghost" 
-            onClick={handleBack} 
-            className="mt-6 text-muted-foreground"
-            disabled={isProcessing}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar
-          </Button>
-        )}
-
       </div>
     </div>
   );
