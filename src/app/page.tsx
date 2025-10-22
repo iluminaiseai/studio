@@ -22,7 +22,7 @@ export default function Home() {
         </p>
 
         <div className="text-center text-muted-foreground animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
-            <ul className="mt-2 space-y-1 text-sm">
+            <ul className="space-y-1 text-sm">
                 <li className="flex items-center justify-center gap-2">
                     <Check className="h-4 w-4 text-green-500" />
                     <span>Leva menos de 2 minutos</span>

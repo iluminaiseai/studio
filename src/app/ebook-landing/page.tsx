@@ -30,10 +30,10 @@ export default function EbookLandingPage() {
         <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-12 text-center md:flex-row md:py-24 animate-in fade-in">
           <div className="flex-1 md:text-left animate-in fade-in slide-in-from-left-8 duration-500">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-6xl">
-              Decodificador do Amor
+              Decodifique o Coração
             </h1>
             <p className="mt-4 text-lg font-bold text-muted-foreground md:text-xl">
-              O método comprovado que já transformou a vida amorosa de mais de 12.000 mulheres em menos de 30 dias.
+              O segredo psicológico que desperta paixão e faz qualquer pessoa ter o controle do coração de quem quiser — <span className="italic text-primary/80">quase que manipulação.</span>
             </p>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">
               Pare de adivinhar o que a outra pessoa sente — comece a entender, comunicar e reconquistar de verdade.
@@ -391,5 +391,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    

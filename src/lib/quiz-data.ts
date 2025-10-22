@@ -44,7 +44,7 @@ export const quizData: Question[] = [
     section: 'communication',
     text: 'Quando você conta uma fofoca ou algo importante, a pessoa...',
     answers: [
-      { text: 'Presta atenção e até lembra dos detalhes depois. Um fofo!', score: 2 },
+      { text: 'Presta atenção e até lembra dos detalhes depois. Uma fofura!', score: 2 },
       { text: 'Parece que ouve, mas entra por um ouvido e sai pelo outro.', score: -2 },
       { text: 'Escuta, mas com a mesma empolgação de quem vê a tinta secar.', score: -1 },
     ],
