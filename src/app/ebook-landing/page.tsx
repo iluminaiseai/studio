@@ -36,7 +36,7 @@ export default function EbookLandingPage() {
               Descubra o método que já transformou mais de 12.000 relacionamentos em menos de 30 dias.
             </p>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">
-              Pare de adivinhar o que ele sente — comece a entender, comunicar e reconquistar de verdade.
+              Pare de adivinhar o que a outra pessoa sente — comece a entender, comunicar e reconquistar de verdade.
             </p>
             <Button asChild size="lg" className="mt-8 font-bold text-lg">
               <a href="#comprar">
@@ -67,7 +67,7 @@ export default function EbookLandingPage() {
               Cansada de se sentir confusa, insegura ou ignorada na relação?
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
-              Com o Decodificador do Amor, você vai entender a mente masculina, criar uma comunicação leve e restaurar a conexão que parecia perdida.
+              Com o Decodificador do Amor, você vai entender a mente da pessoa amada, criar uma comunicação leve e restaurar a conexão que parecia perdida.
             </p>
           </div>
         </section>
@@ -83,7 +83,7 @@ export default function EbookLandingPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <BrainCircuit className="h-8 w-8 text-primary" />
-                    <span>Ler os sinais por trás das atitudes dele (mesmo quando ele não fala nada).</span>
+                    <span>Ler os sinais por trás das atitudes da pessoa (mesmo quando ela não fala nada).</span>
                   </CardTitle>
                 </CardHeader>
               </Card>
@@ -167,7 +167,7 @@ export default function EbookLandingPage() {
                  <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <Card>
                         <CardContent className="pt-6">
-                            <p className="italic">"Em uma semana, a dinâmica mudou completamente. As conversas fluem e ele está muito mais presente."</p>
+                            <p className="italic">"Em uma semana, a dinâmica mudou completamente. As conversas fluem e a pessoa está muito mais presente."</p>
                         </CardContent>
                         <CardFooter className="justify-center font-bold text-primary">
                             - Juliana M.
@@ -175,7 +175,7 @@ export default function EbookLandingPage() {
                     </Card>
                      <Card>
                         <CardContent className="pt-6">
-                            <p className="italic">"Eu estava exausta de tentar sozinha. O guia me mostrou exatamente o que fazer e, pela primeira vez, ele me ouviu de verdade."</p>
+                            <p className="italic">"Eu estava exausta de tentar sozinha. O guia me mostrou exatamente o que fazer e, pela primeira vez, a pessoa me ouviu de verdade."</p>
                         </CardContent>
                         <CardFooter className="justify-center font-bold text-primary">
                             - Fernanda S.
@@ -296,7 +296,7 @@ export default function EbookLandingPage() {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="item-2">
-                    <AccordionTrigger className="font-bold text-lg">Funciona se ele está distante ou frio?</AccordionTrigger>
+                    <AccordionTrigger className="font-bold text-lg">Funciona se a pessoa está distante ou fria?</AccordionTrigger>
                     <AccordionContent className="text-base text-muted-foreground">
                       Sim — na verdade, é um dos cenários ideais. Você aprenderá como quebrar o gelo e reativar o vínculo emocional de forma natural, sem parecer desesperada.
                     </AccordionContent>
@@ -336,5 +336,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    

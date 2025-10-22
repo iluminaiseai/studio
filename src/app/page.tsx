@@ -18,7 +18,7 @@ export default function Home() {
           Decodificador do Amor
         </h1>
         <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
-          Ele anda distante ou é só coisa da sua cabeça? Responda o quiz e descubra a verdade por trás dos sinais que ele te dá.
+          A pessoa anda distante ou é só coisa da sua cabeça? Responda o quiz e descubra a verdade por trás dos sinais que te dão.
         </p>
 
         <div className="text-center text-muted-foreground animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
