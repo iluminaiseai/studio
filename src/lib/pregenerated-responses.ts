@@ -43,12 +43,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Apreciação Inesperada:</strong> Envie uma mensagem de apreciação focada em um traço de caráter, não em uma ação. Ex: "Admiro muito a sua paciência com as pessoas, me inspira a ser melhor." Isso valoriza quem a pessoa é, não apenas o que ela faz.</li>
             <li><strong>Planejamento Criativo:</strong> Em vez de planejar algo rotineiro, planejem juntos uma "mini aventura" para o próximo mês (ex: uma trilha, uma aula de culinária, uma visita a uma cidade vizinha). Criar novas experiências juntos libera dopamina no cérebro, associando o parceiro à novidade e à excitação. 🗺️</li>
             <li><strong>Linguagem do Amor:</strong> Identifique a principal linguagem do amor da sua parceira e faça uma ação deliberada baseada nela hoje. Falar a "língua" do outro é a forma mais eficaz de fazê-la se sentir amada.</li>
-            <li><strong>Vulnerabilidade Intencional:</strong> Reserve 15 minutos para cada um compartilhar um pequeno medo ou uma insegurança recente, sem julgamentos. O objetivo é apenas ouvir e oferecer apoio com um "estou aqui com você". Isso fortalece a confiança. ❤️</li>
-            <li><strong>Elogio Público Sutil:</strong> Em uma conversa com amigos ou em uma postagem discreta, mencione algo que sua parceira fez e que você se orgulha. Deixe que ela veja ou ouça isso organicamente. Isso reforça o sentimento de "time". 🤝</li>
-            <li><strong>Revisão de Memórias Felizes:</strong> Abram uma pasta de fotos antigas e relembrem um momento feliz. Conversem sobre o que sentiram naquele dia e o que aquela memória representa para vocês. Isso ativa sentimentos positivos associados ao início da relação.</li>
-            <li><strong>Meta de Crescimento Conjunto:</strong> Definam uma "meta de casal" para o próximo trimestre. Pode ser algo como "ler o mesmo livro e discutir", "aprender a investir juntos" ou "fazer um curso online". Crescer juntos é um dos antídotos mais poderosos contra a estagnação. 📚</li>
           </ul>
-          <p>Seu relacionamento é um exemplo de saúde e equilíbrio. O segredo para o futuro é não se acomodar. A complacência é o inimigo silencioso dos grandes amores. Continue investindo intencionalmente na comunicação, na vulnerabilidade e nas experiências compartilhadas para que a conexão não apenas permaneça forte, mas continue a evoluir e surpreender vocês dois.</p>
         `,
       },
     },
@@ -84,12 +79,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Ataque de Fofura:</strong> Do nada, no meio da tarde, manda um áudio: "Só pra dizer que tô com saudade da sua voz". Custa zero reais e o impacto é milionário. Vai por mim.</li>
             <li><strong>Missão Secreta:</strong> Diga "Temos uma missão para o fim de semana: fazer algo que nunca fizemos antes". E aí planejem juntos, pode ser desde provar comida esquisita até uma aula de dança. O importante é a aventura! 🗺️</li>
             <li><strong>Consultoria de Sonhos:</strong> "Se dinheiro não fosse problema, qual a primeira coisa que você faria?". Conhecer os sonhos do outro é super sexy! E te dá ideias de presentes, fica a dica. 🎁</li>
-            <li><strong>Fofoca do Bem:</strong> Pergunta qual foi o maior mico que a pessoa já pagou. Depois conta o seu. Rir de si mesmo juntos cria uma conexão absurda. É terapia de graça! 🤣</li>
-            <li><strong>Stalking do Bem:</strong> Acha uma foto antiga da pessoa nas redes sociais e comenta "Olha esse neném! Já era uma gracinha!". É fofo, engraçado e mostra que você tava pensando nela.</li>
-            <li><strong>Sessão Nostalgia 2.0:</strong> "Qual a nossa memória mais engraçada juntos?". Relembrar perrengues que viraram história é o melhor tipo de terapia de casal. Prepare a pipoca! 🍿</li>
-            <li><strong>Desafio de Casal:</strong> "Desafio da semana: quem fizer o outro rir mais alto, ganha". O prêmio? O perdedor paga o jantar. Competição saudável é tudo! 🏆</li>
           </ul>
-          <p>Relaxa e aproveita! A vibe tá boa, a sintonia tá alta. Vocês já são incríveis juntos. O ponto agora é continuar se divertindo no processo e nunca deixar a peteca cair. Tá tudo lindo, e vai ficar ainda mais! Voa, minha filha! 🚀</p>
         `,
       },
     },
@@ -127,12 +117,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Espelhamento de Energia:</strong> Se a pessoa te procurar, responda com o mesmo nível de energia. Se a mensagem for curta e direta ("Tudo bem?"), responda de forma similar ("Tudo ótimo e por aí?"). Não dê mais do que recebe. Isso ajuda a reequilibrar a dinâmica.</li>
             <li><strong>Foco Total na Sua Vida:</strong> Poste algo sobre um hobby seu, uma conquista no trabalho ou uma saída com amigos. Isso não é uma indireta, é um lembrete (para você e para o mundo) de que sua vida é plena e interessante por si só. ✨</li>
             <li><strong>O Convite de Baixo Risco:</strong> Proponha algo concreto, casual e com um prazo definido. Ex: "Estou pensando em ir naquele café novo no sábado à tarde. Se estiver livre e a fim, me avise até amanhã à noite". Isso coloca a bola no campo do outro sem te deixar esperando indefinidamente. ☕</li>
-            <li><strong>Observação Passiva:</strong> Tente não iniciar nenhuma conversa. O objetivo é coletar dados: a outra pessoa te procurou? Se sim, como foi a conversa? Anote mentalmente. Você está no modo cientista. 👩‍🔬</li>
-            <li><strong>A Arte da Pergunta Aberta:</strong> Se você decidir iniciar contato, evite perguntas de "sim/não". Tente algo aberto como: "Vi [algo] e lembrei de você. Como tem sido sua semana?". Isso convida à conversa sem soar como uma cobrança.</li>
-            <li><strong>Reforço Positivo Estratégico:</strong> Se a pessoa demonstrar um comportamento positivo que você deseja (iniciar uma conversa profunda, fazer um plano), reforce. "Adorei conversar com você hoje, foi leve e divertido!". Isso mostra o que você valoriza.</li>
-            <li><strong>A Conversa Honesta e Calma:</strong> Se a inconsistência persistir, prepare-se para uma conversa usando a técnica "Eu sinto". Ex: "Eu sinto que nossa comunicação tem sido um pouco instável, com altos e baixos. Isso me deixa um pouco confusa sobre onde estamos. Como você vê as coisas do seu lado?". É sobre seus sentimentos, não sobre acusar. A reação da pessoa a isso será muito reveladora.</li>
           </ul>
-          <p>A inconsistência drena sua energia e autoestima. Este plano serve para tirar você do papel de "perseguidora" e te colocar no de "observadora consciente". As ações (ou a falta delas) da outra pessoa na próxima semana lhe darão a resposta mais clara que você precisa para decidir se vale a pena continuar investindo seu tempo e emoções nesse relacionamento.</p>
         `,
       },
     },
@@ -168,12 +153,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Modo Ocupada & Importante:</strong> Se a pessoa aparecer, seja simpática, mas direta: "Oii, tudo ótimo! Dia super corrido por aqui, te respondo com calma mais tarde!". E responda SÓ mais tarde mesmo. Mostre que seu tempo é valioso. ⏳</li>
             <li><strong>Book de Fotos da Vida Incrível:</strong> Poste uma foto MARAVILHOSA sua no seu story. Com amigos, num lugar legal, fazendo um hobby. O recado é claro: "minha vida é um arraso, com ou sem você".</li>
             <li><strong>A Isca da Saudade:</strong> Se estiver se sentindo ousada, mande um "Sabe que eu tava lembrando da gente rindo daquela coisa boba? Saudade aleatória disso". É leve, fofo e joga a responsabilidade de continuar o papo pra outra pessoa.</li>
-            <li><strong>Chá de Sumiço Estratégico:</strong> Hoje, você não existe pra essa pessoa. Não manda mensagem, não curte stories, não reage a nada. Deixa a pessoa sentir o vácuo que você preenche na vida dela. Silêncio às vezes grita, meu bem.</li>
-            <li><strong>A Regra dos 15 Minutos:</strong> Se a conversa engatar, não fique disponível por horas. Depois de uns 15 minutos de papo bom, diga: "Adorei o papo, mas preciso correr agora! A gente se fala". Deixe um gostinho de quero mais. É cruel? Talvez. É necessário? Com certeza. 😉</li>
-            <li><strong>O Confronto de Veludo:</strong> Se a montanha-russa continuar, talvez seja hora daquela conversa. "Fulana, eu gosto muito de você, mas fico confusa com essa inconstância. Tem dias que estamos super conectadas e outros que você some. Só queria entender o que se passa". Direta, mas sem acusar. Classe, sempre!</li>
-            <li><strong>Dia do Veredito:</strong> Analise a semana. A pessoa se esforçou mais? Ou continuou na mesma ladainha? A reação ao seu sumiço e à sua conversa dirá TUDO. Confie nas ações, não nas palavras bonitas.</li>
           </ul>
-          <p>Amiga, valorize seu tempo e sua paz de espírito! Você não é centro de reabilitação pra gente confusa. A pessoa precisa decidir se quer embarcar e remar junto, ou ficar no cais. Você merece um amor que seja calmaria, não uma tempestade constante. 😉</p>
         `,
       },
     },
@@ -211,12 +191,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Reconexão Externa:</strong> Ligue para um amigo ou familiar com quem você não fala há algum tempo. Alguém que te faz rir e te faz sentir bem. Lembre-se de como é uma interação saudável, leve e recíproca.</li>
             <li><strong>Ação Radical de Amor-Próprio:</strong> Faça algo que você adiou por causa do relacionamento ou por falta de ânimo. Pode ser matricular-se naquela aula de dança, visitar um lugar novo sozinha, ou simplesmente dedicar a noite a um hobby que você ama. Recupere um pedaço de si mesma. 💃</li>
             <li><strong>Definindo Seus Limites Inegociáveis:</strong> Com base na sua lista do Dia 1, escreva 3 a 5 limites inegociáveis. Ex: "Eu preciso ser tratada com respeito, mesmo durante uma discussão" ou "Eu preciso que minha parceira ouça meus sentimentos sem me invalidar". Isso é seu manifesto pessoal.</li>
-            <li><strong>Inventário Emocional Honesto:</strong> Pegue um caderno и escreva como este relacionamento fez você se sentir na última semana/mês. Use palavras brutais, se necessário (ex: "invisível", "carente"). Depois, em outra página, escreva como você GOSTARIA de se sentir em um relacionamento. Compare as duas listas. Este contraste é o seu "porquê". 📝</li>
-            <li><strong>Planejando a Conversa Difícil:</strong> Você merece ser ouvida. Planeje o que você dirá, não para acusar, mas para expressar como se sente. Estruture em torno de "Eu". Ex: "Eu tenho me sentido consistentemente desvalorizada e sozinha nesta relação, e isso está me afetando muito. Eu preciso que a gente converse sobre isso abertamente".</li>
-            <li><strong>Busque Apoio Profissional:</strong> Considere seriamente a possibilidade de terapia, seja individual (para você) ou de casal. Um profissional pode mediar a conversa e oferecer ferramentas que vocês sozinhos talvez não encontrem. Este é um passo de coragem, não de fraqueza.</li>
-            <li><strong>A Conversa Libertadora:</strong> Tenha a conversa que planejou no Dia 5. Seja clara e firme nos seus sentimentos e limites. A reação da outra pessoa — se ela demonstrar remorso e disposição para mudar, ou se continuar na defensiva — será o dado mais concreto que você terá para decidir seus próximos passos.</li>
           </ul>
-          <p>Você merece um relacionamento onde se sinta segura, vista, ouvida e celebrada. Os sinais indicam que isso não está acontecendo. A decisão mais corajosa e saudável que você pode tomar agora é escolher a si mesma e o seu bem-estar, seja trabalhando para uma mudança real dentro da relação ou seguindo um novo caminho.</p>
         `,
       },
     },
@@ -252,12 +227,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
             <li><strong>Terapia Intensiva de Amigas:</strong> Ligue para aquela sua amiga parceira. Vocês vão desabafar e lembrar da pessoa f*da e maravilhosa que você é. É proibido se diminuir! 👯‍♀️</li>
             <li><strong>Dia da Beleza e da Besteira:</strong> Dia de se mimar como se não houvesse amanhã. Máscara no rosto, sua playlist de "superação" no talo, e aquela comida que te faz feliz. Assista à comédia mais idiota que encontrar. Rir é o melhor remédio. 💄</li>
             <li><strong>Defina Seus Mínimos Aceitáveis:</strong> Qual é o mínimo que você aceita em uma relação? Respeito? Comunicação? Carinho? Se a pessoa não oferece nem o mínimo, por que você está dando o seu máximo? Pense nisso.</li>
-            <li><strong>A Lista da Verdade:</strong> Escreve num papel todas as vezes que essa pessoa te fez sentir pequena, ignorada ou insuficiente. Deixe no bloco de notas do celular. Essa será sua vacina anti-recaída. Leia sempre que a saudade idiota bater.</li>
-            <li><strong>O Confronto de Veludo:</strong> Prepare-se para uma conversa séria. Não para brigar, mas para se posicionar. "Eu não estou feliz com a forma como estamos nos comunicando. Eu me sinto [sozinha/ignorada/etc]. Ou nós encontramos uma forma de mudar isso juntos, ou eu preciso seguir meu caminho para ficar bem".</li>
-            <li><strong>Busque Ajuda Real:</strong> Se você está num relacionamento sério ou casamento, a melhor "amiga fofoqueira" nessas horas é uma terapeuta de casal. Um profissional pode ajudar a traduzir o que vocês não conseguem dizer. Pense nisso como um investimento em você.</li>
-            <li><strong>Dia do Veredito:</strong> Analise a semana. A pessoa se esforçou mais? Ou continuou na mesma ladainha? A reação ao seu sumiço e à sua conversa dirá TUDO. Confie nas ações, não nas palavras bonitas.</li>
           </ul>
-          <p>Não aceite um amor que te faça duvidar de si mesma. Amor tem que ser leve, tem que somar. Você merece alguém que te olhe e pense "caramba, que sorte eu tenho". Se essa pessoa não viu a mulherão que você é, o azar é 100% dela. O primeiro passo para a mudança é se colocar como prioridade. ✨</p>
         `,
       },
     },
