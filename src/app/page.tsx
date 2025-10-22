@@ -17,9 +17,14 @@ export default function Home() {
         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500 -mt-2">
           Decodificador do Amor
         </h1>
-        <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
-          A pessoa anda distante ou é só coisa da sua cabeça? Responda o quiz e descubra a verdade por trás dos sinais que te dão.
-        </p>
+        <div className="flex flex-col gap-2">
+          <p className="max-w-2xl text-lg text-primary sm:text-xl md:text-2xl animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500 font-semibold">
+            A pessoa anda distante ou é só coisa da sua cabeça?
+          </p>
+          <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
+            Não tente adivinhar: descubra o que realmente está acontecendo com quem você quer. Responda ao quiz e veja a verdade.
+          </p>
+        </div>
 
         <div className="text-center text-muted-foreground animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500">
             <ul className="space-y-1 text-sm">
