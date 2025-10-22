@@ -36,7 +36,7 @@ export default function EbookLandingPage() {
               O segredo psicológico que desperta paixão e faz qualquer pessoa ter o controle do coração de quem quiser — <span className="italic text-primary/80">quase que manipulação.</span>
             </p>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">
-              Pare de adivinhar o que a outra pessoa sente — comece a entender, comunicar e reconquistar de verdade.
+              Chega de tentar adivinhar o que a outra pessoa sente — aprenda a provocar os sentimentos certos pra ela não te tirar da cabeça.
             </p>
             <Button asChild size="lg" className="mt-8 font-bold text-lg">
               <a href="#comprar">
