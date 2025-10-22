@@ -45,7 +45,7 @@ export default function Home() {
 
         <div className="flex flex-col gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 delay-900 duration-500 mt-4">
           <Button asChild size="lg" className="font-bold">
-            <Link href="/quiz">Começar o Quiz</Link>
+            <Link href="/quiz">Descubra a verdade agora</Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="font-bold">
             <Link href="/quiz?test=true">
