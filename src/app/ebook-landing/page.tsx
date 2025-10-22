@@ -71,49 +71,138 @@ export default function EbookLandingPage() {
             </p>
           </div>
         </section>
-        
-        {/* What You'll Learn Section */}
+
+        {/* --- Unified Content Preview Section --- */}
         <section className="py-16">
           <div className="container mx-auto px-4 animate-in fade-in">
-            <h2 className="text-center font-headline text-3xl font-bold md:text-4xl mb-8">
-              Você vai aprender a...
-            </h2>
-            <div className="mt-8 grid max-w-4xl mx-auto gap-6 md:grid-cols-2">
-              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500 bg-background">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <BrainCircuit className="h-8 w-8 text-primary" />
-                    <span>Ler os sinais por trás das atitudes da pessoa (mesmo quando ela não fala nada).</span>
-                  </CardTitle>
-                </CardHeader>
-              </Card>
-              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500 bg-background">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <MessagesSquare className="h-8 w-8 text-primary" />
-                    <span>Conversar sem brigar, com nossos scripts prontos e comprovados.</span>
-                  </CardTitle>
-                </CardHeader>
-              </Card>
-              <Card className="animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500 bg-background">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <Flame className="h-8 w-8 text-primary" />
-                    <span>Reacender o desejo e a admiração — mesmo após meses de distância emocional.</span>
-                  </CardTitle>
-                </CardHeader>
-              </Card>
-               <Card className="animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500 bg-background">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <Gem className="h-8 w-8 text-primary" />
-                    <span>Recuperar sua confiança e paz interior, sem precisar “correr atrás”.</span>
-                  </CardTitle>
-                </CardHeader>
-              </Card>
+            <div className="text-center mb-12">
+              <h2 className="font-headline text-3xl font-bold md:text-4xl">
+                Uma Amostra do Conteúdo Transformador 🤫
+              </h2>
+              <p className="mt-2 text-lg text-muted-foreground max-w-3xl mx-auto">
+                Veja uma pequena parte do que você vai dominar com o nosso guia e como sua mentalidade vai mudar.
+              </p>
             </div>
-             <div className="text-center mt-12">
-               <Button asChild size="lg" className="font-bold text-lg">
+            
+            {/* What You'll Learn Section */}
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-center font-headline text-2xl font-bold md:text-3xl mb-8">
+                Você vai aprender a...
+              </h3>
+              <div className="grid gap-6 md:grid-cols-2">
+                <Card className="animate-in fade-in slide-in-from-bottom-4 delay-200 duration-500 bg-background">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3">
+                      <BrainCircuit className="h-8 w-8 text-primary" />
+                      <span>Ler os sinais por trás das atitudes da pessoa (mesmo quando ela não fala nada).</span>
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+                <Card className="animate-in fade-in slide-in-from-bottom-4 delay-400 duration-500 bg-background">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3">
+                      <MessagesSquare className="h-8 w-8 text-primary" />
+                      <span>Conversar sem brigar, com nossos scripts prontos e comprovados.</span>
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+                <Card className="animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500 bg-background">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3">
+                      <Flame className="h-8 w-8 text-primary" />
+                      <span>Reacender o desejo e a admiração — mesmo após meses de distância emocional.</span>
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+                 <Card className="animate-in fade-in slide-in-from-bottom-4 delay-800 duration-500 bg-background">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3">
+                      <Gem className="h-8 w-8 text-primary" />
+                      <span>Recuperar sua confiança e paz interior, sem precisar “correr atrás”.</span>
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+              </div>
+            </div>
+
+            {/* Impact Section - Mindset */}
+            <div className="max-w-5xl mx-auto text-center mt-16">
+              <h3 className="font-headline text-2xl font-bold md:text-3xl">Sua mente agora... vs. Sua mente com o Decodificador</h3>
+              <p className="mt-2 text-lg text-muted-foreground">
+                Pare de viver em um ciclo de ansiedade e dúvida. Recupere o controle e a paz.
+              </p>
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="text-left shadow-lg bg-background border-destructive/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-destructive">
+                        <AlertTriangle className="h-6 w-6"/>
+                        O Ciclo da Ansiedade
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                        <p className="italic text-muted-foreground">"Por que sumiu? Falei algo errado?"</p>
+                        <p className="italic text-muted-foreground">"Essa resposta seca foi só impressão minha?"</p>
+                        <p className="italic text-muted-foreground">"Será que tem outra pessoa?"</p>
+                        <p className="italic text-muted-foreground">"Devo mandar mensagem ou espero?"</p>
+                    </CardContent>
+                </Card>
+                <Card className="text-left shadow-lg bg-background border-primary/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-primary">
+                        <Lightbulb className="h-6 w-6"/>
+                        O Poder da Clareza
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                         <p className="italic text-muted-foreground">"Ok, a pessoa não sumiu. Está me mostrando quem é. E eu sei o que fazer."</p>
+                         <p className="italic text-muted-foreground">"Essa resposta foi seca. Vou usar o script X para entender o que está acontecendo sem brigar."</p>
+                         <p className="italic text-muted-foreground">"Meu valor não depende da atenção de ninguém."</p>
+                         <p className="italic text-muted-foreground">"Eu vou focar na minha vida. Quem quiser estar nela, que se esforce."</p>
+                    </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            {/* Impact Section - Intimacy */}
+            <div className="max-w-5xl mx-auto text-center mt-16">
+              <h3 className="font-headline text-2xl font-bold md:text-3xl">A Realidade da Intimidade: Do Deserto à Conexão</h3>
+              <p className="mt-2 text-lg text-muted-foreground">
+                Intimidade não é só sobre sexo. É sobre desejo, segurança e uma conexão que vai além do físico.
+              </p>
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="text-left shadow-lg bg-background border-destructive/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-destructive">
+                        <Wind className="h-6 w-6"/>
+                        O Deserto da Intimidade
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                        <p className="italic text-muted-foreground">"O sexo virou uma tarefa, sem desejo real."</p>
+                        <p className="italic text-muted-foreground">"Tenho medo de tomar a iniciativa e ser rejeitada."</p>
+                        <p className="italic text-muted-foreground">"Parece que somos colegas de quarto, não um casal."</p>
+                        <p className="italic text-muted-foreground">"A conexão física se perdeu completamente."</p>
+                    </CardContent>
+                </Card>
+                <Card className="text-left shadow-lg bg-background border-primary/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-primary">
+                        <Sparkles className="h-6 w-6"/>
+                        A Reconexão Profunda
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                         <p className="italic text-muted-foreground">"Entendo como reacender a chama do desejo genuíno, para os dois."</p>
+                         <p className="italic text-muted-foreground">"Sinto-me confiante e segura para expressar meus desejos e iniciar a intimidade."</p>
+                         <p className="italic text-muted-foreground">"A intimidade voltou a ser nosso momento de maior conexão."</p>
+                         <p className="italic text-muted-foreground">"O toque, o beijo, o sexo... tudo voltou a ter um significado especial."</p>
+                    </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            <div className="text-center mt-16">
+               <Button asChild size="lg" className="font-bold text-lg animate-pulse">
                   <a href="#comprar">
                     <ShoppingCart className="mr-2 h-5 w-5" />
                     Sim, eu quero transformar meu relacionamento!
@@ -123,107 +212,13 @@ export default function EbookLandingPage() {
           </div>
         </section>
 
-        {/* Impact Section */}
-        <section className="py-16 bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-5xl text-center animate-in fade-in">
-            <h2 className="font-headline text-3xl font-bold md:text-4xl">Sua mente agora... vs. Sua mente com o Decodificador</h2>
-            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
-              Pare de viver em um ciclo de ansiedade e dúvida. Recupere o controle e a paz.
-            </p>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="text-left shadow-lg bg-background border-destructive/50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-destructive">
-                      <AlertTriangle className="h-6 w-6"/>
-                      O Ciclo da Ansiedade
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                      <p className="italic text-muted-foreground">"Por que sumiu? Falei algo errado?"</p>
-                      <p className="italic text-muted-foreground">"Essa resposta seca foi só impressão minha?"</p>
-                      <p className="italic text-muted-foreground">"Será que tem outra pessoa?"</p>
-                      <p className="italic text-muted-foreground">"Devo mandar mensagem ou espero?"</p>
-                  </CardContent>
-              </Card>
-              <Card className="text-left shadow-lg bg-background border-primary/50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-primary">
-                      <Lightbulb className="h-6 w-6"/>
-                      O Poder da Clareza
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                       <p className="italic text-muted-foreground">"Ok, a pessoa não sumiu. Está me mostrando quem é. E eu sei o que fazer."</p>
-                       <p className="italic text-muted-foreground">"Essa resposta foi seca. Vou usar o script X para entender o que está acontecendo sem brigar."</p>
-                       <p className="italic text-muted-foreground">"Meu valor não depende da atenção de ninguém."</p>
-                       <p className="italic text-muted-foreground">"Eu vou focar na minha vida. Quem quiser estar nela, que se esforce."</p>
-                  </CardContent>
-              </Card>
-            </div>
-            <div className="mt-12 text-center">
-                <p className="mb-4 text-lg font-bold">Qual lado você escolhe para viver?</p>
-                 <Button asChild size="lg" className="font-bold text-lg animate-pulse">
-                  <a href="#comprar">
-                    <ShoppingCart className="mr-2 h-5 w-5" />
-                    Eu escolho a clareza!
-                  </a>
-                </Button>
-            </div>
-          </div>
-        </section>
-        
-        {/* NEW Impact Section - Intimacy */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 max-w-5xl text-center animate-in fade-in">
-            <h2 className="font-headline text-3xl font-bold md:text-4xl">A Realidade da Intimidade: Do Deserto à Conexão</h2>
-            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
-              Intimidade não é só sobre sexo. É sobre desejo, segurança e uma conexão que vai além do físico.
-            </p>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="text-left shadow-lg bg-background border-destructive/50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-destructive">
-                      <Wind className="h-6 w-6"/>
-                      O Deserto da Intimidade
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                      <p className="italic text-muted-foreground">"O sexo virou uma tarefa, sem desejo real."</p>
-                      <p className="italic text-muted-foreground">"Tenho medo de tomar a iniciativa e ser rejeitada."</p>
-                      <p className="italic text-muted-foreground">"Parece que somos colegas de quarto, não um casal."</p>
-                      <p className="italic text-muted-foreground">"A conexão física se perdeu completamente."</p>
-                  </CardContent>
-              </Card>
-              <Card className="text-left shadow-lg bg-background border-primary/50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-primary">
-                      <Sparkles className="h-6 w-6"/>
-                      A Reconexão Profunda
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                       <p className="italic text-muted-foreground">"Entendo como reacender a chama do desejo genuíno, para os dois."</p>
-                       <p className="italic text-muted-foreground">"Sinto-me confiante e segura para expressar meus desejos e iniciar a intimidade."</p>
-                       <p className="italic text-muted-foreground">"A intimidade voltou a ser nosso momento de maior conexão."</p>
-                       <p className="italic text-muted-foreground">"O toque, o beijo, o sexo... tudo voltou a ter um significado especial."</p>
-                  </CardContent>
-              </Card>
-            </div>
-            <div className="mt-12 text-center">
-                 <Button asChild size="lg" className="font-bold text-lg">
-                  <a href="#comprar">
-                    <Flame className="mr-2 h-5 w-5" />
-                    Quero resgatar minha intimidade!
-                  </a>
-                </Button>
-            </div>
-          </div>
-        </section>
-
         {/* Social Proof Section */}
         <section className="py-16 bg-secondary/30">
             <div className="container mx-auto px-4 text-center animate-in fade-in">
-                <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Depoimentos Reais</h2>
+                <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Depoimentos Reais de quem já Decodificou</h2>
+                 <p className="mt-2 text-lg text-muted-foreground max-w-3xl mx-auto">
+                  Mais de 12.000 mulheres já transformaram suas vidas amorosas. Veja o que algumas delas dizem:
+                </p>
                  <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <Card>
                         <CardContent className="pt-6">
@@ -396,5 +391,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
