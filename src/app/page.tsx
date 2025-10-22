@@ -19,7 +19,7 @@ export default function Home() {
         </h1>
         <div className="flex flex-col gap-2">
           <p className="max-w-2xl text-lg text-primary sm:text-xl md:text-2xl animate-in fade-in slide-in-from-bottom-4 delay-600 duration-500 font-semibold">
-            A pessoa anda distante ou é só coisa da sua cabeça?
+            Quem você ama anda distante ou é só coisa da sua cabeça?
           </p>
           <p className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 delay-700 duration-500">
             Não tente adivinhar: descubra o que realmente está acontecendo com quem você quer. Responda ao quiz e veja a verdade.
