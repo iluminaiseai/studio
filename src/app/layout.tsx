@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from "@/lib/utils"
+import { FacebookPixel } from '@/components/facebook-pixel';
 
 export const metadata: Metadata = {
   title: 'Decodificador do Amor',
@@ -24,6 +25,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-body antialiased",
           "bg-gradient-to-br from-background via-accent to-white"
         )}>
+        <FacebookPixel />
         {children}
         <Toaster />
       </body>
