@@ -9,7 +9,7 @@ import { getPregeneratedResponse, ReportStyle, AnswerKey } from '@/lib/pregenera
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { CheckCircle2, MessageCircleHeart, BrainCircuit, Drama } from "lucide-react";
+import { CheckCircle2, MessageCircleHeart, BrainCircuit, Drama, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Loader } from "lucide-react";
 import Link from 'next/link';
@@ -245,6 +245,20 @@ function QuizFlow() {
         }
     }, 500);
   };
+  
+  const handleBack = () => {
+    if (currentQuestionIndex === 0 || isProcessing) return;
+    
+    // Se estivermos no feedback, apenas o esconda.
+    if (showMiniFeedback) {
+      setShowMiniFeedback(false);
+      return;
+    }
+    
+    setCurrentQuestionIndex(prev => prev - 1);
+    setAnswers(prev => prev.slice(0, -1));
+  };
+
 
   const advanceQuestion = (currentAnswers: string[]) => {
       if (currentQuestionIndex >= quizData.length - 1) {
@@ -333,6 +347,18 @@ function QuizFlow() {
             </div>
           </CardContent>
         </Card>
+        
+        {currentQuestionIndex > 0 && (
+          <Button 
+            variant="ghost" 
+            onClick={handleBack} 
+            className="mt-6 text-muted-foreground"
+            disabled={isProcessing}
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Voltar
+          </Button>
+        )}
 
       </div>
     </div>
