@@ -146,7 +146,7 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
         detailedSummary: `
           <h3>Amiga, que rolo, hein? 🤔</h3>
           <p>
-            Senta aqui, vamos fofocar sobre esse caso. Pelo que entendi, a situação é uma montanha-russa! Tem hora que a pessoa é um fofo, responde, parece super a fim. Daí, do nada, some, vira um fantasma. 👻 Essa coisa de "às vezes sim, às vezes não" deixa qualquer uma maluca, né? Fica parecendo que a gente tá em um jogo que não sabe as regras. 
+            Senta aqui, vamos fofocar sobre esse caso. Pelo que entendi, a situação é uma montanha-russa! Tem hora que a pessoa é uma fofura, responde, parece super a fim. Daí, do nada, some, vira um fantasma. 👻 Essa coisa de "às vezes sim, às vezes não" deixa qualquer uma maluca, né? Fica parecendo que a gente tá em um jogo que não sabe as regras. 
           </p>
           <p>
             Essa palhaçada de ser quente num dia e um iceberg no outro é clássica. Deixa a gente doidinha, se questionando "o que eu fiz de errado?". Spoiler: provavelmente nada! A confusão mora do lado de lá. Ficar nesse jogo de adivinhação é um porre. Precisamos de um plano pra sair desse limbo e te devolver sua paz de espírito! Chega de ser refém de notificação!

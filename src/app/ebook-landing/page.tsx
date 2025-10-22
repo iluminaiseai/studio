@@ -153,7 +153,7 @@ export default function EbookLandingPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3">
-                       <p className="italic text-muted-foreground">"Ok, ela não sumiu. Ela está me mostrando quem é. E eu sei o que fazer."</p>
+                       <p className="italic text-muted-foreground">"Ok, a pessoa não sumiu. Está me mostrando quem é. E eu sei o que fazer."</p>
                        <p className="italic text-muted-foreground">"Essa resposta foi seca. Vou usar o script X para entender o que está acontecendo sem brigar."</p>
                        <p className="italic text-muted-foreground">"Meu valor não depende da atenção de ninguém."</p>
                        <p className="italic text-muted-foreground">"Eu vou focar na minha vida. Quem quiser estar nela, que se esforce."</p>
@@ -348,5 +348,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
