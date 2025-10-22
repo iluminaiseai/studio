@@ -126,7 +126,7 @@ export default function EbookLandingPage() {
         {/* Spoiler Section */}
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 max-w-4xl text-center animate-in fade-in">
-            <h2 className="font-headline text-3xl font-bold md:text-4xl">Uma Amostra do Método 🤫</h2>
+            <h2 className="font-headline text-3xl font-bold md:text-4xl">Uma Amostra do Conteúdo 🤫</h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
               Pequenas mudanças na comunicação geram resultados gigantes. Veja alguns exemplos de nossos scripts:
             </p>
