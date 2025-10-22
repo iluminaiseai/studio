@@ -33,7 +33,7 @@ export default function EbookLandingPage() {
               Decodificador do Amor
             </h1>
             <p className="mt-4 text-lg font-bold text-muted-foreground md:text-xl">
-              Descubra o método que já transformou mais de 12.000 relacionamentos em menos de 30 dias.
+              O método comprovado que já transformou a vida amorosa de mais de 12.000 mulheres em menos de 30 dias.
             </p>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">
               Pare de adivinhar o que a outra pessoa sente — comece a entender, comunicar e reconquistar de verdade.
@@ -80,7 +80,7 @@ export default function EbookLandingPage() {
                 Uma Amostra do Conteúdo Transformador 🤫
               </h2>
               <p className="mt-2 text-lg text-muted-foreground max-w-3xl mx-auto">
-                Veja uma pequena parte do que você vai dominar com o nosso guia e como sua mentalidade vai mudar.
+                Veja uma pequena parte do que você vai dominar com nosso guia e como sua mentalidade vai mudar.
               </p>
             </div>
             
@@ -391,3 +391,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
