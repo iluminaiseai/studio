@@ -38,7 +38,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center justify-center gap-2">
                     <Check className="h-4 w-4 text-green-500" />
-                    <span>Diagnóstico personalizado baseado em suas respostas</span>
+                    <span>Análise baseada em suas respostas</span>
                 </li>
             </ul>
         </div>
