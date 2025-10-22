@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle } from "lucide-react";
+import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -172,8 +172,56 @@ export default function EbookLandingPage() {
           </div>
         </section>
         
-        {/* Social Proof Section */}
+        {/* NEW Impact Section - Intimacy */}
         <section className="py-16">
+          <div className="container mx-auto px-4 max-w-5xl text-center animate-in fade-in">
+            <h2 className="font-headline text-3xl font-bold md:text-4xl">A Realidade da Intimidade: Do Deserto à Conexão</h2>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
+              Intimidade não é só sobre sexo. É sobre desejo, segurança e uma conexão que vai além do físico.
+            </p>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="text-left shadow-lg bg-background border-destructive/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3 text-destructive">
+                      <Wind className="h-6 w-6"/>
+                      O Deserto da Intimidade
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                      <p className="italic text-muted-foreground">"O sexo virou uma tarefa, sem desejo real."</p>
+                      <p className="italic text-muted-foreground">"Tenho medo de tomar a iniciativa e ser rejeitada."</p>
+                      <p className="italic text-muted-foreground">"Parece que somos colegas de quarto, não um casal."</p>
+                      <p className="italic text-muted-foreground">"A conexão física se perdeu completamente."</p>
+                  </CardContent>
+              </Card>
+              <Card className="text-left shadow-lg bg-background border-primary/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3 text-primary">
+                      <Sparkles className="h-6 w-6"/>
+                      A Reconexão Profunda
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                       <p className="italic text-muted-foreground">"Entendo como reacender a chama do desejo genuíno, para os dois."</p>
+                       <p className="italic text-muted-foreground">"Sinto-me confiante e segura para expressar meus desejos e iniciar a intimidade."</p>
+                       <p className="italic text-muted-foreground">"A intimidade voltou a ser nosso momento de maior conexão."</p>
+                       <p className="italic text-muted-foreground">"O toque, o beijo, o sexo... tudo voltou a ter um significado especial."</p>
+                  </CardContent>
+              </Card>
+            </div>
+            <div className="mt-12 text-center">
+                 <Button asChild size="lg" className="font-bold text-lg">
+                  <a href="#comprar">
+                    <Flame className="mr-2 h-5 w-5" />
+                    Quero resgatar minha intimidade!
+                  </a>
+                </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Social Proof Section */}
+        <section className="py-16 bg-secondary/30">
             <div className="container mx-auto px-4 text-center animate-in fade-in">
                 <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Depoimentos Reais</h2>
                  <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -348,3 +396,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
