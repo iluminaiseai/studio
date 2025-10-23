@@ -436,7 +436,7 @@ function QuizFlow() {
                   key={index}
                   variant="outline"
                   size="lg"
-                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base active:bg-primary/10"
+                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base"
                   onClick={() => handleAnswer(answer)}
                   disabled={isProcessing}
                 >
@@ -463,5 +463,3 @@ export default function QuizPage() {
     </Suspense>
   )
 }
-
-    
