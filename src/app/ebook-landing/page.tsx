@@ -262,7 +262,7 @@ export default function EbookLandingPage() {
                 <CardContent className="flex-grow space-y-4">
                   <p className="text-center text-4xl font-bold">R$ 29,90</p>
                   <ul className="space-y-3 text-left p-4 bg-secondary/30 rounded-md">
-                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Ebook “Decodificador do Amor” — descubra o segredo psicológico que desperta atração e faz você entender o que realmente se passa na mente da outra pessoa</span></li>
+                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span><strong>Ebook “Decodificador do Amor”</strong> — descubra o segredo psicológico que desperta atração e faz você entender o que realmente se passa na mente da outra pessoa</span></li>
                     <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Plano de Ação de 30 dias — passos práticos para aplicar o método e começar a reverter a distância emocional</span></li>
                   </ul>
                 </CardContent>
@@ -388,5 +388,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
