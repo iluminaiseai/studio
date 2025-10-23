@@ -60,7 +60,7 @@ export default function EbookLandingPage() {
                     data-ai-hint={ebookImage.imageHint}
                 />
             </Card>
-            
+            <p className="mt-4 text-xs italic text-muted-foreground">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
           </div>
         </section>
         
@@ -98,7 +98,7 @@ export default function EbookLandingPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <BrainCircuit className="h-8 w-8 text-primary" />
-                      <span>Ler os sinais por trás das atitudes da pessoa (mesmo quando ela não fala nada).</span>
+                      <span>Decodificar microexpressões e ler os 7 tipos de silêncio (o que não é dito fala mais alto).</span>
                     </CardTitle>
                   </CardHeader>
                 </Card>
@@ -106,7 +106,7 @@ export default function EbookLandingPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <MessagesSquare className="h-8 w-8 text-primary" />
-                      <span>Conversar sem brigar, com nossos scripts prontos e comprovados.</span>
+                      <span>Usar scripts de Comunicação Não-Violenta para ter conversas difíceis que conectam em vez de afastar.</span>
                     </CardTitle>
                   </CardHeader>
                 </Card>
@@ -114,7 +114,7 @@ export default function EbookLandingPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <Flame className="h-8 w-8 text-primary" />
-                      <span>Reacender o desejo e a admiração — mesmo após meses de distância emocional.</span>
+                      <span>Ativar os gatilhos neuroquímicos da atração (dopamina e oxitocina) para reacender a chama do desejo.</span>
                     </CardTitle>
                   </CardHeader>
                 </Card>
@@ -122,7 +122,7 @@ export default function EbookLandingPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <Gem className="h-8 w-8 text-primary" />
-                      <span>Recuperar sua confiança e paz interior, sem precisar “correr atrás”.</span>
+                      <span>Construir uma autoestima inabalável que te transforma em uma fonte de poder, não uma buscadora de validação.</span>
                     </CardTitle>
                   </CardHeader>
                 </Card>
@@ -144,7 +144,7 @@ export default function EbookLandingPage() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
-                        <p className="italic text-muted-foreground">"Por que sumiu? Falei algo errado?"</p>
+                        <p className="italic text-muted-foreground">"Por que a pessoa sumiu? Falei algo errado?"</p>
                         <p className="italic text-muted-foreground">"Essa resposta seca foi só impressão minha?"</p>
                         <p className="italic text-muted-foreground">"Será que tem outra pessoa?"</p>
                         <p className="italic text-muted-foreground">"Devo mandar mensagem ou espero?"</p>
@@ -158,10 +158,10 @@ export default function EbookLandingPage() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
-                         <p className="italic text-muted-foreground">"Ok, a pessoa não sumiu. Está me mostrando quem é. E eu sei o que fazer."</p>
-                         <p className="italic text-muted-foreground">"Essa resposta foi seca. Vou usar o script X para entender o que está acontecendo sem brigar."</p>
-                         <p className="italic text-muted-foreground">"Meu valor não depende da atenção de ninguém."</p>
-                         <p className="italic text-muted-foreground">"Eu vou focar na minha vida. Quem quiser estar nela, que se esforce."</p>
+                         <p className="italic text-muted-foreground">"A pessoa não sumiu, está me mostrando quem é. E agora eu sei o que fazer."</p>
+                         <p className="italic text-muted-foreground">"Ok, a resposta foi seca. Em vez de criar teorias, vou escrever 3 interpretações alternativas. A mais provável é que a pessoa esteja ocupada."</p>
+                         <p className="italic text-muted-foreground">"Meu valor não depende da atenção de ninguém. Sou a fonte da minha própria validação."</p>
+                         <p className="italic text-muted-foreground">"Vou focar na minha vida. Quem quiser estar nela, que demonstre com ações, não com silêncio."</p>
                     </CardContent>
                 </Card>
               </div>
@@ -171,7 +171,7 @@ export default function EbookLandingPage() {
             <div className="max-w-5xl mx-auto text-center mt-16">
               <h3 className="font-headline text-2xl font-bold md:text-3xl">A Realidade da Intimidade: Do Deserto à Conexão</h3>
               <p className="mt-2 text-lg text-muted-foreground">
-                Intimidade não é só sobre sexo. É sobre desejo, segurança e uma conexão que vai além do físico.
+                Intimidade não é só sobre sexo. É sobre desejo (dopamina), segurança (oxitocina) e uma conexão que vai além do físico.
               </p>
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card className="text-left shadow-lg bg-background border-destructive/50">
@@ -185,21 +185,21 @@ export default function EbookLandingPage() {
                         <p className="italic text-muted-foreground">"O sexo virou uma tarefa, sem desejo real."</p>
                         <p className="italic text-muted-foreground">"Tenho medo de tomar a iniciativa e ser rejeitada."</p>
                         <p className="italic text-muted-foreground">"Parece que somos colegas de quarto, não um casal."</p>
-                        <p className="italic text-muted-foreground">"A conexão física se perdeu completamente."</p>
+                        <p className="italic text-muted-foreground">"O toque é mecânico, falta a 'química'."</p>
                     </CardContent>
                 </Card>
                 <Card className="text-left shadow-lg bg-background border-primary/50">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-3 text-primary">
                         <Sparkles className="h-6 w-6"/>
-                        A Reconexão Profunda
+                        A Reconexão Neuroquímica
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
-                         <p className="italic text-muted-foreground">"Entendo como reacender a chama do desejo genuíno, para os dois."</p>
-                         <p className="italic text-muted-foreground">"Sinto-me confiante e segura para expressar meus desejos e iniciar a intimidade."</p>
-                         <p className="italic text-muted-foreground">"A intimidade voltou a ser nosso momento de maior conexão."</p>
-                         <p className="italic text-muted-foreground">"O toque, o beijo, o sexo... tudo voltou a ter um significado especial."</p>
+                         <p className="italic text-muted-foreground">"Sei como criar rituais de novidade para liberar dopamina e manter a antecipação."</p>
+                         <p className="italic text-muted-foreground">"Uso o toque intencional e conversas profundas para liberar oxitocina e construir confiança."</p>
+                         <p className="italic text-muted-foreground">"Somos parceiros em uma jornada de descoberta, não apenas dividimos as contas."</p>
+                         <p className="italic text-muted-foreground">"Cada toque, beijo e olhar se tornaram ferramentas de conexão consciente."</p>
                     </CardContent>
                 </Card>
               </div>
@@ -273,7 +273,7 @@ export default function EbookLandingPage() {
                     <li className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" />
                       <span>
-                        <strong>“Decodificador do Amor”</strong> — descubra o segredo psicológico que desperta atração e faz você entender o que realmente se passa na mente da outra pessoa
+                        <strong>"Decodificador do Amor"</strong> — descubra o segredo psicológico que desperta atração e faz você entender o que realmente se passa na mente da outra pessoa
                       </span>
                     </li>
                     <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Plano de Ação de 30 dias — passos práticos para aplicar o método e começar a reverter a distância emocional</span></li>
@@ -331,7 +331,7 @@ export default function EbookLandingPage() {
             </div>
              <div className="mt-8 text-center text-xs text-muted-foreground space-y-2">
                 <p>Compra segura e entrega imediata por e-mail. Acesso vitalício + atualizações gratuitas.</p>
-                
+                <p className="text-xs italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
              </div>
           </div>
         </section>
@@ -396,7 +396,7 @@ export default function EbookLandingPage() {
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center py-6 px-4 text-center text-sm text-muted-foreground gap-4">
           <div className="flex flex-col gap-2">
             <p>© {new Date().getFullYear()} Decodificador do Amor. Todos os direitos reservados.</p>
-            
+            <p className="text-xs italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
           </div>
            <div className="flex gap-4">
             <Link href="#" className="hover:text-primary">Política de Privacidade</Link>
