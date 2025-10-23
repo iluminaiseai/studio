@@ -262,8 +262,8 @@ export default function EbookLandingPage() {
                 <CardContent className="flex-grow space-y-4">
                   <p className="text-center text-4xl font-bold">R$ 29,90</p>
                   <ul className="space-y-3 text-left p-4 bg-secondary/30 rounded-md">
-                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Ebook "Decodificador do Amor"</span></li>
-                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Plano de Ação de 30 dias</span></li>
+                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Ebook “Decodificador do Amor” — descubra o segredo psicológico que desperta atração e faz você entender o que realmente se passa na mente da outra pessoa</span></li>
+                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Plano de Ação de 30 dias — passos práticos para aplicar o método e começar a reverter a distância emocional</span></li>
                   </ul>
                 </CardContent>
                 <CardFooter>
@@ -363,7 +363,7 @@ export default function EbookLandingPage() {
                     <AccordionTrigger className="font-bold text-lg">E se meu relacionamento já acabou?</AccordionTrigger>
                     <AccordionContent className="text-base text-muted-foreground">
                      Muitas leitoras usam o método para reconquistar, pois ele foca em reestabelecer a admiração e a comunicação. No entanto, o foco principal é fortalecer seu amor-próprio, o que te tornará mais atraente em qualquer situação.
-                    </AccordionContent>
+                    </dix-accordion-content>
                   </AccordionItem>
                   <AccordionItem value="item-5">
                     <AccordionTrigger className="font-bold text-lg">E se eu já tentei de tudo?</AccordionTrigger>
