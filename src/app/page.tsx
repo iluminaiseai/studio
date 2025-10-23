@@ -11,8 +11,8 @@ export default function Home() {
   const heroImage = PlaceHolderImages.find(p => p.id === "hero");
 
   return (
-    <main className="flex min-h-screen w-full items-center justify-center p-4 overflow-hidden">
-      <div className="container flex max-w-4xl flex-col items-center justify-center gap-6 text-center md:gap-8 animate-fade-in">
+    <main className="flex min-h-screen w-full flex-col items-center justify-center p-4 overflow-hidden">
+      <div className="flex-1 container flex max-w-4xl flex-col items-center justify-center gap-6 text-center md:gap-8 animate-fade-in">
         <LogoCapricho className="h-20 w-auto text-primary md:h-24 animate-in fade-in zoom-in-50 delay-300" />
         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500 -mt-2">
           Decodificador do Amor
@@ -70,8 +70,11 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
+       <footer className="w-full py-4">
+        <div className="container mx-auto text-center text-xs text-muted-foreground">
+          <p>Este site não faz parte do Facebook ou Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira.</p>
+        </div>
+      </footer>
     </main>
   );
 }
-
-    
