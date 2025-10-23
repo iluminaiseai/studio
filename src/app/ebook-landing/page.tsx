@@ -284,10 +284,10 @@ export default function EbookLandingPage() {
                 <CardContent className="flex-grow space-y-4">
                   <p className="text-center text-5xl font-bold text-primary">R$ 47,90</p>
                   <ul className="space-y-3 text-left p-4 bg-secondary/30 rounded-md">
-                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Ebook "Decodificador do Amor"</span></li>
+                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Ebook “Decodificador do Amor”</span></li>
                     <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Plano de Ação de 30 dias</span></li>
-                    <li className="flex items-start gap-3 font-semibold text-primary"><Gift className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[BÔNUS] Scripts de Conversa Prontos</span></li>
-                    <li className="flex items-start gap-3 font-semibold text-primary"><Gift className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[BÔNUS] Arquivo Secreto da Psicologia da Atração</span></li>
+                    <li className="flex items-start gap-3 font-semibold text-primary"><Gift className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[BÔNUS] Scripts de Conversa Prontos — frases estratégicas para restaurar a conexão sem precisar correr atrás</span></li>
+                    <li className="flex items-start gap-3 font-semibold text-primary"><Gift className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[BÔNUS] Arquivo Secreto da Psicologia da Atração — os gatilhos mentais que despertam desejo e curiosidade genuína</span></li>
                   </ul>
                    <p className="text-center text-sm font-bold text-primary-foreground bg-primary/80 rounded-full py-1">🔥 Mais de 70% das leitoras escolhem este plano!</p>
                 </CardContent>
