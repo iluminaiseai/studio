@@ -31,7 +31,7 @@ export default function EbookLandingPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-12 text-center md:flex-row md:py-24 animate-in fade-in">
+        <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-12 text-center md:flex-row md:py-16 animate-in fade-in">
           <div className="flex-1 md:text-left animate-in fade-in slide-in-from-left-8 duration-500">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-6xl">
               Decodificador do Amor
@@ -64,7 +64,7 @@ export default function EbookLandingPage() {
         </section>
         
         {/* Subhead Section */}
-        <section className="py-16 bg-secondary/30">
+        <section className="py-12 bg-secondary/30">
           <div className="container mx-auto px-4 text-center animate-in fade-in">
             <h2 className="font-headline text-3xl font-bold md:text-4xl">
               Cansada de se sentir confusa, insegura ou ignorada na relação?
@@ -76,7 +76,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* --- Unified Content Preview Section --- */}
-        <section className="py-16">
+        <section className="py-12">
           <div className="container mx-auto px-4 animate-in fade-in">
             <div className="text-center mb-12">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -216,7 +216,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Social Proof Section */}
-        <section className="py-16 bg-secondary/30">
+        <section className="py-12 bg-secondary/30">
             <div className="container mx-auto px-4 text-center animate-in fade-in">
                 <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Depoimentos Reais de quem já Decodificou</h2>
                  <p className="mt-2 text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -252,7 +252,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Index Preview Section */}
-        <section className="py-16">
+        <section className="py-12">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="text-center mb-12">
               <h2 className="font-headline text-3xl font-bold md:text-4xl flex items-center justify-center gap-3">
@@ -309,7 +309,7 @@ export default function EbookLandingPage() {
         </section>
         
         {/* Pricing Section */}
-        <section id="comprar" className="py-16 scroll-mt-20 my-16">
+        <section id="comprar" className="py-12 scroll-mt-20 my-12">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 animate-in fade-in">
                 <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Escolha seu plano ideal 💝</h2>
@@ -393,7 +393,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Guarantee Section */}
-        <section className="py-16 bg-secondary/30">
+        <section className="py-12 bg-secondary/30">
             <div className="container mx-auto px-4 text-center flex flex-col md:flex-row items-center gap-8">
                 <div className="animate-in fade-in slide-in-from-left-8 duration-500">
                     <ShieldCheck className="h-32 w-32 text-primary mx-auto md:mx-0" />
@@ -407,7 +407,7 @@ export default function EbookLandingPage() {
         </section>
 
          {/* FAQ Section */}
-        <section className="py-16">
+        <section className="py-12">
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-8">
                      <h2 className="font-headline text-3xl font-bold md:text-4xl">FAQ — Dúvidas Frequentes</h2>
