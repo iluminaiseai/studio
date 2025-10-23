@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -208,7 +209,7 @@ export default function EbookLandingPage() {
                <Button asChild size="lg" className="font-bold text-lg animate-pulse">
                   <a href="#comprar">
                     <ShoppingCart className="mr-2 h-5 w-5" />
-                    Sim, eu quero transformar meu relacionamento!
+                    Eu Quero os Segredos Agora!
                   </a>
                 </Button>
             </div>
