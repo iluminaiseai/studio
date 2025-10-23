@@ -306,8 +306,9 @@ export default function EbookLandingPage() {
                   <p className="text-center text-4xl font-bold">R$ 69,90</p>
                    <ul className="space-y-3 text-left p-4 bg-secondary/30 rounded-md">
                      <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Tudo do Plano Plus</span></li>
-                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] Guia de Autoconfiança e Amor-próprio</span></li>
-                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] Checklists de Comunicação para Casais</span></li>
+                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] O Dossiê da Mente Masculina — entenda os padrões psicológicos ocultos que regem o comportamento dele</span></li>
+                    <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] A Arte da Indiferença Estratégica — como criar atração e respeito usando o poder do silêncio e da presença</span></li>
+                     <li className="flex items-start gap-3 font-semibold text-primary"><Star className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[EXCLUSIVO] Arsenal da Comunicação Secreta — técnicas avançadas de influência emocional e linguagem implícita que despertam interesse real</span></li>
                   </ul>
                 </CardContent>
                 <CardFooter>
