@@ -39,9 +39,6 @@ export default function EbookLandingPage() {
             <p className="mt-4 text-lg font-bold text-muted-foreground md:text-xl">
               O segredo psicológico que desperta paixão e faz qualquer pessoa ter o controle do coração de quem quiser — <span className="italic text-primary/80">quase que manipulação.</span>
             </p>
-            <p className="mt-4 text-xs italic text-muted-foreground">
-              Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.
-            </p>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">
               Chega de tentar adivinhar o que a outra pessoa sente — aprenda a provocar os sentimentos certos pra ela não te tirar da cabeça.
             </p>
@@ -63,6 +60,9 @@ export default function EbookLandingPage() {
                     data-ai-hint={ebookImage.imageHint}
                 />
             </Card>
+            <p className="mt-4 text-xs italic text-muted-foreground md:text-center">
+              Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.
+            </p>
           </div>
         </section>
         
@@ -404,5 +404,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
