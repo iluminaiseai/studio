@@ -24,7 +24,7 @@ export default function EbookLandingPage() {
             <LogoCapricho className="h-12 w-auto" />
           </div>
           <Button asChild className="hidden sm:flex font-bold animate-in fade-in">
-            <a href="#comprar">Quero Meu Ebook Agora!</a>
+            <a href="#comprar">QUERO SABER OS SEGREDOS</a>
           </Button>
         </div>
       </header>
@@ -262,7 +262,7 @@ export default function EbookLandingPage() {
                 <CardContent className="flex-grow space-y-4">
                   <p className="text-center text-4xl font-bold">R$ 29,90</p>
                   <ul className="space-y-3 text-left p-4 bg-secondary/30 rounded-md">
-                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span><strong>Ebook “Decodificador do Amor”</strong> — descubra o segredo psicológico que desperta atração e faz você entender o que realmente se passa na mente da outra pessoa</span></li>
+                    <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span><strong>“Decodificador do Amor”</strong> — descubra o segredo psicológico que desperta atração e faz você entender o que realmente se passa na mente da outra pessoa</span></li>
                     <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Plano de Ação de 30 dias — passos práticos para aplicar o método e começar a reverter a distância emocional</span></li>
                   </ul>
                 </CardContent>
@@ -316,7 +316,10 @@ export default function EbookLandingPage() {
                 </CardFooter>
               </Card>
             </div>
-             <p className="mt-8 text-center text-xs text-muted-foreground">Compra segura e entrega imediata por e-mail. Acesso vitalício + atualizações gratuitas.</p>
+             <div className="mt-8 text-center text-xs text-muted-foreground space-y-2">
+                <p>Compra segura e entrega imediata por e-mail. Acesso vitalício + atualizações gratuitas.</p>
+                <p className="italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
+             </div>
           </div>
         </section>
 
@@ -378,7 +381,10 @@ export default function EbookLandingPage() {
       </main>
        <footer className="border-t bg-secondary/30">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center py-6 px-4 text-center text-sm text-muted-foreground gap-4">
-          <p>© {new Date().getFullYear()} Decodificador do Amor. Todos os direitos reservados.</p>
+          <div className="flex flex-col gap-2">
+            <p>© {new Date().getFullYear()} Decodificador do Amor. Todos os direitos reservados.</p>
+            <p className="text-xs italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
+          </div>
            <div className="flex gap-4">
             <Link href="#" className="hover:text-primary">Política de Privacidade</Link>
             <Link href="#" className="hover:text-primary">Termos de Uso</Link>
