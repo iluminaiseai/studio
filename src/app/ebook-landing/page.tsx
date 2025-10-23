@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { LogoCapricho } from "@/components/logo-capricho";
 
 export default function EbookLandingPage() {
-    const ebookImage = PlaceHolderImages.find(p => p.id === "ebook_cover") ?? { imageUrl: 'https://picsum.photos/seed/ebook/600/800', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
+    const ebookImage = PlaceHolderImages.find(p => p.id === "ebook_cover") ?? { imageUrl: 'https://picsum.photos/seed/ebook/800/800', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground overflow-hidden">
@@ -53,8 +53,15 @@ export default function EbookLandingPage() {
             </Button>
           </div>
           <div className="flex-1 animate-in fade-in slide-in-from-right-8 duration-500">
-            <Card className="overflow-hidden shadow-2xl rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-primary/20 flex items-center justify-center aspect-[3/4] bg-secondary/20">
-              <Heart className="h-48 w-48 text-primary/50" />
+            <Card className="overflow-hidden shadow-2xl rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-primary/20 bg-secondary/20">
+                <Image
+                    src={ebookImage.imageUrl}
+                    alt={ebookImage.description}
+                    width={800}
+                    height={800}
+                    className="aspect-square w-full object-cover"
+                    data-ai-hint={ebookImage.imageHint}
+                />
             </Card>
           </div>
         </section>
@@ -397,3 +404,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
