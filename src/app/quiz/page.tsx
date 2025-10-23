@@ -438,7 +438,7 @@ function QuizFlow() {
                   key={index}
                   variant="outline"
                   size="lg"
-                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base"
+                  className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base focus:ring-0 focus-visible:ring-0"
                   onClick={(e) => handleAnswer(answer, e)}
                   disabled={isProcessing}
                 >
