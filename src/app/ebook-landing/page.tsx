@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { LogoCapricho } from "@/components/logo-capricho";
 
 export default function EbookLandingPage() {
-    const ebookImage = PlaceHolderImages.find(p => p.id === "ebook_cover") ?? { imageUrl: 'https://picsum.photos/seed/ebook/800/800', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
+    const ebookImage = { imageUrl: '/capa-ebook.png', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground overflow-hidden">
