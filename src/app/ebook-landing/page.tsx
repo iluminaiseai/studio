@@ -363,7 +363,7 @@ export default function EbookLandingPage() {
                     <AccordionTrigger className="font-bold text-lg">E se meu relacionamento já acabou?</AccordionTrigger>
                     <AccordionContent className="text-base text-muted-foreground">
                      Muitas leitoras usam o método para reconquistar, pois ele foca em reestabelecer a admiração e a comunicação. No entanto, o foco principal é fortalecer seu amor-próprio, o que te tornará mais atraente em qualquer situação.
-                    </dix-accordion-content>
+                    </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="item-5">
                     <AccordionTrigger className="font-bold text-lg">E se eu já tentei de tudo?</AccordionTrigger>
@@ -388,3 +388,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    

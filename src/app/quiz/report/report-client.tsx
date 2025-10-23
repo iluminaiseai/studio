@@ -176,3 +176,5 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
         </Card>
       );
 }
+
+    
