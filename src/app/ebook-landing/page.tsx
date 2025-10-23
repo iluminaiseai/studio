@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles } from "lucide-react";
+import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles, Map } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -60,7 +60,6 @@ export default function EbookLandingPage() {
                     data-ai-hint={ebookImage.imageHint}
                 />
             </Card>
-            <p className="mt-4 text-xs italic text-muted-foreground">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
           </div>
         </section>
         
@@ -250,6 +249,63 @@ export default function EbookLandingPage() {
                     </Card>
                  </div>
             </div>
+        </section>
+
+        {/* Index Preview Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <h2 className="font-headline text-3xl font-bold md:text-4xl flex items-center justify-center gap-3">
+                <Map className="h-8 w-8 text-primary" />
+                Um Vislumbre do Mapa da Transformação
+              </h2>
+              <p className="mt-2 text-lg text-muted-foreground">
+                Com dúvida se o conteúdo é para você? Dê uma olhada no índice detalhado. Este não é um guia superficial.
+              </p>
+            </div>
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="font-bold text-lg hover:no-underline">Capítulo 1: A Linguagem Secreta do Comportamento</AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground space-y-2 pl-4 border-l-2 border-primary ml-2">
+                  <p>✓ Decodificador de Microexpressões (raiva, tristeza, alegria genuína)</p>
+                  <p>✓ Análise de Padrões em Mensagens de Texto (interesse vs. desinteresse)</p>
+                  <p>✓ Os 7 Tipos de Silêncio e Como Interpretá-los (do silêncio de raiva ao de conexão)</p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="font-bold text-lg hover:no-underline">Capítulo 2: Da Ansiedade ao Poder</AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground space-y-2 pl-4 border-l-2 border-primary ml-2">
+                  <p>✓ Mapeamento do Ciclo da Ansiedade Amorosa</p>
+                  <p>✓ O Framework de Clareza Total: Pausar, Questionar e Proceder com Intenção</p>
+                  <p>✓ Técnicas de Reprogramação do Sistema Nervoso (Âncora Emocional e Respiração 4-7-8)</p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="font-bold text-lg hover:no-underline">Capítulo 3: A Arte da Ponte Emocional</AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground space-y-2 pl-4 border-l-2 border-primary ml-2">
+                  <p>✓ Os 4 Níveis de Escuta (do superficial ao generativo)</p>
+                  <p>✓ Framework da Comunicação Não-Violenta 2.0 (observação vs. avaliação)</p>
+                  <p>✓ Scripts Prontos para Conversas Difíceis e Expressão de Necessidades</p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="font-bold text-lg hover:no-underline">Capítulo 4: O Reacendedor de Chamas</AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground space-y-2 pl-4 border-l-2 border-primary ml-2">
+                  <p>✓ Os Pilares Neuroquímicos da Atração (Dopamina e Oxitocina)</p>
+                  <p>✓ Gatilhos Emocionais Avançados (Proteção, Admiração Genuína, Vulnerabilidade Mútua)</p>
+                  <p>✓ Rituais de Conexão Diária (Os 6 Minutos Mágicos)</p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="font-bold text-lg hover:no-underline">Capítulo 5: A Fortaleza Interior</AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground space-y-2 pl-4 border-l-2 border-primary ml-2">
+                  <p>✓ Os 3 Pilares da Autoestima Sólida (Autoaceitação, Autoeficácia, Autocompaixão)</p>
+                  <p>✓ Técnica de Reestruturação de Crenças Limitantes ("Não sou suficiente")</p>
+                  <p>✓ A Fórmula da Felicidade Relacional (Realidade - Expectativas)</p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </section>
         
         {/* Pricing Section */}
