@@ -50,16 +50,8 @@ export default function EbookLandingPage() {
             </Button>
           </div>
           <div className="flex-1 animate-in fade-in slide-in-from-right-8 duration-500">
-            <Card className="overflow-hidden shadow-2xl rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-primary/20">
-              <Image
-                src={ebookImage.imageUrl}
-                alt={ebookImage.description}
-                width={600}
-                height={800}
-                className="aspect-[3/4] w-full object-cover"
-                data-ai-hint={ebookImage.imageHint}
-                priority
-              />
+            <Card className="overflow-hidden shadow-2xl rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-primary/20 flex items-center justify-center aspect-[3/4] bg-secondary/20">
+              <Heart className="h-48 w-48 text-primary/50" />
             </Card>
           </div>
         </section>
@@ -208,7 +200,7 @@ export default function EbookLandingPage() {
             <div className="text-center mt-16">
                <Button asChild size="lg" className="font-bold text-lg animate-pulse">
                   <a href="#comprar">
-                    <ShoppingCart className="mr-2 h-5 w-5" />
+                    <Gem className="mr-2 h-5 w-5" />
                     Eu Quero os Segredos Agora!
                   </a>
                 </Button>
@@ -295,7 +287,7 @@ export default function EbookLandingPage() {
                     <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Ebook "Decodificador do Amor"</span></li>
                     <li className="flex items-start gap-3"><Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>Plano de Ação de 30 dias</span></li>
                     <li className="flex items-start gap-3 font-semibold text-primary"><Gift className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[BÔNUS] Scripts de Conversa Prontos</span></li>
-                    <li className="flex items-start gap-3 font-semibold text-primary"><Gift className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[BÔNUS] Guia em áudio das Linguagens do Amor</span></li>
+                    <li className="flex items-start gap-3 font-semibold text-primary"><Gift className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" /> <span>[BÔNUS] Arquivo Secreto da Psicologia da Atração</span></li>
                   </ul>
                    <p className="text-center text-sm font-bold text-primary-foreground bg-primary/80 rounded-full py-1">🔥 Mais de 70% das leitoras escolhem este plano!</p>
                 </CardContent>
