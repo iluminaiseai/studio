@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import { LogoCapricho } from "@/components/logo-capricho";
 
 export default function EbookLandingPage() {
     const ebookImage = PlaceHolderImages.find(p => p.id === "ebook_cover") ?? { imageUrl: 'https://picsum.photos/seed/ebook/600/800', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
@@ -19,6 +20,9 @@ export default function EbookLandingPage() {
             <Heart className="h-6 w-6 text-primary" />
             <span className="font-headline text-xl font-bold">Decodificador do Amor</span>
           </Link>
+          <div className="flex-1 flex justify-center">
+            <LogoCapricho className="h-10 w-auto" />
+          </div>
           <Button asChild className="hidden sm:flex font-bold animate-in fade-in">
             <a href="#comprar">Quero Meu Ebook Agora!</a>
           </Button>
