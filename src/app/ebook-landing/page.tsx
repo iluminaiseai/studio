@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -34,7 +33,7 @@ export default function EbookLandingPage() {
         <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-12 text-center md:flex-row md:py-24 animate-in fade-in">
           <div className="flex-1 md:text-left animate-in fade-in slide-in-from-left-8 duration-500">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-6xl">
-              Decodifique o Coração
+              Decodificador do Amor
             </h1>
             <p className="mt-4 text-lg font-bold text-muted-foreground md:text-xl">
               O segredo psicológico que desperta paixão e faz qualquer pessoa ter o controle do coração de quem quiser — <span className="italic text-primary/80">quase que manipulação.</span>
