@@ -242,8 +242,9 @@ function QuizFlow() {
 
     if (savedProgressJson) {
       const savedProgress: SavedProgress = JSON.parse(savedProgressJson);
-      if (savedProgress.answers.length > 0) {
+      if (savedProgress.answers.length > 0 && savedProgress.answers.length < quizData.length) {
         setShowContinueDialog(true);
+        // Não definir step aqui, espera a decisão do usuário
       } else {
         setStep('quiz');
       }
@@ -254,9 +255,12 @@ function QuizFlow() {
 
   // Salva o progresso sempre que as respostas ou o índice da questão mudam
   useEffect(() => {
-    if (step === 'quiz' && answers.length > 0) {
+    if (step === 'quiz' && answers.length > 0 && answers.length < quizData.length) {
       const progressToSave: SavedProgress = { currentQuestionIndex, answers };
       localStorage.setItem('quizProgress', JSON.stringify(progressToSave));
+    }
+    if (answers.length === quizData.length) {
+        localStorage.removeItem('quizProgress');
     }
   }, [currentQuestionIndex, answers, step]);
 
@@ -336,7 +340,7 @@ function QuizFlow() {
   };
   
   // Renderização condicional baseada na etapa (step)
-  if (step === 'loading') {
+  if (step === 'loading' && !showContinueDialog) {
     return (
       <div className="container mx-auto flex h-screen max-w-2xl flex-col items-center justify-center p-4 text-center">
         <Loader className="h-12 w-12 animate-spin text-primary" />
@@ -459,3 +463,5 @@ export default function QuizPage() {
     </Suspense>
   )
 }
+
+    
