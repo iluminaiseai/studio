@@ -21,7 +21,7 @@ export default function EbookLandingPage() {
             <span className="font-headline text-xl font-bold">Decodificador do Amor</span>
           </Link>
           <div className="flex-1 flex justify-center">
-            <LogoCapricho className="h-10 w-auto" />
+            <LogoCapricho className="h-12 w-auto" />
           </div>
           <Button asChild className="hidden sm:flex font-bold animate-in fade-in">
             <a href="#comprar">Quero Meu Ebook Agora!</a>
