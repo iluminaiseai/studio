@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, MouseEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Answer, quizData, sections } from "@/lib/quiz-data";
 import { getFeedbackForAnswers } from "@/lib/feedback-data";
@@ -287,8 +287,10 @@ function QuizFlow() {
   const currentSection = sections.find(s => s.key === currentQuestion?.section);
   const progress = ((currentQuestionIndex) / quizData.length) * 100;
 
-  const handleAnswer = (answer: Answer) => {
+  const handleAnswer = (answer: Answer, event: MouseEvent<HTMLButtonElement>) => {
     if (isProcessing) return;
+    
+    (event.target as HTMLButtonElement).blur();
     
     setIsProcessing(true);
     const newAnswers = [...answers, answer.text];
@@ -437,7 +439,7 @@ function QuizFlow() {
                   variant="outline"
                   size="lg"
                   className="h-auto min-h-12 justify-center whitespace-normal py-3 text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary md:text-base"
-                  onClick={() => handleAnswer(answer)}
+                  onClick={(e) => handleAnswer(answer, e)}
                   disabled={isProcessing}
                 >
                   {answer.text}
