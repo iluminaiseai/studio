@@ -9,13 +9,22 @@ import { getPregeneratedResponse, ReportStyle, AnswerKey } from '@/lib/pregenera
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { CheckCircle2, MessageCircleHeart, BrainCircuit, Drama, ArrowLeft } from "lucide-react";
+import { CheckCircle2, MessageCircleHeart, BrainCircuit, Drama, ArrowLeft, RotateCcw, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Loader } from "lucide-react";
 import Link from 'next/link';
 import { ReportDisplay } from './report/report-client';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 
 // ============================================================================
@@ -62,6 +71,11 @@ const styles = [
 
 function StyleSelector({ onStyleSelect }: { onStyleSelect: (style: ReportStyle) => void }) {
   const [loadingStyle, setLoadingStyle] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Limpa o progresso salvo quando o usuário chega à seleção de estilo
+    localStorage.removeItem('quizProgress');
+  }, []);
 
   const handleStyleSelect = (style: ReportStyle) => {
     if (loadingStyle) return;
@@ -194,33 +208,76 @@ function ReportComponent({ answers, style }: { answers: string[], style: ReportS
 // ============================================================================
 
 type QuizStep = 'quiz' | 'select-style' | 'report' | 'loading' | 'error';
+type SavedProgress = {
+  currentQuestionIndex: number;
+  answers: string[];
+};
 
 function QuizFlow() {
   const searchParams = useSearchParams();
   const isTestMode = searchParams.get('test') === 'true';
 
-  const getInitialState = () => {
-    if (isTestMode) {
-      // Pre-fill answers for the first 9 questions to jump to the last one
-      const prefilledAnswers = quizData.slice(0, 9).map(q => q.answers[0].text);
-      return {
-        currentQuestionIndex: 9,
-        answers: prefilledAnswers,
-      };
-    }
-    return {
-      currentQuestionIndex: 0,
-      answers: [],
-    };
-  };
-
-  const [step, setStep] = useState<QuizStep>('quiz');
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(getInitialState().currentQuestionIndex);
-  const [answers, setAnswers] = useState<string[]>(getInitialState().answers);
+  const [step, setStep] = useState<QuizStep>('loading');
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<string[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showMiniFeedback, setShowMiniFeedback] = useState(false);
   const [feedbackContent, setFeedbackContent] = useState({ title: '', text: '' });
   const [selectedStyle, setSelectedStyle] = useState<ReportStyle>('detailed');
+  const [showContinueDialog, setShowContinueDialog] = useState(false);
+
+  // Efeito para carregar e salvar o progresso
+  useEffect(() => {
+    // Carrega o progresso salvo ao montar o componente
+    const savedProgressJson = localStorage.getItem('quizProgress');
+    
+    if (isTestMode) {
+      handleRestart();
+      const prefilledAnswers = quizData.slice(0, 9).map(q => q.answers[0].text);
+      setAnswers(prefilledAnswers);
+      setCurrentQuestionIndex(9);
+      setStep('quiz');
+      return;
+    }
+
+    if (savedProgressJson) {
+      const savedProgress: SavedProgress = JSON.parse(savedProgressJson);
+      if (savedProgress.answers.length > 0) {
+        setShowContinueDialog(true);
+      } else {
+        setStep('quiz');
+      }
+    } else {
+      setStep('quiz');
+    }
+  }, [isTestMode]);
+
+  // Salva o progresso sempre que as respostas ou o índice da questão mudam
+  useEffect(() => {
+    if (step === 'quiz' && answers.length > 0) {
+      const progressToSave: SavedProgress = { currentQuestionIndex, answers };
+      localStorage.setItem('quizProgress', JSON.stringify(progressToSave));
+    }
+  }, [currentQuestionIndex, answers, step]);
+
+  const handleContinue = () => {
+    const savedProgressJson = localStorage.getItem('quizProgress');
+    if (savedProgressJson) {
+      const savedProgress: SavedProgress = JSON.parse(savedProgressJson);
+      setAnswers(savedProgress.answers);
+      setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
+    }
+    setShowContinueDialog(false);
+    setStep('quiz');
+  };
+
+  const handleRestart = () => {
+    localStorage.removeItem('quizProgress');
+    setAnswers([]);
+    setCurrentQuestionIndex(0);
+    setShowContinueDialog(false);
+    setStep('quiz');
+  };
 
   const currentQuestion = quizData[currentQuestionIndex];
   const currentSection = sections.find(s => s.key === currentQuestion?.section);
@@ -249,7 +306,6 @@ function QuizFlow() {
   const handleBack = () => {
     if (currentQuestionIndex === 0 || isProcessing) return;
     
-    // Se estivermos no feedback, apenas o esconda.
     if (showMiniFeedback) {
       setShowMiniFeedback(false);
       return;
@@ -286,6 +342,31 @@ function QuizFlow() {
         <Loader className="h-12 w-12 animate-spin text-primary" />
         <p className="mt-4 font-headline text-xl md:text-2xl">Carregando...</p>
       </div>
+    );
+  }
+
+  if (showContinueDialog) {
+    return (
+      <AlertDialog open={showContinueDialog} onOpenChange={setShowContinueDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="font-headline text-2xl">Bem-vinda de volta!</AlertDialogTitle>
+            <AlertDialogDescription>
+              Percebemos que você não terminou o quiz. Quer continuar de onde parou ou começar de novo?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="sm:justify-center">
+            <Button onClick={handleRestart} variant="outline">
+              <RotateCcw className="mr-2 h-4 w-4" />
+              Recomeçar
+            </Button>
+            <Button onClick={handleContinue}>
+              <Play className="mr-2 h-4 w-4" />
+              Continuar
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     );
   }
   
