@@ -44,7 +44,7 @@ export default function EbookLandingPage() {
             <Button asChild size="lg" className="mt-8 font-bold text-lg">
               <a href="#comprar">
                 <Gift className="mr-2 h-5 w-5" />
-                Quero Meu Ebook Agora!
+                QUERO SABER OS SEGREDOS
               </a>
             </Button>
           </div>
