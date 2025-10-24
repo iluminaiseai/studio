@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles, Map, X, HandHeart } from "lucide-react";
+import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles, Map, X, HandHeart, CalendarClock } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -29,31 +29,37 @@ function ExitIntentOffer({ isOpen, onOpenChange }: { isOpen: boolean, onOpenChan
 
   return (
     <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
-      <AlertDialogContent className="max-w-md text-center p-0 overflow-hidden">
+      <AlertDialogContent className="max-w-lg text-center p-0 overflow-hidden">
         <AlertDialogHeader className="p-6 pb-2">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 animate-in fade-in zoom-in-50 delay-300">
-            <HandHeart className="h-8 w-8 text-primary" />
+            <CalendarClock className="h-8 w-8 text-primary" />
           </div>
-          <AlertDialogTitle className="font-headline text-2xl md:text-3xl">Um momento... Que tal um atalho?</AlertDialogTitle>
+          <AlertDialogTitle className="font-headline text-2xl md:text-3xl">Espere! E se você pudesse começar a mudança em 30 dias?</AlertDialogTitle>
           <AlertDialogDescription className="text-muted-foreground">
-            Percebi que você está saindo. Antes de ir, tenho uma oferta rápida e prática para você começar a ver resultados agora.
+            Vi que você está saindo. Antes de ir, tenho uma oferta focada em resultados rápidos. Sem teoria, apenas ação.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="px-6 space-y-4">
-            <Card className="bg-secondary/30 text-left">
+            <Card className="bg-secondary/30 text-left border-primary/50">
               <CardHeader>
-                <CardTitle className="font-headline text-xl">Oferta Rápida: O Plano de Ação</CardTitle>
-                <CardDescription>Receba apenas o plano prático de 30 dias para aplicar o método e começar a ver mudanças.</CardDescription>
+                <CardTitle className="font-headline text-xl">Oferta Rápida: O Plano de Ação de 30 Dias</CardTitle>
+                <CardDescription>Receba apenas o plano prático e diário para aplicar o método e começar a ver a reaproximação acontecer.</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2">
+              <CardContent className="space-y-3 text-sm">
                  <p className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" />
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>Plano de Ação de 30 Dias:</strong> Um passo a passo diário, direto ao ponto, para reverter a distância emocional.
+                    <strong>Passo a passo diário:</strong> Uma tarefa simples e poderosa por dia para quebrar o gelo, recriar a conexão e virar o jogo sem parecer desesperada.
                   </span>
                 </p>
-                <p className="line-through text-muted-foreground flex items-start gap-2">
-                    <X className="h-5 w-5 text-destructive/50 flex-shrink-0 mt-1" />
+                 <p className="flex items-start gap-2">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Spoiler do Dia 3:</strong> Aprenda a frase de 7 palavras que quebra o padrão de silêncio e faz a pessoa querer responder.
+                  </span>
+                </p>
+                <p className="line-through text-muted-foreground/80 flex items-start gap-2">
+                    <X className="h-5 w-5 text-destructive/50 flex-shrink-0 mt-0.5" />
                     <span>E-book completo "Decodificador do Amor".</span>
                 </p>
               </CardContent>
@@ -62,6 +68,9 @@ function ExitIntentOffer({ isOpen, onOpenChange }: { isOpen: boolean, onOpenChan
                 <p className="text-muted-foreground text-sm">De <span className="line-through">R$ 17,90</span> por apenas:</p>
                 <p className="text-4xl md:text-5xl font-bold text-primary animate-pulse">R$ 7,90</p>
             </div>
+             <p className="text-xs text-muted-foreground pt-2">
+                <strong>Garantia incondicional:</strong> Se em 7 dias você não amar, é só pedir o dinheiro de volta. Simples assim.
+            </p>
         </div>
         <AlertDialogFooter className="bg-secondary/30 p-6 pt-4 flex-col gap-2">
           <Button asChild size="lg" className="w-full font-bold">
