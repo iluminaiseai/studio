@@ -17,7 +17,7 @@ export default function DownsellPage() {
 
             <h1 className="font-headline text-3xl font-bold text-primary md:text-4xl animate-in fade-in slide-in-from-bottom-2 duration-500">Tem certeza que quer fechar sem descobrir o que pode mudar essa distância entre você e a pessoa que você ama?</h1>
             <p className="mt-2 text-lg text-muted-foreground md:text-xl animate-in fade-in slide-in-from-bottom-2 delay-200 duration-500">
-                E se você pudesse começar a mudança ainda hoje, em apenas 30 dias?
+                Às vezes, o que separa o silêncio de uma nova conexão é apenas uma escolha.
             </p>
              <p className="mt-4 max-w-xl text-base text-muted-foreground animate-in fade-in slide-in-from-bottom-2 delay-300 duration-500">
                 Antes de sair, quero te dar uma chance de ouro — sem teoria, sem enrolação, só ações diárias que já transformaram milhares de relações.
