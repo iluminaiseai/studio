@@ -17,9 +17,8 @@ export default function EbookLandingPage() {
     useEffect(() => {
         let hasRedirected = false;
         const handleMouseOut = (e: MouseEvent) => {
-            // Se o cursor sair pela parte de cima da janela e o redirecionamento ainda não ocorreu
             if (e.clientY <= 0 && !hasRedirected) {
-                hasRedirected = true; // Previne múltiplos redirecionamentos
+                hasRedirected = true; 
                 document.removeEventListener('mouseout', handleMouseOut);
                 window.location.href = '/oferta-plano-30-dias';
             }
@@ -97,7 +96,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* --- Unified Content Preview Section --- */}
-        <section className="py-8">
+        <section className="py-12">
           <div className="container mx-auto px-4 animate-in fade-in">
             <div className="text-center mb-10">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -273,7 +272,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Index Preview Section */}
-        <section className="py-8">
+        <section className="py-12">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="text-center mb-10">
               <h2 className="font-headline text-3xl font-bold md:text-4xl flex items-center justify-center gap-3">
@@ -408,7 +407,7 @@ export default function EbookLandingPage() {
             </div>
              <div className="mt-8 text-center text-xs text-muted-foreground space-y-2">
                 <p>Compra segura e entrega imediata por e-mail. Acesso vitalício + atualizações gratuitas.</p>
-                
+                <p className="italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
              </div>
           </div>
         </section>
@@ -428,7 +427,7 @@ export default function EbookLandingPage() {
         </section>
 
          {/* FAQ Section */}
-        <section className="py-8">
+        <section className="py-12">
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-8">
                      <h2 className="font-headline text-3xl font-bold md:text-4xl">FAQ — Dúvidas Frequentes</h2>
@@ -470,10 +469,10 @@ export default function EbookLandingPage() {
 
       </main>
        <footer className="border-t bg-secondary/30">
-        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center py-6 px-4 text-center text-sm text-muted-foreground gap-4">
+        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center py-4 px-4 text-center text-sm text-muted-foreground gap-4">
           <div className="flex flex-col gap-2">
             <p>© {new Date().getFullYear()} Decodificador do Amor. Todos os direitos reservados.</p>
-            
+            <p className="text-xs italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
           </div>
            <div className="flex gap-4">
             <Link href="#" className="hover:text-primary">Política de Privacidade</Link>
@@ -484,3 +483,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
