@@ -156,7 +156,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-background/60 p-4 text-center rounded-lg">
                             <Lock className="h-8 w-8 text-primary"/>
                             <h3 className="font-headline text-xl font-bold text-foreground">Receba o Plano de Ação Completo</h3>
-                            <p className="text-sm text-muted-foreground">Liberte os segredos que vão colocar o coração de quem você quiser completamente nas suas mãos — com nosso guia secreto.</p>
+                            <p className="text-sm text-muted-foreground">Domine os segredos que fazem qualquer pessoa pensar em você sem parar</p>
                             <Button asChild className="font-bold">
                                 <Link href="/ebook-landing" prefetch={true}>
                                     Quero o plano completo <ArrowRight className="ml-2 h-5 w-5"/>
