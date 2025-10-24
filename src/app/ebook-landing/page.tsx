@@ -5,98 +5,23 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles, Map, X, HandHeart, CalendarClock } from "lucide-react";
+import { Check, Heart, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, AlertTriangle, Wind, Sparkles, Lightbulb, Map } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { cn } from "@/lib/utils";
 import { LogoCapricho } from "@/components/logo-capricho";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-
-// ============================================================================
-// Exit Intent Offer Component
-// ============================================================================
-function ExitIntentOffer({ isOpen, onOpenChange }: { isOpen: boolean, onOpenChange: (open: boolean) => void }) {
-  if (!isOpen) return null;
-
-  return (
-    <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
-      <AlertDialogContent className="max-w-lg text-center p-0 overflow-hidden">
-        <AlertDialogHeader className="p-6 pb-2">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 animate-in fade-in zoom-in-50 delay-300">
-            <CalendarClock className="h-8 w-8 text-primary" />
-          </div>
-          <AlertDialogTitle className="font-headline text-2xl md:text-3xl">Espere! E se você pudesse começar a mudança em 30 dias?</AlertDialogTitle>
-          <AlertDialogDescription className="text-muted-foreground">
-            Vi que você está saindo. Antes de ir, tenho uma oferta focada em resultados rápidos. Sem teoria, apenas ação.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <div className="px-6 space-y-4">
-            <Card className="bg-secondary/30 text-left border-primary/50">
-              <CardHeader>
-                <CardTitle className="font-headline text-xl">Oferta Rápida: O Plano de Ação de 30 Dias</CardTitle>
-                <CardDescription>Receba apenas o plano prático e diário para aplicar o método e começar a ver a reaproximação acontecer.</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm">
-                 <p className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Passo a passo diário:</strong> Uma tarefa simples e poderosa por dia para quebrar o gelo, recriar a conexão e virar o jogo sem parecer desesperada.
-                  </span>
-                </p>
-                 <p className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Spoiler do Dia 3:</strong> Aprenda a frase de 7 palavras que quebra o padrão de silêncio e faz a pessoa querer responder.
-                  </span>
-                </p>
-                <p className="line-through text-muted-foreground/80 flex items-start gap-2">
-                    <X className="h-5 w-5 text-destructive/50 flex-shrink-0 mt-0.5" />
-                    <span>E-book completo "Decodificador do Amor".</span>
-                </p>
-              </CardContent>
-            </Card>
-            <div className="text-center">
-                <p className="text-muted-foreground text-sm">De <span className="line-through">R$ 17,90</span> por apenas:</p>
-                <p className="text-4xl md:text-5xl font-bold text-primary animate-pulse">R$ 7,90</p>
-            </div>
-             <p className="text-xs text-muted-foreground pt-2">
-                <strong>Garantia incondicional:</strong> Se em 7 dias você não amar, é só pedir o dinheiro de volta. Simples assim.
-            </p>
-        </div>
-        <AlertDialogFooter className="bg-secondary/30 p-6 pt-4 flex-col gap-2">
-          <Button asChild size="lg" className="w-full font-bold">
-            <Link href="#">Sim, quero o plano por R$ 7,90!</Link>
-          </Button>
-          <Button onClick={() => onOpenChange(false)} variant="ghost" className="w-full">
-            Não, obrigado. Deixa pra próxima.
-          </Button>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-  );
-}
 
 
 export default function EbookLandingPage() {
     const ebookImage = { imageUrl: '/capa-ebook.png', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
-    const [showExitIntent, setShowExitIntent] = useState(false);
 
     useEffect(() => {
+        let hasRedirected = false;
         const handleMouseOut = (e: MouseEvent) => {
-            // Se o cursor sair pela parte de cima da janela
-            if (e.clientY <= 0) {
-                // Previne múltiplos acionamentos
+            // Se o cursor sair pela parte de cima da janela e o redirecionamento ainda não ocorreu
+            if (e.clientY <= 0 && !hasRedirected) {
+                hasRedirected = true; // Previne múltiplos redirecionamentos
                 document.removeEventListener('mouseout', handleMouseOut);
-                setShowExitIntent(true);
+                window.location.href = '/oferta-plano-30-dias';
             }
         };
 
@@ -110,7 +35,6 @@ export default function EbookLandingPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground overflow-hidden">
-      <ExitIntentOffer isOpen={showExitIntent} onOpenChange={setShowExitIntent} />
       <header className="sticky top-0 z-20 border-b bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
@@ -184,7 +108,7 @@ export default function EbookLandingPage() {
               </p>
             </div>
             
-            {/* What You'll Learn Section */}
+             {/* What You'll Learn Section */}
             <div className="max-w-4xl mx-auto">
               <h3 className="text-center font-headline text-2xl font-bold md:text-3xl mb-6">
                 Você vai aprender a...
@@ -560,5 +484,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
