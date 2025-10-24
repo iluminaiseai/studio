@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, AlertTriangle, Wind, Sparkles, Lightbulb, Map } from "lucide-react";
+import { Check, Heart, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, AlertTriangle, Wind, Sparkles, Lightbulb, Map, ArrowRight, CalendarClock, X } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { LogoCapricho } from "@/components/logo-capricho";
@@ -15,19 +15,18 @@ export default function EbookLandingPage() {
     const ebookImage = { imageUrl: '/capa-ebook.png', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
 
     useEffect(() => {
-        let hasRedirected = false;
-        const handleMouseOut = (e: MouseEvent) => {
-            if (e.clientY <= 0 && !hasRedirected) {
-                hasRedirected = true; 
-                document.removeEventListener('mouseout', handleMouseOut);
-                window.location.href = '/oferta-plano-30-dias';
-            }
+        // Injeta um estado no histórico na entrada da página
+        window.history.pushState(null, '', window.location.href);
+
+        const handlePopState = (event: PopStateEvent) => {
+            // Ao tentar voltar, redireciona para a oferta
+            window.location.href = '/oferta-plano-30-dias';
         };
 
-        document.addEventListener('mouseout', handleMouseOut);
+        window.addEventListener('popstate', handlePopState);
 
         return () => {
-            document.removeEventListener('mouseout', handleMouseOut);
+            window.removeEventListener('popstate', handlePopState);
         };
     }, []);
 
@@ -483,5 +482,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
