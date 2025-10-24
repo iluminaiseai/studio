@@ -69,7 +69,7 @@ export default function DownsellPage() {
                 <div className="text-center">
                     <p className="font-bold text-primary">✨ Oferta relâmpago exclusiva para quem está aqui agora!</p>
                     <p className="text-muted-foreground">De <span className="line-through">R$17,90</span> por apenas:</p>
-                    <p className="font-headline text-6xl font-bold text-primary animate-pulse">R$7,90</p>
+                    <p className="font-headline text-6xl font-bold text-primary animate-pulse">R$9,90</p>
                 </div>
                 
                 <ul className="space-y-2 text-sm">
@@ -102,7 +102,7 @@ export default function DownsellPage() {
               </CardContent>
               <CardFooter className="flex-col gap-2 p-4 md:p-6 bg-secondary/30 rounded-b-lg">
                 <Button asChild size="lg" className="w-full font-bold text-lg">
-                    <Link href="#">👉 Sim, quero o plano por R$7,90!</Link>
+                    <Link href="#">👉 Sim, quero o plano por R$9,90!</Link>
                 </Button>
                 <p className="text-xs text-muted-foreground">
                     (Oferta única — se sair desta página, ela desaparece.)
