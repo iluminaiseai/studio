@@ -88,7 +88,7 @@ export default function EbookLandingPage() {
                     data-ai-hint={ebookImage.imageHint}
                 />
             </Card>
-            <p className="mt-2 text-xs italic text-center text-muted-foreground">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
+            <p className="mt-2 text-xs italic text-center text-muted-foreground">Este material contém estratégias avançadas de alto impacto.</p>
           </div>
         </section>
         
@@ -490,5 +490,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
