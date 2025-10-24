@@ -15,7 +15,7 @@ export default function DownsellPage() {
                 <Sparkles className="h-16 w-16 text-primary" />
             </div>
 
-            <h1 className="font-headline text-3xl font-bold text-primary md:text-4xl animate-in fade-in slide-in-from-bottom-2 duration-500">Espere um segundo... você está prestes a perder a virada.</h1>
+            <h1 className="font-headline text-3xl font-bold text-primary md:text-4xl animate-in fade-in slide-in-from-bottom-2 duration-500">Tem certeza que quer fechar sem descobrir o que pode mudar essa distância entre você e a pessoa que você ama?</h1>
             <p className="mt-2 text-lg text-muted-foreground md:text-xl animate-in fade-in slide-in-from-bottom-2 delay-200 duration-500">
                 E se você pudesse começar a mudança ainda hoje, em apenas 30 dias?
             </p>
