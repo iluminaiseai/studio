@@ -161,7 +161,7 @@ export default function EbookLandingPage() {
         </section>
         
         {/* Subhead Section */}
-        <section className="py-12 bg-secondary/30">
+        <section className="py-8 bg-secondary/30">
           <div className="container mx-auto px-4 text-center animate-in fade-in">
             <h2 className="font-headline text-3xl font-bold md:text-4xl">
               Cansada de se sentir confusa, insegura ou ignorada na relação?
@@ -173,9 +173,9 @@ export default function EbookLandingPage() {
         </section>
 
         {/* --- Unified Content Preview Section --- */}
-        <section className="py-12">
+        <section className="py-8">
           <div className="container mx-auto px-4 animate-in fade-in">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
                 Uma Amostra do Conteúdo Transformador 🤫
               </h2>
@@ -186,7 +186,7 @@ export default function EbookLandingPage() {
             
             {/* What You'll Learn Section */}
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-center font-headline text-2xl font-bold md:text-3xl mb-8">
+              <h3 className="text-center font-headline text-2xl font-bold md:text-3xl mb-6">
                 Você vai aprender a...
               </h3>
               <div className="grid gap-6 md:grid-cols-2">
@@ -226,7 +226,7 @@ export default function EbookLandingPage() {
             </div>
 
             {/* Impact Section - Mindset */}
-            <div className="max-w-5xl mx-auto text-center mt-16">
+            <div className="max-w-5xl mx-auto text-center mt-12">
               <h3 className="font-headline text-2xl font-bold md:text-3xl">Sua mente agora... vs. Sua mente com o Decodificador</h3>
               <p className="mt-2 text-lg text-muted-foreground">
                 Pare de viver em um ciclo de ansiedade e dúvida. Recupere o controle e a paz.
@@ -264,7 +264,7 @@ export default function EbookLandingPage() {
             </div>
 
             {/* Impact Section - Intimacy */}
-            <div className="max-w-5xl mx-auto text-center mt-16">
+            <div className="max-w-5xl mx-auto text-center mt-12">
               <h3 className="font-headline text-2xl font-bold md:text-3xl">A Realidade da Intimidade: Do Deserto à Conexão</h3>
               <p className="mt-2 text-lg text-muted-foreground">
                 Intimidade não é só sobre sexo. É sobre desejo (dopamina), segurança (oxitocina) e uma conexão que vai além do físico.
@@ -301,7 +301,7 @@ export default function EbookLandingPage() {
               </div>
             </div>
 
-            <div className="text-center mt-16">
+            <div className="text-center mt-12">
                <Button asChild size="lg" className="font-bold text-lg animate-pulse">
                   <a href="#comprar">
                     <Gem className="mr-2 h-5 w-5" />
@@ -313,9 +313,9 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Social Proof Section */}
-        <section className="py-12 bg-secondary/30">
+        <section className="py-8 bg-secondary/30">
             <div className="container mx-auto px-4 text-center animate-in fade-in">
-                <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Depoimentos Reais de quem já Decodificou</h2>
+                <h2 className="font-headline text-3xl font-bold md:text-4xl">Depoimentos Reais de quem já Decodificou</h2>
                  <p className="mt-2 text-lg text-muted-foreground max-w-3xl mx-auto">
                   Mais de 12.000 mulheres já transformaram suas vidas amorosas. Veja o que algumas delas dizem:
                 </p>
@@ -349,9 +349,9 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Index Preview Section */}
-        <section className="py-12">
+        <section className="py-8">
           <div className="container mx-auto px-4 max-w-3xl">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10">
               <h2 className="font-headline text-3xl font-bold md:text-4xl flex items-center justify-center gap-3">
                 <Map className="h-8 w-8 text-primary" />
                 Um Vislumbre do Mapa da Transformação
@@ -406,10 +406,10 @@ export default function EbookLandingPage() {
         </section>
         
         {/* Pricing Section */}
-        <section id="comprar" className="py-12 scroll-mt-20 my-12">
+        <section id="comprar" className="py-8 scroll-mt-20">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12 animate-in fade-in">
-                <h2 className="mt-4 font-headline text-3xl font-bold md:text-4xl">Escolha seu plano ideal 💝</h2>
+            <div className="text-center mb-10 animate-in fade-in">
+                <h2 className="font-headline text-3xl font-bold md:text-4xl">Escolha seu plano ideal 💝</h2>
                 <p className="mt-2 text-lg text-muted-foreground">Desbloqueie hoje o caminho para um relacionamento mais feliz.</p>
             </div>
 
@@ -490,7 +490,7 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Guarantee Section */}
-        <section className="py-12 bg-secondary/30">
+        <section className="py-8 bg-secondary/30">
             <div className="container mx-auto px-4 text-center flex flex-col md:flex-row items-center gap-8">
                 <div className="animate-in fade-in slide-in-from-left-8 duration-500">
                     <ShieldCheck className="h-32 w-32 text-primary mx-auto md:mx-0" />
@@ -504,7 +504,7 @@ export default function EbookLandingPage() {
         </section>
 
          {/* FAQ Section */}
-        <section className="py-12">
+        <section className="py-8">
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-8">
                      <h2 className="font-headline text-3xl font-bold md:text-4xl">FAQ — Dúvidas Frequentes</h2>
