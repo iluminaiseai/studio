@@ -9,7 +9,16 @@ import { Check, Heart, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Fl
 import Image from 'next/image';
 import Link from 'next/link';
 import { LogoCapricho } from "@/components/logo-capricho";
-
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 
 export default function EbookLandingPage() {
     const ebookImage = { imageUrl: '/capa-ebook.png', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
@@ -50,7 +59,7 @@ export default function EbookLandingPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-12 text-center md:flex-row md:py-16 animate-in fade-in">
+        <section className="container mx-auto flex flex-col items-center gap-8 px-4 py-8 text-center md:flex-row md:py-12 animate-in fade-in">
           <div className="flex-1 md:text-left animate-in fade-in slide-in-from-left-8 duration-500">
             <h1 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-6xl">
               Decodificador do Amor
@@ -79,6 +88,7 @@ export default function EbookLandingPage() {
                     data-ai-hint={ebookImage.imageHint}
                 />
             </Card>
+            <p className="mt-2 text-xs italic text-center text-muted-foreground">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
           </div>
         </section>
         
@@ -95,9 +105,9 @@ export default function EbookLandingPage() {
         </section>
 
         {/* --- Unified Content Preview Section --- */}
-        <section className="py-12">
+        <section className="py-8 md:py-12">
           <div className="container mx-auto px-4 animate-in fade-in">
-            <div className="text-center mb-10">
+            <div className="text-center mb-8 md:mb-10">
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
                 Uma Amostra do Conteúdo Transformador 🤫
               </h2>
@@ -148,7 +158,7 @@ export default function EbookLandingPage() {
             </div>
 
             {/* Impact Section - Mindset */}
-            <div className="max-w-5xl mx-auto text-center mt-12">
+            <div className="max-w-5xl mx-auto text-center mt-10 md:mt-12">
               <h3 className="font-headline text-2xl font-bold md:text-3xl">Sua mente agora... vs. Sua mente com o Decodificador</h3>
               <p className="mt-2 text-lg text-muted-foreground">
                 Pare de viver em um ciclo de ansiedade e dúvida. Recupere o controle e a paz.
@@ -186,7 +196,7 @@ export default function EbookLandingPage() {
             </div>
 
             {/* Impact Section - Intimacy */}
-            <div className="max-w-5xl mx-auto text-center mt-12">
+            <div className="max-w-5xl mx-auto text-center mt-10 md:mt-12">
               <h3 className="font-headline text-2xl font-bold md:text-3xl">A Realidade da Intimidade: Do Deserto à Conexão</h3>
               <p className="mt-2 text-lg text-muted-foreground">
                 Intimidade não é só sobre sexo. É sobre desejo (dopamina), segurança (oxitocina) e uma conexão que vai além do físico.
@@ -223,7 +233,7 @@ export default function EbookLandingPage() {
               </div>
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-10 md:mt-12">
                <Button asChild size="lg" className="font-bold text-lg animate-pulse">
                   <a href="#comprar">
                     <Gem className="mr-2 h-5 w-5" />
@@ -271,9 +281,9 @@ export default function EbookLandingPage() {
         </section>
 
         {/* Index Preview Section */}
-        <section className="py-12">
+        <section className="py-8 md:py-12">
           <div className="container mx-auto px-4 max-w-3xl">
-            <div className="text-center mb-10">
+            <div className="text-center mb-8 md:mb-10">
               <h2 className="font-headline text-3xl font-bold md:text-4xl flex items-center justify-center gap-3">
                 <Map className="h-8 w-8 text-primary" />
                 Um Vislumbre do Mapa da Transformação
@@ -330,7 +340,7 @@ export default function EbookLandingPage() {
         {/* Pricing Section */}
         <section id="comprar" className="py-8 scroll-mt-20">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-10 animate-in fade-in">
+            <div className="text-center mb-8 md:mb-10 animate-in fade-in">
                 <h2 className="font-headline text-3xl font-bold md:text-4xl">Escolha seu plano ideal 💝</h2>
                 <p className="mt-2 text-lg text-muted-foreground">Desbloqueie hoje o caminho para um relacionamento mais feliz.</p>
             </div>
@@ -404,9 +414,8 @@ export default function EbookLandingPage() {
                 </CardFooter>
               </Card>
             </div>
-             <div className="mt-8 text-center text-xs text-muted-foreground space-y-2">
+             <div className="mt-8 text-center text-xs text-muted-foreground">
                 <p>Compra segura e entrega imediata por e-mail. Acesso vitalício + atualizações gratuitas.</p>
-                <p className="italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
              </div>
           </div>
         </section>
@@ -426,7 +435,7 @@ export default function EbookLandingPage() {
         </section>
 
          {/* FAQ Section */}
-        <section className="py-12">
+        <section className="py-8 md:py-12">
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-8">
                      <h2 className="font-headline text-3xl font-bold md:text-4xl">FAQ — Dúvidas Frequentes</h2>
@@ -469,9 +478,8 @@ export default function EbookLandingPage() {
       </main>
        <footer className="border-t bg-secondary/30">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center py-4 px-4 text-center text-sm text-muted-foreground gap-4">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col">
             <p>© {new Date().getFullYear()} Decodificador do Amor. Todos os direitos reservados.</p>
-            <p className="text-xs italic">Este material contém estratégias avançadas de alto impacto. Seu uso depende da sua responsabilidade; não nos responsabilizamos pelas consequências de sua aplicação.</p>
           </div>
            <div className="flex gap-4">
             <Link href="#" className="hover:text-primary">Política de Privacidade</Link>
@@ -482,3 +490,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
