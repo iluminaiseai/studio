@@ -1,19 +1,107 @@
 
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles, Map } from "lucide-react";
+import { Check, Heart, BookOpen, Gift, Star, ShieldCheck, MessagesSquare, BrainCircuit, Flame, Gem, ShoppingCart, ArrowRight, Lightbulb, AlertTriangle, Wind, Sparkles, Map, X, HandHeart } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { LogoCapricho } from "@/components/logo-capricho";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+
+// ============================================================================
+// Exit Intent Offer Component
+// ============================================================================
+function ExitIntentOffer({ isOpen, onOpenChange }: { isOpen: boolean, onOpenChange: (open: boolean) => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
+      <AlertDialogContent className="max-w-md text-center p-0 overflow-hidden">
+        <AlertDialogHeader className="p-6 pb-2">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 animate-in fade-in zoom-in-50 delay-300">
+            <HandHeart className="h-8 w-8 text-primary" />
+          </div>
+          <AlertDialogTitle className="font-headline text-2xl md:text-3xl">Espere, não vá embora ainda!</AlertDialogTitle>
+          <AlertDialogDescription className="text-muted-foreground">
+            Sua jornada de transformação está a um passo de começar. Tenho uma oferta especial e única para você.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <div className="px-6 space-y-4">
+            <Card className="bg-secondary/30 text-left">
+              <CardHeader>
+                <CardTitle className="font-headline text-xl">Oferta Exclusiva: Acesso Essencial</CardTitle>
+                <CardDescription>Receba apenas o e-book principal por um preço que você não vai acreditar.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                 <p className="flex items-start gap-2">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-1" />
+                  <span>
+                    <strong>E-book "Decodificador do Amor":</strong> Todo o método para entender a mente da pessoa amada e reacender a conexão.
+                  </span>
+                </p>
+                <p className="line-through text-muted-foreground flex items-start gap-2">
+                    <X className="h-5 w-5 text-destructive/50 flex-shrink-0 mt-1" />
+                    <span>Plano de Ação de 30 dias.</span>
+                </p>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <p className="text-muted-foreground text-sm">De <span className="line-through">R$ 17,90</span> por apenas:</p>
+                <p className="text-4xl md:text-5xl font-bold text-primary animate-pulse">R$ 9,90</p>
+            </div>
+        </div>
+        <AlertDialogFooter className="bg-secondary/30 p-6 pt-4 flex-col gap-2">
+          <Button asChild size="lg" className="w-full font-bold">
+            <Link href="#">Sim, eu quero por R$ 9,90!</Link>
+          </Button>
+          <Button onClick={() => onOpenChange(false)} variant="ghost" className="w-full">
+            Não, obrigado. Quero perder essa chance.
+          </Button>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+
 
 export default function EbookLandingPage() {
     const ebookImage = { imageUrl: '/capa-ebook.png', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
+    const [showExitIntent, setShowExitIntent] = useState(false);
+
+    useEffect(() => {
+        const handleMouseOut = (e: MouseEvent) => {
+            // Se o cursor sair pela parte de cima da janela
+            if (e.clientY <= 0) {
+                // Previne múltiplos acionamentos
+                document.removeEventListener('mouseout', handleMouseOut);
+                setShowExitIntent(true);
+            }
+        };
+
+        document.addEventListener('mouseout', handleMouseOut);
+
+        return () => {
+            document.removeEventListener('mouseout', handleMouseOut);
+        };
+    }, []);
+
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground overflow-hidden">
+      <ExitIntentOffer isOpen={showExitIntent} onOpenChange={setShowExitIntent} />
       <header className="sticky top-0 z-20 border-b bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2">
@@ -463,3 +551,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
