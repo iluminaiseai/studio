@@ -75,11 +75,23 @@ export default function DownsellPage() {
                 <ul className="space-y-2 text-sm">
                     <li className="flex items-center gap-2">
                         <Check className="h-5 w-5 text-green-500" />
-                        <span><span className="font-bold">Plano prático</span> de 30 dias</span>
+                        <span>Plano prático de 30 dias</span>
                     </li>
                     <li className="flex items-center gap-2">
                         <Check className="h-5 w-5 text-green-500" />
-                        <span><span className="font-bold">E-book completo</span> “Decodificador do Amor”</span>
+                        <span>Scripts de mensagens que funcionam</span>
+                    </li>
+                     <li className="flex items-center gap-2">
+                        <Check className="h-5 w-5 text-green-500" />
+                        <span>Checklist semanal de progresso</span>
+                    </li>
+                     <li className="flex items-center gap-2">
+                        <Check className="h-5 w-5 text-green-500" />
+                        <span>Diário emocional de 30 dias</span>
+                    </li>
+                     <li className="flex items-center gap-2">
+                        <Check className="h-5 w-5 text-green-500" />
+                        <span>Frases de reprogramação mental</span>
                     </li>
                      <li className="flex items-center gap-2">
                         <Check className="h-5 w-5 text-green-500" />
