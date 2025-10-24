@@ -44,9 +44,26 @@ export default function DownsellPage() {
                     </div>
                 </div>
                 
-                <div className="rounded-lg border-2 border-dashed border-primary/50 bg-primary/5 p-4">
-                    <p className="font-bold text-primary">🤫 Spoiler do Dia 3:</p>
-                    <p className="italic text-muted-foreground">A frase de 7 palavras que quebra o silêncio e faz a pessoa querer responder — sem perceber que você virou o jogo.</p>
+                <div className="space-y-4 rounded-lg border-2 border-dashed border-primary/50 bg-primary/5 p-4">
+                  <p className="text-center font-bold text-primary">🤫 Uma amostra do que você vai aprender:</p>
+                  <div className="space-y-3 text-sm">
+                    <div>
+                      <p className="font-bold">Dia 1 – Parar de correr atrás</p>
+                      <p className="italic text-muted-foreground">Você vai descobrir como quebrar o ciclo de ansiedade e não depender mais da atenção dele para se sentir segura.</p>
+                    </div>
+                     <div>
+                      <p className="font-bold">Dia 4 – Silêncio estratégico</p>
+                      <p className="italic text-muted-foreground">Descubra como o silêncio pode falar por você, sem precisar implorar ou se sentir insegura.</p>
+                    </div>
+                     <div>
+                      <p className="font-bold">Dia 16 – Gestos que reacendem desejo genuíno</p>
+                      <p className="italic text-muted-foreground">Aprenda ações sutis que fazem ele sentir atração e curiosidade de forma natural, sem forçar nada.</p>
+                    </div>
+                     <div>
+                      <p className="font-bold">Dia 30 – Ritual final “Eu sou o novo padrão”</p>
+                      <p className="italic text-muted-foreground">Veja como consolidar toda a transformação emocional que você construiu e se tornar uma versão magnética e confiante de si mesma.</p>
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="text-center">
