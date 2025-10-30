@@ -365,7 +365,9 @@ export default function EbookLandingPage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full font-bold">👉 Quero Começar Agora</Button>
+                  <Button asChild className="w-full font-bold">
+                    <a href="URL_DO_CHECKOUT_PLANO_1">👉 Quero Começar Agora</a>
+                  </Button>
                 </CardFooter>
               </Card>
 
@@ -390,7 +392,9 @@ export default function EbookLandingPage() {
                    <p className="text-center text-sm font-bold text-primary-foreground bg-primary/80 rounded-full py-1">🔥 Mais de 70% das leitoras escolhem este plano!</p>
                 </CardContent>
                 <CardFooter>
-                  <Button size="lg" className="w-full font-bold text-lg">👉 Quero o Plano Plus</Button>
+                  <Button asChild size="lg" className="w-full font-bold text-lg">
+                    <a href="URL_DO_CHECKOUT_PLANO_2">👉 Quero o Plano Plus</a>
+                  </Button>
                 </CardFooter>
               </Card>
 
@@ -410,7 +414,9 @@ export default function EbookLandingPage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full font-bold">👉 Garantir Acesso Total</Button>
+                  <Button asChild className="w-full font-bold">
+                    <a href="URL_DO_CHECKOUT_PLANO_3">👉 Garantir Acesso Total</a>
+                  </Button>
                 </CardFooter>
               </Card>
             </div>
@@ -490,3 +496,5 @@ export default function EbookLandingPage() {
     </div>
   );
 }
+
+    
