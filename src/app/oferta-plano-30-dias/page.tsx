@@ -102,7 +102,7 @@ export default function DownsellPage() {
               </CardContent>
               <CardFooter className="flex-col gap-2 p-4 md:p-6 bg-secondary/30 rounded-b-lg">
                 <Button asChild size="lg" className="w-full font-bold text-lg">
-                    <Link href="https://pay.kirvano.com/eb2ea236-b67d-47fe-a994-bebf10b7b32c">👉 Sim, quero o plano por R$9,90!</Link>
+                    <Link href="https://pay.kirvano.com/eb2ea236-b67d-47fe-a994-bebf10b7b32c" target='_blank'>👉 Sim, quero o plano por R$9,90!</Link>
                 </Button>
                 <p className="text-xs text-muted-foreground">
                     (Oferta única — se sair desta página, ela desaparece.)

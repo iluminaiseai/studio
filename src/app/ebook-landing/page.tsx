@@ -23,23 +23,6 @@ import {
 export default function EbookLandingPage() {
     const ebookImage = { imageUrl: '/capa-ebook.png', description: 'Capa do ebook Decodificador do Amor', imageHint: 'book cover' };
 
-    useEffect(() => {
-        // Injeta um estado no histórico na entrada da página
-        window.history.pushState(null, '', window.location.href);
-
-        const handlePopState = (event: PopStateEvent) => {
-            // Ao tentar voltar, redireciona para a oferta
-            window.location.href = '/oferta-plano-30-dias';
-        };
-
-        window.addEventListener('popstate', handlePopState);
-
-        return () => {
-            window.removeEventListener('popstate', handlePopState);
-        };
-    }, []);
-
-
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground overflow-hidden">
       <header className="sticky top-0 z-20 border-b bg-background/80 backdrop-blur-sm">
@@ -496,5 +479,3 @@ export default function EbookLandingPage() {
     </div>
   );
 }
-
-    
