@@ -366,7 +366,7 @@ export default function EbookLandingPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full font-bold">
-                    <a href="URL_DO_CHECKOUT_PLANO_1">👉 Quero Começar Agora</a>
+                    <a href="https://pay.kirvano.com/58068d56-c3c1-4f04-b987-d23ebda4b507" target="_blank" rel="noopener noreferrer">👉 Quero Começar Agora</a>
                   </Button>
                 </CardFooter>
               </Card>
@@ -393,7 +393,7 @@ export default function EbookLandingPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild size="lg" className="w-full font-bold text-lg">
-                    <a href="URL_DO_CHECKOUT_PLANO_2">👉 Quero o Plano Plus</a>
+                    <a href="https://pay.kirvano.com/3e895bff-0151-40cb-a54d-3568ad009500" target="_blank" rel="noopener noreferrer">👉 Quero o Plano Plus</a>
                   </Button>
                 </CardFooter>
               </Card>
@@ -415,7 +415,7 @@ export default function EbookLandingPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full font-bold">
-                    <a href="URL_DO_CHECKOUT_PLANO_3">👉 Garantir Acesso Total</a>
+                    <a href="https://pay.kirvano.com/1385eeaf-d3b0-452a-b416-717b30057cb6" target="_blank" rel="noopener noreferrer">👉 Garantir Acesso Total</a>
                   </Button>
                 </CardFooter>
               </Card>
