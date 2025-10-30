@@ -153,17 +153,17 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
                 {isClient && blurredPlan && (
                      <div className="relative mt-4">
                         <div className="prose prose-sm md:prose-base max-w-none leading-relaxed blur-md select-none" dangerouslySetInnerHTML={{ __html: blurredPlan }} />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/80 backdrop-blur-sm p-4 text-center rounded-lg">
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-background/90 p-4 text-center rounded-lg">
                             <Lock className="h-8 w-8 text-primary"/>
                             <h3 className="font-headline text-xl font-bold text-foreground">Receba o Plano de Ação Completo</h3>
-                             <ul className="space-y-1 text-sm text-left text-muted-foreground my-2">
+                             <ul className="space-y-1 text-sm text-left text-muted-foreground">
                                 <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Aprender como ele pensa e como induzir as decisões dele indiretamente.</span></li>
                                 <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Decodificar microexpressões e ler os 7 tipos de silêncio.</span></li>
                                 <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Usar scripts de Comunicação Não-Violenta.</span></li>
                                 <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Ativar os gatilhos da atração (dopamina e oxitocina).</span></li>
                                 <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Construir uma autoestima inabalável.</span></li>
                             </ul>
-                            <Button asChild className="font-bold mt-2">
+                            <Button asChild className="font-bold">
                                 <Link href="/ebook-landing" prefetch={true}>
                                     <Gem className="mr-2 h-4 w-4" />
                                     Quero Liberar os Segredos
@@ -187,4 +187,5 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
     
 
     
+
 
