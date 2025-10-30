@@ -19,30 +19,30 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
       },
       full: {
         detailedSummary: `
-          <h3>Análise Completa: Uma Parceria com Fundações Sólidas 🏆</h3>
+          <h3>Diagnóstico: Conexão Segura em Construção 🏆</h3>
           <p>
-            O padrão de respostas que você forneceu desenha um cenário extremamente positivo e encorajador. A comunicação entre vocês não é apenas funcional, mas fluida e recíproca, com ambos demonstrando iniciativa e atenção. Isso vai além de meras formalidades; sugere um interesse genuíno em manter a conexão viva e relevante no dia a dia.
+            Suas respostas indicam uma base de <strong>apego seguro</strong>. Você não está apenas em um relacionamento; você está construindo uma parceria onde a confiança e a reciprocidade são a norma, não a exceção. Isso é raro e valioso.
           </p>
           <p>
-            A consistência no comportamento, especialmente em áreas como tempo de resposta, demonstrações de afeto e planejamento futuro, indica um alto nível de segurança emocional e compromisso. Não há espaço para jogos ou incertezas, mas sim uma base de confiança mútua onde ambos se sentem à vontade para serem vulneráveis. Este é o alicerce de relacionamentos duradouros e resilientes, algo raro e valioso.
+            A ausência de jogos, a comunicação fluida e a segurança para planejar o futuro mostram que a energia emocional de vocês está sincronizada. O que você sente não é sorte, é o resultado de uma dinâmica saudável que muitos buscam, mas poucos conseguem manter.
           </p>
         `,
         psychologicalInterpretations: `
-          <h3>Interpretações Psicológicas Aprofundadas 🧠</h3>
+          <h3>O Ponto de Risco Oculto na Estabilidade</h3>
           <p>
-            O comportamento descrito é um forte indicador de um <strong>estilo de apego seguro</strong>. Psicologicamente, isso significa que ambos os parceiros desenvolveram uma confiança mútua de que estarão disponíveis e responsivos às necessidades um do outro. A ausência de ansiedade sobre "quem manda a primeira mensagem" ou "quanto tempo esperar para responder" elimina jogos de poder e permite que a intimidade floresça organicamente. Vocês confiam um no outro. 💯
+            O risco em relacionamentos saudáveis não é o conflito, mas a <strong>estagnação</strong>. A segurança pode, inconscientemente, levar a uma "zona de conforto relacional", onde a paixão e a novidade que liberam dopamina diminuem. O vínculo se torna confortável, mas a atração perde a intensidade.
           </p>
           <p>
-            O compartilhamento de detalhes do dia a dia, que pode parecer trivial, é na verdade um pilar para a <strong>"capitalização"</strong>, um termo da psicologia positiva. Descreve como parceiros que celebram as pequenas vitórias e compartilham os momentos mundanos um do outro fortalecem a satisfação e a intimidade. Vocês não estão apenas trocando informações; estão validando as experiências um do outro, tecendo uma tapeçaria de vida compartilhada que aprofunda a interconexão.
+            Se essa dinâmica não for nutrida ativamente, existe a possibilidade de o relacionamento se transformar em uma amizade carinhosa, perdendo a polaridade e o desejo que mantêm a chama acesa. Manter a segurança sem perder a atração é a maestria dos casais que prosperam a longo prazo.
           </p>
         `,
         actionPlan: `
-          <h3>Plano de Ação: De Ótimo para Extraordinário 🚀</h3>
-          <p>O objetivo aqui não é "consertar" o que não está quebrado, mas sim "elevar" uma conexão que já é excelente. São pequenas práticas para aprofundar ainda mais o vínculo.</p>
+          <h3>Plano de Ação: Do Seguro ao Extraordinário 🚀</h3>
+          <p>Seu desafio não é consertar, mas aprofundar. É sair do bom para o inesquecível, mantendo a atração viva dentro da segurança que vocês já construíram.</p>
           <ul>
-            <li><strong>Apreciação Inesperada:</strong> Envie uma mensagem de apreciação focada em um traço de caráter, não em uma ação. Ex: "Admiro muito a sua paciência com as pessoas, me inspira a ser melhor." Isso valoriza quem a pessoa é, não apenas o que ela faz.</li>
-            <li><strong>Planejamento Criativo:</strong> Em vez de planejar algo rotineiro, planejem juntos uma "mini aventura" para o próximo mês (ex: uma trilha, uma aula de culinária, uma visita a uma cidade vizinha). Criar novas experiências juntos libera dopamina no cérebro, associando o parceiro à novidade e à excitação. 🗺️</li>
-            <li><strong>Linguagem do Amor:</strong> Identifique a principal linguagem do amor da sua parceira e faça uma ação deliberada baseada nela hoje. Falar a "língua" do outro é a forma mais eficaz de fazê-la se sentir amada.</li>
+            <li><strong>Ação Emocional (Apreciação de Caráter):</strong> Envie uma mensagem validando um traço de caráter, não uma ação. Ex: "Admiro a forma como você lida com [situação X], sua calma me inspira." Isso fortalece a admiração, um pilar da atração duradoura.</li>
+            <li><strong>Ação Comportamental (Microaventura):</strong> Proponha uma "missão" para a semana. "Nossa missão esta semana é encontrar o melhor [café/drink/etc] da cidade." Isso reintroduz a novidade e a parceria na resolução de um "problema" divertido, liberando dopamina.</li>
+            <li><strong>Ação Estratégica (Quebra de Padrão):</strong> O segredo para manter a atração em um vínculo seguro é dominar a arte da "distância ótima" — um conceito psicológico que equilibra intimidade e individualidade. O primeiro passo é reintroduzir um elemento de...</li>
           </ul>
         `,
       },
@@ -93,30 +93,30 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
       },
       full: {
         detailedSummary: `
-          <h3>Análise Completa: Navegando em Águas de Incerteza 🌊</h3>
+          <h3>Diagnóstico: Hipervigilância Afetiva 🎯</h3>
           <p>
-            O padrão de respostas mistas revela um relacionamento marcado pela ambiguidade. Existem sinais genuínos de interesse — momentos em que a comunicação flui, a atenção é presente e a conexão parece real. No entanto, esses momentos são minados pela inconsistência: a demora em responder, a falta de iniciativa e a hesitação em tocar em tópicos mais profundos ou fazer planos concretos.
+            Seus sinais mostram que você está tentando amar com maturidade, mas uma parte de você opera em estado de alerta. Você não está "carente" ou "insegura"; você desenvolveu um radar emocional altamente sensível.
           </p>
           <p>
-            Essa dinâmica de "quente e frio" é psicologicamente desgastante. Ela cria um ciclo de esperança e frustração que pode mantê-la em um estado de alerta constante, tentando decifrar o comportamento do outro. É importante reconhecer que essa instabilidade raramente é sobre você, e sim um reflexo das próprias ambiguidades, medos ou limitações da outra pessoa.
+            Isso se chama <strong>hipervigilância afetiva</strong>, uma resposta adaptativa comum em mulheres que já passaram por vínculos instáveis. Seu cérebro foi treinado para procurar micro-sinais de distanciamento como um mecanismo de defesa. O problema é que esse radar, quando hiperativo, não sabe diferenciar uma ameaça real de uma imaginária.
           </p>
         `,
         psychologicalInterpretations: `
-          <h3>Interpretações Psicológicas Aprofundadas 🧠</h3>
+          <h3>O Ponto de Dor: O Risco do Microcontrole Inconsciente</h3>
           <p>
-            Este comportamento é frequentemente associado a um <strong>estilo de apego evitativo</strong>. Indivíduos com esse perfil anseiam por conexão, mas se sentem sufocados pela intimidade excessiva. Quando percebem que a relação está se aprofundando, eles inconscientemente se afastam para recuperar seu senso de autonomia. Isso explica o ciclo de se aproximar (quando sentem sua falta ou solidão) e se afastar (quando se sentem pressionados ou vulneráveis).
+            Se essa hipervigilância não for regulada, o risco de você começar a <strong>microgerenciar a relação</strong> para aliviar sua própria ansiedade é real. Você começa a fazer perguntas para confirmar seu valor, monitorar tempos de resposta e interpretar cada silêncio como um veredito.
           </p>
           <p>
-            A dinâmica de "iniciar vs. só responder" pode levar a um padrão de <strong>"perseguição e fuga"</strong>. Quanto mais uma pessoa busca clareza e iniciativa (persegue), mais a outra pode se sentir pressionada e se retrair (fuga). Quebrar esse ciclo exige uma mudança de estratégia: focar menos em obter uma resposta e mais em observar as ações consistentes (ou a falta delas) e, acima de tudo, em proteger sua própria paz de espírito. 🧘‍♀️
+            Isso cria uma profecia autorrealizável: seu medo de abandono te leva a comportamentos de controle que, ironicamente, sufocam e afastam até mesmo um parceiro bem-intencionado. Você, sem querer, cria o cenário que mais temia.
           </p>
         `,
         actionPlan: `
-          <h3>Plano de Ação: Recuperando o Controle e a Clareza 🗺️</h3>
-          <p>Este plano não visa "consertar" o parceiro(a), mas sim quebrar o ciclo vicioso, recuperar seu poder e dar a você a clareza necessária para decidir seus próximos passos. Lembre-se, este é um guia de reflexão e não uma sentença.</p>
+          <h3>Plano de Ação: Conduzindo a Energia Emocional ⚡</h3>
+          <p>O que você tem é potencial bruto. Sua sensibilidade é uma força, desde que bem direcionada. O objetivo é parar de reagir e começar a conduzir, transformando ansiedade em autoconfiança.</p>
           <ul>
-            <li><strong>Espelhamento de Energia:</strong> Se a pessoa te procurar, responda com o mesmo nível de energia. Se a mensagem for curta e direta ("Tudo bem?"), responda de forma similar ("Tudo ótimo e por aí?"). Não dê mais do que recebe. Isso ajuda a reequilibrar a dinâmica.</li>
-            <li><strong>Foco Total na Sua Vida:</strong> Poste algo sobre um hobby seu, uma conquista no trabalho ou uma saída com amigos. Isso não é uma indireta, é um lembrete (para você e para o mundo) de que sua vida é plena e interessante por si só. ✨</li>
-            <li><strong>O Convite de Baixo Risco:</strong> Proponha algo concreto, casual e com um prazo definido. Ex: "Estou pensando em ir naquele café novo no sábado à tarde. Se estiver livre e a fim, me avise até amanhã à noite". Isso coloca a bola no campo do outro sem te deixar esperando indefinidamente. ☕</li>
+            <li><strong>Ação Emocional (Regulação do Sistema Nervoso):</strong> Quando sentir a ansiedade surgir, em vez de agir, coloque a mão no coração e diga a si mesma: "Estou segura. Este sentimento é apenas um eco do passado, não um fato do presente". Isso acalma o sistema nervoso simpático.</li>
+            <li><strong>Ação Comportamental (Espelhamento de Energia):</strong> Por 48 horas, seu trabalho é apenas espelhar. Se ele manda 3 linhas, você responde com 3. Se ele demora, você se ocupa e responde depois. Não para jogar, mas para quebrar o padrão de superinvestimento e observar a reação dele.</li>
+            <li><strong>Ação Estratégica (Comunicação Implícita):</strong> A melhor forma de gerar atração não é falar sobre a relação, mas demonstrar valor de forma sutil. A técnica do "Pico de Curiosidade" envolve compartilhar uma pequena vitória ou insight seu, sem pedir validação. Por exemplo: "Descobri uma coisa fascinante sobre [tópico] hoje, mudou minha perspectiva sobre..."</li>
           </ul>
         `,
       },
@@ -167,30 +167,30 @@ const responses: Record<AnswerKey, Record<ReportStyle, Record<ReportType, Report
       },
       full: {
         detailedSummary: `
-          <h3>Análise Completa: Sinais de Alerta e Desgaste Emocional 🚩</h3>
+          <h3>Diagnóstico: Esvaziamento Afetivo Unilateral 🥀</h3>
           <p>
-            Os padrões indicados por suas respostas são claros e preocupantes. Eles descrevem um relacionamento que pode ter se tornado unilateral, onde uma das partes parece ter se retirado emocionalmente, deixando a outra sobrecarregada com o peso de manter a conexão viva. A comunicação não é apenas falha; ela é marcada pela falta de iniciativa, longos períodos de silêncio e uma aparente indiferença.
+            Vamos ser diretas, porque sua clareza emocional é a prioridade aqui. Suas respostas não apontam para uma "fase ruim". Elas descrevem um padrão claro de <strong>desligamento emocional</strong> da outra parte. Você está investindo sua energia em um vínculo que, no momento, se tornou unilateral.
           </p>
           <p>
-            A evitação de conflitos ou a reação com irritação a conversas sérias não é um sinal de que "está tudo bem", mas sim uma estratégia para manter a distância e evitar qualquer nível de vulnerabilidade ou responsabilidade. Esse conjunto de comportamentos cria um ambiente emocionalmente inseguro e pode ter um impacto corrosivo na sua autoestima e percepção de valor. É crucial olhar para isso com seriedade.
+            A indiferença, a falta de iniciativa e a irritabilidade diante de conversas sobre a relação não são sinais de que "está tudo bem". Pelo contrário, são sintomas de que a outra pessoa pode já ter se retirado emocionalmente. Você não está imaginando coisas; você está sentindo o vácuo deixado pela ausência de reciprocidade.
           </p>
         `,
         psychologicalInterpretations: `
-          <h3>Interpretações Psicológicas Aprofundadas 🧠</h3>
+          <h3>O Ponto de Dor: O Risco da Despersonalização Emocional</h3>
           <p>
-            O comportamento descrito pode ser um caso de <strong>"stonewalling" (barreira de silêncio)</strong> e <strong>desligamento emocional</strong>. Identificado pelo Dr. John Gottman como um dos "Quatro Cavaleiros do Apocalipse" do relacionamento, o "stonewalling" ocorre quando uma pessoa se recusa a se comunicar, efetivamente construindo um muro. É uma das atitudes mais destrutivas, pois torna a resolução de problemas impossível e sinaliza desrespeito.
+            O maior perigo aqui não é o fim do relacionamento, mas a <strong>erosão da sua autoestima</strong>. Permanecer em uma dinâmica onde seus sentimentos são invalidados ("você é dramática") e suas necessidades ignoradas, te leva a duvidar de si mesma. Isso é uma forma de <i>gaslighting</i> que, com o tempo, faz você questionar sua própria percepção da realidade.
           </p>
           <p>
-            Minimizar seus sentimentos ou reagir com irritação quando você tenta expressar uma necessidade é uma forma de <strong>invalidação emocional</strong>. A mensagem subliminar é: "Seus sentimentos não são válidos ou são um exagero". Com o tempo, isso pode fazer com que você duvide da sua própria percepção da realidade (uma forma de "gaslighting"). Manter-se em um relacionamento assim é como tentar regar uma planta morta: você gasta toda a sua energia e não obtém nada em troca. 🥀
+            A mensagem subliminar que você recebe é: "Seus sentimentos não importam". Continuar nesse ciclo é como se olhar em um espelho quebrado todos os dias. Você começa a acreditar que a imagem distorcida é quem você realmente é, e o custo disso para sua identidade e seu futuro amoroso é incalculável.
           </p>
         `,
         actionPlan: `
-          <h3>Plano de Ação: Foco na Autopreservação e Decisão 🛡️</h3>
-          <p>Este plano não é sobre "salvar" o relacionamento a qualquer custo, mas sim sobre salvar a si mesma, fortalecer sua autoestima e ganhar clareza para tomar uma decisão informada, seja ela qual for. Lembre-se, o quiz é uma ferramenta de reflexão, não um juiz.</p>
+          <h3>Plano de Ação: Resgate da Sua Força Interior 🛡️</h3>
+          <p>Neste momento, o foco não é "consertar" o outro, mas sim resgatar a si mesma. O objetivo é parar o vazamento da sua energia emocional e reconstruir sua base de poder pessoal para que você possa tomar uma decisão a partir de um lugar de força, não de desespero.</p>
           <ul>
-            <li><strong>Reconexão Externa:</strong> Ligue para um amigo ou familiar com quem você não fala há algum tempo. Alguém que te faz rir e te faz sentir bem. Lembre-se de como é uma interação saudável, leve e recíproca.</li>
-            <li><strong>Ação Radical de Amor-Próprio:</strong> Faça algo que você adiou por causa do relacionamento ou por falta de ânimo. Pode ser matricular-se naquela aula de dança, visitar um lugar novo sozinha, ou simplesmente dedicar a noite a um hobby que você ama. Recupere um pedaço de si mesma. 💃</li>
-            <li><strong>Definindo Seus Limites Inegociáveis:</strong> Com base na sua lista do Dia 1, escreva 3 a 5 limites inegociáveis. Ex: "Eu preciso ser tratada com respeito, mesmo durante uma discussão" ou "Eu preciso que minha parceira ouça meus sentimentos sem me invalidar". Isso é seu manifesto pessoal.</li>
+            <li><strong>Ação Emocional (Luto Simbólico):</strong> Escreva em um papel tudo o que você esperava desse relacionamento e não está recebendo. Permita-se sentir a dor dessa perda. Depois, rasgue ou queime o papel. É um ritual para reconhecer a dor e começar a se desapegar do "potencial" que não se concretizou.</li>
+            <li><strong>Ação Comportamental (Recuperação de Território):</strong> Faça algo hoje que você parou de fazer por causa desse relacionamento ou da tristeza que ele causa. Pode ser ouvir uma música, ir a um lugar, ou falar com um amigo que a outra pessoa não gostava. Recupere um pedaço da sua identidade.</li>
+            <li><strong>Ação Estratégica (O Padrão do Silêncio):</strong> O passo mais poderoso em dinâmicas assim é mudar a forma como você responde ao silêncio. Em vez de preenchê-lo, você vai usar uma técnica de "presença ausente" para reverter completamente a dinâmica de poder. O primeiro movimento é...</li>
           </ul>
         `,
       },

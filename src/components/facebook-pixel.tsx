@@ -5,7 +5,7 @@ import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
 // ATENÇÃO: Substitua 'COLOQUE_SEU_PIXEL_ID_AQUI' pelo ID real do seu Pixel do Facebook.
-const FACEBOOK_PIXEL_ID = '1335804271560138'
+const FACEBOOK_PIXEL_ID = '3578327528991832'
 
 export const FacebookPixel = () => {
   const [loaded, setLoaded] = useState(false)
