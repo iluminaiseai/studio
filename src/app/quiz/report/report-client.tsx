@@ -151,9 +151,9 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
                 <div className="prose prose-sm md:prose-base max-w-none leading-relaxed" dangerouslySetInnerHTML={{ __html: visiblePlan }} />
 
                 {isClient && blurredPlan && (
-                     <div className="relative mt-4">
-                        <div className="prose prose-sm md:prose-base max-w-none leading-relaxed blur-md select-none" dangerouslySetInnerHTML={{ __html: blurredPlan }} />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-background/90 p-4 text-center rounded-lg">
+                    <>
+                        <div className="prose prose-sm md:prose-base max-w-none leading-relaxed blur-sm select-none" dangerouslySetInnerHTML={{ __html: blurredPlan }} />
+                        <div className="mt-6 flex flex-col items-center justify-center gap-4 bg-background/80 p-4 text-center rounded-lg border-2 border-dashed border-primary">
                             <Lock className="h-8 w-8 text-primary"/>
                             <h3 className="font-headline text-xl font-bold text-foreground">Receba o Plano de Ação Completo</h3>
                              <ul className="space-y-1 text-sm text-left text-muted-foreground">
@@ -170,7 +170,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
                                 </Link>
                             </Button>
                         </div>
-                    </div>
+                    </>
                 )}
             </div>
             
@@ -189,3 +189,6 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
     
 
 
+
+
+    
