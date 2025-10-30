@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { BrainCircuit, MessageSquare, CalendarCheck, Lock, ArrowRight } from "lucide-react";
+import { BrainCircuit, MessageSquare, CalendarCheck, Lock, ArrowRight, Gem, Check } from "lucide-react";
 import Link from 'next/link';
 
 type FullReportData = {
@@ -153,13 +153,20 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
                 {isClient && blurredPlan && (
                      <div className="relative mt-4">
                         <div className="prose prose-sm md:prose-base max-w-none leading-relaxed blur-md select-none" dangerouslySetInnerHTML={{ __html: blurredPlan }} />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-background/60 p-4 text-center rounded-lg">
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/80 backdrop-blur-sm p-4 text-center rounded-lg">
                             <Lock className="h-8 w-8 text-primary"/>
                             <h3 className="font-headline text-xl font-bold text-foreground">Receba o Plano de Ação Completo</h3>
-                            <p className="text-sm text-muted-foreground">Domine os segredos que fazem qualquer pessoa pensar em você sem parar</p>
-                            <Button asChild className="font-bold">
+                            <p className="text-sm text-muted-foreground font-semibold">No guia completo você vai aprender a:</p>
+                             <ul className="space-y-1 text-sm text-left text-muted-foreground my-2">
+                                <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Decodificar microexpressões e ler silêncios.</span></li>
+                                <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Usar scripts de Comunicação Não-Violenta.</span></li>
+                                <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Ativar os gatilhos da atração (dopamina e oxitocina).</span></li>
+                                <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /><span>Construir uma autoestima inabalável.</span></li>
+                            </ul>
+                            <Button asChild className="font-bold mt-2">
                                 <Link href="/ebook-landing" prefetch={true}>
-                                    Quero o plano completo <ArrowRight className="ml-2 h-5 w-5"/>
+                                    <Gem className="mr-2 h-4 w-4" />
+                                    Quero Liberar os Segredos
                                 </Link>
                             </Button>
                         </div>
@@ -176,5 +183,7 @@ export function ReportDisplay({ insights }: { insights: FullReportData }) {
         </Card>
       );
 }
+
+    
 
     
