@@ -213,9 +213,38 @@ type SavedProgress = {
   answers: string[];
 };
 
+function getTestAnswers(testType: string | null): string[] {
+    if (!testType) return [];
+
+    const getAnswerByScore = (score: number) => {
+        return quizData.map(q => {
+            const found = q.answers.find(a => a.score === score);
+            // Fallback to the first answer if the exact score isn't found
+            return found ? found.text : q.answers[0].text;
+        });
+    }
+
+    switch(testType) {
+        case 'positive':
+            return getAnswerByScore(2);
+        case 'negative':
+            return getAnswerByScore(-2);
+        case 'mixed':
+            // Alternates between positive and negative answers for a mixed result
+            return quizData.map((q, index) => {
+                const score = index % 2 === 0 ? 2 : -2;
+                const found = q.answers.find(a => a.score === score);
+                return found ? found.text : q.answers[0].text;
+            });
+        default:
+            return [];
+    }
+}
+
+
 function QuizFlow() {
   const searchParams = useSearchParams();
-  const isTestMode = searchParams.get('test') === 'true';
+  const testType = searchParams.get('test');
 
   const [step, setStep] = useState<QuizStep>('loading');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -228,41 +257,39 @@ function QuizFlow() {
 
   // Efeito para carregar e salvar o progresso
   useEffect(() => {
-    // Carrega o progresso salvo ao montar o componente
-    const savedProgressJson = localStorage.getItem('quizProgress');
-    
-    if (isTestMode) {
-      handleRestart();
-      const prefilledAnswers = quizData.slice(0, 9).map(q => q.answers[0].text);
-      setAnswers(prefilledAnswers);
-      setCurrentQuestionIndex(9);
-      setStep('quiz');
+    // Se for um modo de teste, preenche as respostas e avança
+    if (testType) {
+      handleRestart(); // Limpa qualquer progresso anterior
+      const testAnswers = getTestAnswers(testType);
+      setAnswers(testAnswers);
+      setStep('select-style'); // Pula direto para a seleção de estilo
       return;
     }
 
+    // Carrega o progresso salvo ao montar o componente
+    const savedProgressJson = localStorage.getItem('quizProgress');
     if (savedProgressJson) {
       const savedProgress: SavedProgress = JSON.parse(savedProgressJson);
       if (savedProgress.answers.length > 0 && savedProgress.answers.length < quizData.length) {
         setShowContinueDialog(true);
-        // Não definir step aqui, espera a decisão do usuário
       } else {
         setStep('quiz');
       }
     } else {
       setStep('quiz');
     }
-  }, [isTestMode]);
+  }, [testType]);
 
   // Salva o progresso sempre que as respostas ou o índice da questão mudam
   useEffect(() => {
-    if (step === 'quiz' && answers.length > 0 && answers.length < quizData.length) {
+    if (step === 'quiz' && answers.length > 0 && answers.length < quizData.length && !testType) {
       const progressToSave: SavedProgress = { currentQuestionIndex, answers };
       localStorage.setItem('quizProgress', JSON.stringify(progressToSave));
     }
     if (answers.length === quizData.length) {
         localStorage.removeItem('quizProgress');
     }
-  }, [currentQuestionIndex, answers, step]);
+  }, [currentQuestionIndex, answers, step, testType]);
 
   const handleContinue = () => {
     const savedProgressJson = localStorage.getItem('quizProgress');
@@ -299,7 +326,7 @@ function QuizFlow() {
     const isFeedbackPoint = (currentQuestionIndex + 1) % 4 === 0 && currentQuestionIndex < quizData.length -1;
 
     setTimeout(() => {
-        if (isFeedbackPoint && !isTestMode) {
+        if (isFeedbackPoint && !testType) {
             setFeedbackContent(getFeedbackForAnswers(newAnswers));
             setShowMiniFeedback(true);
             setIsProcessing(false);
