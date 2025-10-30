@@ -48,26 +48,6 @@ export default function Home() {
             <Link href="/quiz" prefetch={true}>RESPONDER QUIZ AGORA</Link>
           </Button>
         </div>
-         <div className="mt-4 flex flex-wrap justify-center gap-2 animate-in fade-in slide-in-from-bottom-4 delay-1000 duration-500">
-            <Button asChild size="sm" variant="outline" className="font-bold">
-                <Link href="/quiz?test=positive" prefetch={true}>
-                <TestTube className="mr-2 h-4 w-4" />
-                Ver Relatório Positivo
-                </Link>
-            </Button>
-            <Button asChild size="sm" variant="outline" className="font-bold">
-                <Link href="/quiz?test=mixed" prefetch={true}>
-                <TestTube className="mr-2 h-4 w-4" />
-                Ver Relatório Misto
-                </Link>
-            </Button>
-            <Button asChild size="sm" variant="outline" className="font-bold">
-                <Link href="/quiz?test=negative" prefetch={true}>
-                <TestTube className="mr-2 h-4 w-4" />
-                Ver Relatório Negativo
-                </Link>
-            </Button>
-        </div>
         <Card className="mt-4 w-full overflow-hidden shadow-2xl md:mt-8 animate-in fade-in slide-in-from-bottom-4 delay-1000 duration-500">
           <CardContent className="p-0">
             {heroImage && (
