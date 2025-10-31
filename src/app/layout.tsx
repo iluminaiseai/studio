@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from "@/lib/utils"
 import { FacebookPixel } from '@/components/facebook-pixel';
+import { TikTokPixel } from '@/components/tiktok-pixel';
 
 export const metadata: Metadata = {
   title: 'Decodificador do Amor',
@@ -26,6 +27,7 @@ export default function RootLayout({
           "bg-gradient-to-br from-background via-accent to-white"
         )}>
         <FacebookPixel />
+        <TikTokPixel />
         {children}
         <Toaster />
       </body>
